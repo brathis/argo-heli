@@ -14,3 +14,12 @@ argo-heli/
 |
  - README.md # this file
 ```
+
+## Parking Page
+To preview the page from GitHub Codespace, the Python web server can be used:
+
+```bash
+python -m http.server --directory ./parking
+```
+
+This will serve the directory via HTTP on port 8000.
