@@ -1,0 +1,39 @@
+@import "../../../../../vars.scss";
+
+.hero {
+  height: 30vw;
+  min-height: 400px;
+  overflow: hidden;
+  background-color: $primary-500;
+  position: relative;
+
+  .background {
+    width: 100%;
+    min-width: 1420px;
+    position: absolute;
+  }
+
+  .text {
+    color: $primary-500;
+    font-size: 96px;
+    font-weight: 700;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 4vw;
+
+    mix-blend-mode: darken;
+  }
+
+  .foreground {
+    width: 100%;
+    min-width: 1420px;
+    position: absolute;
+  }
+}
+
+// TODO: remove this after testing
+:host {
+  display: block;
+  height: 200vh;
+}
