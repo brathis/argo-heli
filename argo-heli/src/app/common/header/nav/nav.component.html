@@ -1,0 +1,19 @@
+<nav>
+  <div class="link">
+    <div class="link-active-marker"></div>
+    <a
+      routerLinkActive="link-active"
+      routerLink="/"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Start</a
+    >
+  </div>
+  <div class="link">
+    <div class="link-active-marker"></div>
+    <a routerLinkActive="link-active" routerLink="/flights">Flüge</a>
+  </div>
+  <div class="link">
+    <div class="link-active-marker"></div>
+    <a routerLinkActive="link-active" routerLink="/booking">Buchen</a>
+  </div>
+</nav>

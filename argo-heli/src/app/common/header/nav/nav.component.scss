@@ -1,0 +1,36 @@
+@import "../../../../vars.scss";
+
+nav {
+  display: flex;
+  flex-direction: row;
+  gap: 128px;
+  justify-content: flex-end;
+  align-items: end;
+
+  .link {
+    display: flex;
+    flex-direction: column;
+
+    .link-active-marker {
+      height: 3px;
+      width: 36px;
+      background-color: $primary-700;
+      display: none;
+    }
+
+    .link-active-marker:has(+ a.link-active) {
+      display: block;
+    }
+
+    a {
+      font-size: 32px;
+      font-weight: 700;
+      text-decoration: none;
+      color: $primary-300;
+    }
+
+    a.link-active {
+      color: $primary-700;
+    }
+  }
+}
