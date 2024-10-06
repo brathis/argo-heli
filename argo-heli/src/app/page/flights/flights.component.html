@@ -1,1 +1,17 @@
-<app-secondary-nav></app-secondary-nav> <router-outlet></router-outlet>
+<app-secondary-nav></app-secondary-nav>
+@if (flight) {
+  <app-hero
+    [title]="flight.title"
+    [backgroundImgSrc]="flight.hero.backgroundImgSrc"
+    [foregroundImgSrc]="flight.hero.foregroundImgSrc"
+  ></app-hero>
+  <div class="info">
+    <div class="synopsis">
+      {{ flight.synopsis }}
+    </div>
+
+    <app-price-tag class="price-tag" [price]="flight.cost"></app-price-tag>
+
+    <app-button class="button" label="Buchen" link="/booking"></app-button>
+  </div>
+}

@@ -2,9 +2,6 @@ import { Routes } from '@angular/router';
 import { StartComponent } from './page/start/start.component';
 import { FlightsComponent } from './page/flights/flights.component';
 import { BookingComponent } from './page/booking/booking.component';
-import { SaentisFlightComponent } from './page/flights/flights/saentis-flight/saentis-flight.component';
-import { ChurfirstenFlightComponent } from './page/flights/flights/churfirsten-flight/churfirsten-flight.component';
-import { ToediFlightComponent } from './page/flights/flights/toedi-flight/toedi-flight.component';
 
 export const routes: Routes = [
   {
@@ -18,19 +15,27 @@ export const routes: Routes = [
     loadComponent: () => FlightsComponent,
     children: [
       {
+        path: '',
+        redirectTo: '/flights/saentis',
+        pathMatch: 'full',
+      },
+      {
         title: 'Säntis',
         path: 'saentis',
-        loadComponent: () => SaentisFlightComponent,
+        loadComponent: () => FlightsComponent,
+        data: { flightId: 'saentis' },
       },
       {
         title: 'Churfirsten',
         path: 'churfirsten',
-        loadComponent: () => ChurfirstenFlightComponent,
+        loadComponent: () => FlightsComponent,
+        data: { flightId: 'churfirsten' },
       },
       {
         title: 'Tödi',
         path: 'toedi',
-        loadComponent: () => ToediFlightComponent,
+        loadComponent: () => FlightsComponent,
+        data: { flightId: 'toedi' },
       },
     ],
   },

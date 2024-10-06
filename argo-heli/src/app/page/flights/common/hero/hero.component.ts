@@ -2,18 +2,22 @@ import {
   Component,
   ElementRef,
   HostListener,
-  OnInit,
+  input,
   viewChild,
 } from '@angular/core';
 
 @Component({
-  selector: 'app-saentis-flight',
+  selector: 'app-hero',
   standalone: true,
   imports: [],
-  templateUrl: './saentis-flight.component.html',
-  styleUrl: './saentis-flight.component.scss',
+  templateUrl: './hero.component.html',
+  styleUrl: './hero.component.scss',
 })
-export class SaentisFlightComponent implements OnInit {
+export class HeroComponent {
+  title = input.required();
+  backgroundImgSrc = input.required();
+  foregroundImgSrc = input.required();
+
   backgroundRef = viewChild.required('background');
   textRef = viewChild.required('text');
   foregroundRef = viewChild.required('foreground');
