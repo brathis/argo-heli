@@ -1,0 +1,9 @@
+<div class="container">
+  @for (route of getRoutes(); track route.path) {
+    <div class="link">
+      <a [routerLink]="route.path" routerLinkActive="link-active">{{
+        route.title
+      }}</a>
+    </div>
+  }
+</div>

@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { FlightsNavComponent } from './common/flights-nav/flights-nav.component';
 import { RouterOutlet } from '@angular/router';
+import { SecondaryNavComponent } from '../../common/secondary-nav/secondary-nav.component';
 
 @Component({
   selector: 'app-flights',
   standalone: true,
-  imports: [FlightsNavComponent, RouterOutlet],
+  imports: [SecondaryNavComponent, RouterOutlet],
   templateUrl: './flights.component.html',
   styleUrl: './flights.component.scss',
 })

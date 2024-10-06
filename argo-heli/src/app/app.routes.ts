@@ -8,28 +8,34 @@ import { ToediFlightComponent } from './page/flights/flights/toedi-flight/toedi-
 
 export const routes: Routes = [
   {
+    title: 'Start',
     path: '',
     loadComponent: () => StartComponent,
   },
   {
+    title: 'Flüge',
     path: 'flights',
     loadComponent: () => FlightsComponent,
     children: [
       {
+        title: 'Säntis',
         path: 'saentis',
         loadComponent: () => SaentisFlightComponent,
       },
       {
+        title: 'Churfirsten',
         path: 'churfirsten',
         loadComponent: () => ChurfirstenFlightComponent,
       },
       {
+        title: 'Tödi',
         path: 'toedi',
         loadComponent: () => ToediFlightComponent,
       },
     ],
   },
   {
+    title: 'Buchen',
     path: 'booking',
     loadComponent: () => BookingComponent,
   },
