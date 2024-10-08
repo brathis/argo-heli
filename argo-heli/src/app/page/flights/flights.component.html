@@ -14,4 +14,7 @@
 
     <app-button class="button" label="Buchen" link="/booking"></app-button>
   </div>
+  @if (flight.highlights) {
+    <app-highlights [highlights]="flight.highlights"></app-highlights>
+  }
 }

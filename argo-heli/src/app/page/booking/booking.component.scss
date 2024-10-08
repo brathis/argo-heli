@@ -1,0 +1,8 @@
+@import "../../../vars.scss";
+
+.container {
+  background-color: $gray-50;
+
+  // TODO: remove
+  min-height: 90vh;
+}

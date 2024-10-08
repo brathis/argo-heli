@@ -1,0 +1,58 @@
+@import "../../../../../vars.scss";
+
+.container {
+  height: 660px;
+  display: flex;
+  flex-direction: row;
+}
+
+.map {
+  flex: 1 1 auto;
+  width: 33%;
+
+  background-color: $primary-900;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 64px;
+
+  .map-wrapper {
+    position: relative;
+  }
+}
+
+.highlight {
+  --background-image-url: none; // This is set dynamically whenever a highlight is selected.
+
+  flex: 2 2 auto;
+  width: 67%;
+
+  background-image: linear-gradient(
+      to right,
+      $primary-900 0%,
+      $primary-900-0 64%
+    ),
+    var(--background-image-url);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 64px;
+
+  .highlight-title {
+    margin-top: 0;
+    margin-bottom: 48px;
+    font-size: 48px;
+    font-weight: 700;
+    color: $gray-100;
+  }
+
+  .highlight-description {
+    display: inline-block;
+    max-width: 600px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 32px;
+    color: $gray-100;
+  }
+}

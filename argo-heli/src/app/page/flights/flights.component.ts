@@ -13,6 +13,10 @@ import { ButtonComponent } from '../../common/button/button.component';
 import { filter } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { CommonModule } from '@angular/common';
+import { HighlightsComponent } from './common/highlights/highlights.component';
+import { toedi } from './flights/toedi';
+import { saentis } from './flights/saentis';
+import { churfirsten } from './flights/churfirsten';
 
 @Component({
   selector: 'app-flights',
@@ -24,54 +28,16 @@ import { CommonModule } from '@angular/common';
     PriceTagComponent,
     ButtonComponent,
     CommonModule,
+    HighlightsComponent,
   ],
   templateUrl: './flights.component.html',
   styleUrl: './flights.component.scss',
 })
 export class FlightsComponent {
   static readonly FLIGHTS: { [key: string]: Flight } = {
-    saentis: {
-      title: 'Säntis',
-      path: '/flights/saentis',
-      cost: 140,
-      duration: 25,
-      hero: {
-        foregroundImgSrc: '/flights/saentis/foreground.webp',
-        backgroundImgSrc: '/flights/saentis/background.webp',
-      },
-      synopsis:
-        'In ca. 80 Minuten geht es zunächst via Einsiedeln zu den Mythen, dann via ' +
-        'Andermatt zum Oberalppass. Dort überfliegen wir den Claridenfirn mit einer ' +
-        'atemberaubender Aussicht auf den Tödi.',
-    },
-    churfirsten: {
-      title: 'Churfirsten',
-      path: '/flights/churfirsten',
-      cost: 180,
-      duration: 45,
-      hero: {
-        foregroundImgSrc: '/flights/churfirsten/foreground.webp',
-        backgroundImgSrc: '/flights/churfirsten/background.webp',
-      },
-      synopsis:
-        'In ca. 80 Minuten geht es zunächst via Einsiedeln zu den Mythen, dann via ' +
-        'Andermatt zum Oberalppass. Dort überfliegen wir den Claridenfirn mit einer ' +
-        'atemberaubender Aussicht auf den Tödi.',
-    },
-    toedi: {
-      title: 'Tödi',
-      path: '/flights/toedi',
-      cost: 400,
-      duration: 80,
-      hero: {
-        foregroundImgSrc: '/flights/toedi/foreground.webp',
-        backgroundImgSrc: '/flights/toedi/background.webp',
-      },
-      synopsis:
-        'In ca. 80 Minuten geht es zunächst via Einsiedeln zu den Mythen, dann via ' +
-        'Andermatt zum Oberalppass. Dort überfliegen wir den Claridenfirn mit einer ' +
-        'atemberaubender Aussicht auf den Tödi.',
-    },
+    saentis,
+    churfirsten,
+    toedi,
   };
 
   flight: Flight | null = null;

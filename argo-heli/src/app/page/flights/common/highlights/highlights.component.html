@@ -1,0 +1,18 @@
+<div class="container">
+  <!-- The top-level flex item for the left side of the component. -->
+  <div class="map">
+    <!-- Container for both the map and the legends which scales with the map and provides a reference for the legends. -->
+    <div class="map-wrapper">
+      <div #mapContainer></div>
+      <ng-template #legendContainer></ng-template>
+    </div>
+  </div>
+  <div #highlight class="highlight" id="highlight">
+    <h3 class="highlight-title">
+      {{ currentHighlight().title }}
+    </h3>
+    <p class="highlight-description">
+      {{ currentHighlight().description }}
+    </p>
+  </div>
+</div>
