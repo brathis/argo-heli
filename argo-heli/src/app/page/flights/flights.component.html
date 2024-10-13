@@ -1,40 +1,42 @@
-<app-secondary-nav></app-secondary-nav>
-@if (flight) {
-  <app-hero [id]="flight.title">
-    <img
-      appHeroLayer
-      [startValue]="flight.hero.background.startValue"
-      [endValue]="flight.hero.background.endValue"
-      [property]="flight.hero.background.property"
-      [src]="flight.hero.background.imgSrc"
-    />
-    <div
-      class="hero-text"
-      appHeroLayer
-      [startValue]="flight.hero.text.startValue"
-      [endValue]="flight.hero.text.endValue"
-      [property]="flight.hero.text.property"
-    >
-      {{ flight.title }}
-    </div>
-    <img
-      appHeroLayer
-      [startValue]="flight.hero.foreground.startValue"
-      [endValue]="flight.hero.foreground.endValue"
-      [property]="flight.hero.foreground.property"
-      [src]="flight.hero.foreground.imgSrc"
-    />
-  </app-hero>
-  <div class="info">
-    <div class="synopsis">
-      {{ flight.synopsis }}
-    </div>
+<div class="flights">
+  <app-secondary-nav></app-secondary-nav>
+  @if (flight) {
+    <app-hero [id]="flight.title">
+      <img
+        appHeroLayer
+        [startValue]="flight.hero.background.startValue"
+        [endValue]="flight.hero.background.endValue"
+        [property]="flight.hero.background.property"
+        [src]="flight.hero.background.imgSrc"
+      />
+      <div
+        class="hero-text"
+        appHeroLayer
+        [startValue]="flight.hero.text.startValue"
+        [endValue]="flight.hero.text.endValue"
+        [property]="flight.hero.text.property"
+      >
+        {{ flight.title }}
+      </div>
+      <img
+        appHeroLayer
+        [startValue]="flight.hero.foreground.startValue"
+        [endValue]="flight.hero.foreground.endValue"
+        [property]="flight.hero.foreground.property"
+        [src]="flight.hero.foreground.imgSrc"
+      />
+    </app-hero>
+    <div class="info">
+      <div class="synopsis">
+        {{ flight.synopsis }}
+      </div>
 
-    <app-price-tag class="price-tag" [price]="flight.cost"></app-price-tag>
+      <app-price-tag class="price-tag" [price]="flight.cost"></app-price-tag>
 
-    <app-button class="button" label="Buchen" link="/booking"></app-button>
-  </div>
-  @if (flight.highlights) {
-    <app-highlights [highlights]="flight.highlights"></app-highlights>
+      <app-button class="button" label="Buchen" link="/booking"></app-button>
+    </div>
+    @if (flight.highlights) {
+      <app-highlights [highlights]="flight.highlights"></app-highlights>
+    }
   }
-}
+</div>
