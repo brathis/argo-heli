@@ -30,8 +30,23 @@ export const toedi: Flight = {
   cost: 400,
   duration: 80,
   hero: {
-    foregroundImgSrc: '/flights/toedi/foreground.webp',
-    backgroundImgSrc: '/flights/toedi/background.webp',
+    foreground: {
+      startValue: 20,
+      endValue: 53,
+      property: 'top',
+      imgSrc: '/flights/toedi/foreground.webp',
+    },
+    text: {
+      startValue: 10,
+      endValue: 20,
+      property: 'top',
+    },
+    background: {
+      startValue: -10,
+      endValue: -5,
+      property: 'top',
+      imgSrc: '/flights/toedi/background.webp',
+    },
   },
   synopsis:
     'In ca. 80 Minuten geht es zunächst via Einsiedeln zu den Mythen, dann via ' +

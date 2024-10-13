@@ -1,22 +1,23 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
   ActivatedRoute,
   NavigationEnd,
   Router,
   RouterOutlet,
 } from '@angular/router';
-import { SecondaryNavComponent } from '../../common/secondary-nav/secondary-nav.component';
-import { Flight } from './flight.interface';
-import { HeroComponent } from './common/hero/hero.component';
-import { PriceTagComponent } from './common/price-tag/price-tag.component';
-import { ButtonComponent } from '../../common/button/button.component';
 import { filter } from 'rxjs';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { CommonModule } from '@angular/common';
+import { ButtonComponent } from '../../common/button/button.component';
+import { SecondaryNavComponent } from '../../common/secondary-nav/secondary-nav.component';
+import { HeroLayerDirective } from './common/hero/hero-layer.directive';
+import { HeroComponent } from './common/hero/hero.component';
 import { HighlightsComponent } from './common/highlights/highlights.component';
-import { toedi } from './flights/toedi';
-import { saentis } from './flights/saentis';
+import { PriceTagComponent } from './common/price-tag/price-tag.component';
+import { Flight } from './flight.interface';
 import { churfirsten } from './flights/churfirsten';
+import { saentis } from './flights/saentis';
+import { toedi } from './flights/toedi';
 
 @Component({
   selector: 'app-flights',
@@ -29,6 +30,7 @@ import { churfirsten } from './flights/churfirsten';
     ButtonComponent,
     CommonModule,
     HighlightsComponent,
+    HeroLayerDirective,
   ],
   templateUrl: './flights.component.html',
   styleUrl: './flights.component.scss',

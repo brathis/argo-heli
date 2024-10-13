@@ -21,12 +21,26 @@ export interface Flight {
   highlights?: HighlightsConfig;
 }
 
-export interface HeroConfig {
-  /** URL/path to the foreground image. */
-  foregroundImgSrc: string;
+// TODO: needed?
+export enum HeroLayerType {
+  IMAGE,
+  TEXT,
+}
 
-  /** URL/path to the background image. */
-  backgroundImgSrc: string;
+export interface HeroLayerConfig {
+  startValue: number;
+  endValue: number;
+  property: string;
+}
+
+export interface HeroImageLayerConfig extends HeroLayerConfig {
+  imgSrc: string;
+}
+
+export interface HeroConfig {
+  foreground: HeroImageLayerConfig;
+  text: HeroLayerConfig;
+  background: HeroImageLayerConfig;
 }
 
 export interface HighlightsConfig {

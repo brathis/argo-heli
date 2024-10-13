@@ -1,5 +1,14 @@
 @import "../../../vars.scss";
 
+.hero-text {
+  color: $primary-500;
+  font-size: 96px;
+  font-weight: 700;
+  text-align: center;
+  top: 4vw;
+  mix-blend-mode: darken;
+}
+
 .info {
   display: flex;
   flex-direction: column;

@@ -6,8 +6,23 @@ export const saentis: Flight = {
   cost: 140,
   duration: 25,
   hero: {
-    foregroundImgSrc: '/flights/saentis/foreground.webp',
-    backgroundImgSrc: '/flights/saentis/background.webp',
+    foreground: {
+      startValue: 20,
+      endValue: 37,
+      property: 'top',
+      imgSrc: '/flights/saentis/foreground.webp',
+    },
+    text: {
+      startValue: 10,
+      endValue: 20,
+      property: 'top',
+    },
+    background: {
+      startValue: -5,
+      endValue: 0,
+      property: 'top',
+      imgSrc: '/flights/saentis/background.webp',
+    },
   },
   synopsis:
     'In ca. 80 Minuten geht es zunächst via Einsiedeln zu den Mythen, dann via ' +

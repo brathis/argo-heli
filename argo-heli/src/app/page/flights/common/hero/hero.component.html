@@ -1,5 +1,3 @@
-<div class="hero">
-  <img #background class="background" [src]="backgroundImgSrc()" />
-  <div #text class="text">{{ title() }}</div>
-  <img #foreground class="foreground" [src]="foregroundImgSrc()" />
+<div #container class="hero">
+  <ng-content></ng-content>
 </div>

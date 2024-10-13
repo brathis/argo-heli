@@ -1,10 +1,30 @@
 <app-secondary-nav></app-secondary-nav>
 @if (flight) {
-  <app-hero
-    [title]="flight.title"
-    [backgroundImgSrc]="flight.hero.backgroundImgSrc"
-    [foregroundImgSrc]="flight.hero.foregroundImgSrc"
-  ></app-hero>
+  <app-hero [id]="flight.title">
+    <img
+      appHeroLayer
+      [startValue]="flight.hero.background.startValue"
+      [endValue]="flight.hero.background.endValue"
+      [property]="flight.hero.background.property"
+      [src]="flight.hero.background.imgSrc"
+    />
+    <div
+      class="hero-text"
+      appHeroLayer
+      [startValue]="flight.hero.text.startValue"
+      [endValue]="flight.hero.text.endValue"
+      [property]="flight.hero.text.property"
+    >
+      {{ flight.title }}
+    </div>
+    <img
+      appHeroLayer
+      [startValue]="flight.hero.foreground.startValue"
+      [endValue]="flight.hero.foreground.endValue"
+      [property]="flight.hero.foreground.property"
+      [src]="flight.hero.foreground.imgSrc"
+    />
+  </app-hero>
   <div class="info">
     <div class="synopsis">
       {{ flight.synopsis }}
