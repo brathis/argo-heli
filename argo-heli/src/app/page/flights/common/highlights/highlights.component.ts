@@ -1,16 +1,15 @@
+import { AsyncPipe, NgIf } from '@angular/common';
 import {
   Component,
   computed,
+  effect,
+  ElementRef,
   input,
   signal,
-  effect,
   viewChild,
-  ElementRef,
   ViewContainerRef,
-  TemplateRef,
 } from '@angular/core';
 import { HighlightConfig, HighlightsConfig } from '../../flight.interface';
-import { AsyncPipe, NgIf } from '@angular/common';
 import { MapLegendComponent } from './map-legend/map-legend.component';
 
 @Component({
@@ -45,10 +44,12 @@ export class HighlightsComponent {
       this.mapContainer().nativeElement.innerHTML = this.highlights().mapSvg;
 
       // draw the legends of the individual highlights
+      this.legendContainerRef().clear();
       for (const [
         highlightIdx,
         highlight,
       ] of this.highlights().highlights.entries()) {
+        // TODO: there is no need to do this using a ViewContainerRef, just do it in the template!
         const legendComponent =
           this.legendContainerRef().createComponent(MapLegendComponent);
         legendComponent.setInput('label', highlight.title);
