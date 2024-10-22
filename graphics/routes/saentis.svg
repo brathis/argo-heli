@@ -1,6 +1,3 @@
-import { Flight } from '../flight.interface';
-
-const mapSvg = `
 <svg width="100%" height="100%" viewBox="0 0 860 704" version="1.1"
   xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:serif="http://www.serif.com/"
@@ -49,63 +46,3 @@ const mapSvg = `
     </path>
   </svg>
 </svg>
-`;
-
-export const saentis: Flight = {
-  title: 'Säntis',
-  path: '/flights/saentis',
-  cost: 140,
-  duration: 25,
-  hero: {
-    foreground: {
-      startValue: 20,
-      endValue: 37,
-      property: 'top',
-      imgSrc: '/flights/saentis/foreground.webp',
-    },
-    text: {
-      startValue: 10,
-      endValue: 20,
-      property: 'top',
-    },
-    background: {
-      startValue: -5,
-      endValue: 0,
-      property: 'top',
-      imgSrc: '/flights/saentis/background.webp',
-    },
-  },
-  synopsis:
-    'In ca. 80 Minuten geht es zunächst via Einsiedeln zu den Mythen, dann via ' +
-    'Andermatt zum Oberalppass. Dort überfliegen wir den Claridenfirn mit einer ' +
-    'atemberaubenden Aussicht auf den Tödi.',
-  highlights: {
-    mapSvg: mapSvg,
-    highlights: [
-      {
-        title: 'St. Gallen',
-        description: 'OLMA lol',
-        imgSrc: '',
-        pathPosition: 0.19,
-        legendX: +61,
-        legendY: +11,
-      },
-      {
-        title: 'Appenzell',
-        description: 'pschhhhhh...',
-        imgSrc: '',
-        pathPosition: 0.32,
-        legendX: +79,
-        legendY: +54,
-      },
-      {
-        title: 'Säntis',
-        description: 'Der Borg.',
-        imgSrc: '',
-        pathPosition: 0.62,
-        legendX: +25,
-        legendY: +90,
-      },
-    ],
-  },
-};
