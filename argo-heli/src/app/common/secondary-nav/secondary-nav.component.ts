@@ -11,7 +11,6 @@ import {
   standalone: true,
   imports: [RouterLink, RouterLinkActive],
   templateUrl: './secondary-nav.component.html',
-  styleUrl: './secondary-nav.component.scss',
 })
 export class SecondaryNavComponent {
   constructor(private readonly activatedRoute: ActivatedRoute) {}

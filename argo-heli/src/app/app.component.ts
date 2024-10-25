@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './common/header/header.component';
 
@@ -7,8 +7,6 @@ import { HeaderComponent } from './common/header/header.component';
   standalone: true,
   imports: [RouterOutlet, HeaderComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss',
-  styleUrl: './app.component.scss',
 })
 export class AppComponent implements AfterViewInit {
   ngAfterViewInit(): void {

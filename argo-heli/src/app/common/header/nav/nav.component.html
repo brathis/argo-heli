@@ -1,14 +1,15 @@
-<nav>
+<nav class="flex flex-row gap-[128px] justify-end items-end">
   @for (route of getTopLevelRoutes(); track route.path) {
-    <div class="link">
-      <div class="link-active-marker"></div>
-      <a
-        routerLinkActive="link-active"
-        [routerLinkActiveOptions]="{ exact: !route.children }"
-        [routerLink]="route.path"
-      >
-        {{ route.title }}
-      </a>
-    </div>
+    <a
+      class="flex flex-col text-primary-300 text-[32px] font-bold group"
+      routerLinkActive="!text-primary-700 is-active"
+      [routerLinkActiveOptions]="{ exact: !route.children }"
+      [routerLink]="route.path"
+    >
+      <div
+        class="link-active-marker h-[3px] w-[36px] bg-primary-700 hidden group-[.is-active]:block"
+      ></div>
+      {{ route.title }}
+    </a>
   }
 </nav>

@@ -7,6 +7,5 @@ import { NavComponent } from './nav/nav.component';
   standalone: true,
   imports: [LogoComponent, NavComponent],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {}

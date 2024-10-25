@@ -1,7 +1,9 @@
-<div class="container">
+<div
+  class="container bg-white h-[92px] flex flex-row items-center justify-center gap-[100px]"
+>
   @for (route of getRoutes(); track route.path) {
-    <div class="link">
-      <a [routerLink]="route.path" routerLinkActive="link-active">{{
+    <div class="text-gray-300 text-[20px] leading-[28px] font-bold">
+      <a [routerLink]="route.path" routerLinkActive="!text-gray-600">{{
         route.title
       }}</a>
     </div>
