@@ -62,6 +62,7 @@ const mapSvg = `
 export const toedi: Flight = {
   title: 'Tödi',
   path: '/flights/toedi',
+  thumbnailPath: '/flights/toedi/thumbnail.webp',
   cost: 400,
   duration: 80,
   hero: {
@@ -146,7 +147,7 @@ export const toedi: Flight = {
         title: 'Walensee',
         description: 'Tödi beshde haha',
         imgSrc: '/flights/toedi/highlights/toedi.webp',
-        pathPosition: 0.80,
+        pathPosition: 0.8,
         legendX: 72,
         legendY: 45,
       },

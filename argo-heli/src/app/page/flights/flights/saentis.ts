@@ -54,6 +54,7 @@ const mapSvg = `
 export const saentis: Flight = {
   title: 'Säntis',
   path: '/flights/saentis',
+  thumbnailPath: '/flights/saentis/thumbnail.webp',
   cost: 140,
   duration: 25,
   hero: {

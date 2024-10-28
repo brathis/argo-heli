@@ -1,8 +1,15 @@
 @import "../../../vars.scss";
 
-.container {
-  background-color: $gray-50;
+.title {
+  font-size: 32px;
+  font-weight: 700;
+  color: $gray-500;
 
-  // TODO: remove
-  min-height: 90vh;
+  margin-bottom: 64px;
+}
+
+.contact-data,
+.flight-data {
+  display: block;
+  margin-bottom: 64px;
 }

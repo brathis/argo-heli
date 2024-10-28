@@ -54,6 +54,7 @@ const mapSvg = `
 export const churfirsten: Flight = {
   title: 'Churfirsten',
   path: '/flights/churfirsten',
+  thumbnailPath: '/flights/churfirsten/thumbnail.webp',
   cost: 180,
   duration: 45,
   hero: {

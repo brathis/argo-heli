@@ -1,0 +1,43 @@
+<app-form-block
+  title="Kontaktdaten"
+  infoText="Wir verwenden diese Daten ausschliesslich um Sie zu kontaktieren und Ihnen nach dem Flug eine Rechnung auszustellen."
+  [formGroup]="group()"
+>
+  <app-form-row>
+    <app-form-group
+      label="Vorname"
+      formControlId="firstName"
+      [control]="this.firstNameFormControl"
+    ></app-form-group>
+    <app-form-group
+      label="Nachname"
+      formControlId="contact-data-lastname"
+      [control]="this.lastNameFormControl"
+    ></app-form-group>
+  </app-form-row>
+  <app-form-row>
+    <app-form-group
+      label="Strasse + Nr."
+      formControlId="contact-data-street"
+      [control]="this.streetFormControl"
+    ></app-form-group>
+    <app-form-group
+      label="PLZ + Ort"
+      formControlId="contact-data-city"
+      [control]="this.cityFormControl"
+    ></app-form-group>
+  </app-form-row>
+  <app-form-row>
+    <app-form-group
+      label="E-Mail"
+      formControlId="contact-data-email"
+      [control]="this.emailFormControl"
+      type="email"
+    ></app-form-group>
+    <app-form-group
+      label="Telefon"
+      formControlId="contact-data-phone"
+      [control]="this.phoneFormControl"
+    ></app-form-group>
+  </app-form-row>
+</app-form-block>

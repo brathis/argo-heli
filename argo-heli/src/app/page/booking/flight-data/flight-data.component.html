@@ -1,0 +1,39 @@
+<app-form-block
+  title="Flugdaten"
+  infoText="Nach Eingang Ihrer Buchung werden wir die Verfügbarkeit prüfen. 
+  Sie erhalten von uns eine Buchungsbestätigung, sobald die Verfügbarkeit des Helikopters sichergestellt ist."
+  [formGroup]="flightDataFormGroup"
+>
+  <app-form-row>
+    <app-form-select
+      label="Abflugort"
+      formControlId="contact-data-base"
+      [control]="this.baseFormControl"
+    >
+      <option value="LSZV">Sitterdorf</option>
+      <option value="LSZR">St. Gallen-Altenrhein</option>
+    </app-form-select>
+    <app-form-group
+      label="Passagiere"
+      formControlId="contact-data-passengers"
+      [control]="this.passengersFormControl"
+      type="number"
+      min="1"
+      max="3"
+    ></app-form-group>
+  </app-form-row>
+  <app-form-row>
+    <app-form-group
+      label="Datum"
+      formControlId="contact-data-departure-date"
+      [control]="this.departureDateFormControl"
+      type="date"
+    ></app-form-group>
+    <app-form-group
+      label="Abflugzeit"
+      formControlId="contact-data-departure-time"
+      [control]="this.departureTimeFormControl"
+      type="time"
+    ></app-form-group>
+  </app-form-row>
+</app-form-block>

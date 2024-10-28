@@ -1,0 +1,25 @@
+<div class="flight-selector-item" (click)="clicked.emit()">
+  <div
+    #box
+    [ngClass]="{
+      box: true,
+      'shadow-[0px_2px_4px_#cbd7dc]': true,
+      'box--selected': selected === null ? false : selected(),
+    }"
+  >
+    <h4 class="title">{{ flight().title }}</h4>
+    <div class="flight-info">
+      <span class="duration">
+        <span class="duration-value">{{ flight().duration }}</span>
+        <span class="duration-unit">min</span>
+      </span>
+      <span class="cost"> {{ flight().cost }}.- </span>
+    </div>
+    <div class="selection-marker"></div>
+  </div>
+  <a
+    [routerLink]="flight().path"
+    class="text-[16px] font-semibold text-primary-800 underline"
+    >Flug entdecken</a
+  >
+</div>

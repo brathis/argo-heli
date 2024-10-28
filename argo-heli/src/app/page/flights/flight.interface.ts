@@ -19,6 +19,9 @@ export interface Flight {
 
   /** The config for the highlights section at the bottom of the page. */
   highlights?: HighlightsConfig;
+
+  /** The path to the thumbnail image shown in the flight selector component on the booking page. */
+  thumbnailPath: string;
 }
 
 // TODO: needed?

@@ -1,1 +1,45 @@
-<div class="container"></div>
+<div class="bg-gray-50">
+  <div class="bg-gray-50 mx-auto py-[64px] max-w-[1000px]">
+    <h3 class="title">Rundflug buchen</h3>
+    <app-contact-data
+      class="contact-data"
+      [group]="this.contactDataFormGroup"
+    ></app-contact-data>
+    <app-flight-data
+      class="flight-data"
+      [group]="this.flightDataFormGroup"
+    ></app-flight-data>
+    <app-flight-selector [formControl]="flightFormControl">
+      @for (flight of flights; track $index) {
+        <app-flight-selector-item [flight]="flight"></app-flight-selector-item>
+      }
+    </app-flight-selector>
+    <app-flight-summary [total]="totalFlightCost | async"></app-flight-summary>
+    <app-flight-disclaimer></app-flight-disclaimer>
+    @if (errorEmailLink()) {
+      <div class="text-[20px] mt-[32px] p-[16px] bg-red-100 rounded-[5px]">
+        <h3 class="font-bold text-red-600 mb-[12px]">
+          Das hat leider nicht geklappt :(
+        </h3>
+        <p class="text-red-800">
+          Bei der Übermittlung Ihrer Buchungsanfrage ist etwas schiefgegangen.
+          Das tut uns leid. Gerne nehmen wir Ihre Anfrage dennoch per E-Mail
+          entgegen unter
+          <a class="underline" [href]="errorEmailLink()">{{
+            fallbackEmailRecipient
+          }}</a
+          >, oder telefonisch unter
+          <a class="underline" href="tel:+41767078527">+41 76 707 85 27</a>.
+          <!-- TODO: e-mail and phone should be set globally -->
+        </p>
+      </div>
+    }
+    <app-button
+      appButtonLarge
+      class="block mt-[32px]"
+      label="Buchen"
+      [enabled]="bookingFormGroup.valid && !this.loading()"
+      (click)="submit()"
+    ></app-button>
+  </div>
+</div>

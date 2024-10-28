@@ -1,0 +1,19 @@
+@import "../../../../vars.scss";
+
+.input {
+  width: 300px;
+  height: 48px;
+  border-radius: 5px;
+  padding: 10px;
+
+  font-size: 20px;
+  font-weight: 400;
+  color: $gray-700;
+
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.15) inset;
+}
+
+.ng-invalid.ng-touched {
+  @apply border-red-700
+    border-2;
+}

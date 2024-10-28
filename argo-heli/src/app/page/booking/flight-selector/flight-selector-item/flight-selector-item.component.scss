@@ -1,0 +1,115 @@
+@import "../../../../../vars.scss";
+
+.flight-selector-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.box {
+  // this is overwritten in TS
+  --background-url: none;
+
+  width: 450px;
+  height: 250px;
+  border-radius: 5px;
+  position: relative;
+
+  background:
+    linear-gradient(to left, $primary-100 21%, rgba(255, 255, 255, 0) 100%),
+    var(--background-url) no-repeat;
+  background-size: cover;
+
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  padding: 16px;
+  margin-bottom: 8px;
+
+  position: relative;
+  overflow: hidden;
+
+  .title {
+    margin: 0;
+
+    font-size: 32px;
+    font-weight: 700;
+    color: $gray-400;
+    letter-spacing: 0.04;
+    text-transform: uppercase;
+  }
+
+  .flight-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .duration {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      gap: 4px;
+
+      font-weight: 700;
+      color: $gray-300;
+
+      .duration-value {
+        font-size: 24px;
+      }
+
+      .duration-unit {
+        font-size: 16px;
+      }
+    }
+
+    .cost {
+      font-size: 24px;
+      font-weight: 700;
+      color: $gray-300;
+    }
+  }
+
+  .selection-marker {
+    position: absolute;
+    display: none;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    bottom: -60px;
+    left: -60px;
+    background-image: url("/booking/check.svg");
+    background-size: 25%;
+    background-repeat: no-repeat;
+    background-position: 75% 25%;
+    background-color: $primary-500;
+  }
+}
+
+.box--selected {
+  border: 5px solid $primary-500;
+  background:
+    linear-gradient(to left, $primary-500 21%, rgba(255, 255, 255, 0) 100%),
+    var(--background-url) no-repeat;
+  background-size: cover;
+
+  .title {
+    color: $primary-900;
+  }
+
+  .flight-info {
+    .duration {
+      color: $primary-100;
+    }
+
+    .cost {
+      color: $primary-100;
+    }
+  }
+
+  .selection-marker {
+    display: block;
+  }
+}

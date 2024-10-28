@@ -1,14 +1,26 @@
 .button {
   @apply block
-    bg-primary-500
+  bg-primary-200
+  text-primary-400
     font-bold
     text-[24px]
     w-[150px]
     h-[50px]
     border-none
-    text-white
     text-center
     leading-[50px]
     rounded-[5px]
-    cursor-pointer;
+    cursor-default;
+}
+
+.button--large {
+  @apply text-[36px]
+    w-[250px]
+    h-[70px];
+}
+
+.button--enabled {
+  @apply bg-primary-500
+  text-white
+  cursor-pointer;
 }

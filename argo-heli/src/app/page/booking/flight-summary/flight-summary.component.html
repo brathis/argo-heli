@@ -1,0 +1,13 @@
+@if (total()) {
+  <div class="border-t-[1px] border-gray-300 mt-[48px] pt-[8px]">
+    <span class="block text-[24px] font-bold text-gray-300 mb-[48px]"
+      >Total</span
+    >
+    <div class="flex flex-row items-center gap-[16px]">
+      <span class="text-[20px] font-bold text-gray-500">CHF</span>
+      <span class="text-[48px] font-bold text-primary-900"
+        >{{ total() }}.-</span
+      >
+    </div>
+  </div>
+}

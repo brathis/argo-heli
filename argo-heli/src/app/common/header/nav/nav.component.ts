@@ -11,6 +11,12 @@ export class NavComponent {
   constructor(private readonly router: Router) {}
 
   getTopLevelRoutes(): Route[] {
-    return this.router.config;
+    const routes = [];
+    for (const route of this.router.config) {
+      if (route.data && route.data['showInMenu']) {
+        routes.push(route);
+      }
+    }
+    return routes;
   }
 }
