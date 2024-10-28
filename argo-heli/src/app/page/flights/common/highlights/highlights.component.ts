@@ -1,4 +1,3 @@
-import { AsyncPipe, NgIf } from '@angular/common';
 import {
   Component,
   computed,
@@ -7,7 +6,6 @@ import {
   input,
   signal,
   viewChild,
-  ViewContainerRef,
 } from '@angular/core';
 import { HighlightConfig, HighlightsConfig } from '../../flight.interface';
 import { MapLegendComponent } from './map-legend/map-legend.component';
@@ -15,7 +13,7 @@ import { MapLegendComponent } from './map-legend/map-legend.component';
 @Component({
   selector: 'app-highlights',
   standalone: true,
-  imports: [NgIf, AsyncPipe],
+  imports: [MapLegendComponent],
   templateUrl: './highlights.component.html',
   styleUrl: './highlights.component.scss',
 })
@@ -31,35 +29,11 @@ export class HighlightsComponent {
   });
   mapContainer =
     viewChild.required<ElementRef<HTMLSpanElement>>('mapContainer');
-  legendContainerRef = viewChild.required<
-    ElementRef<HTMLDivElement>,
-    ViewContainerRef
-  >('legendContainer', {
-    read: ViewContainerRef,
-  });
 
   constructor() {
     effect(() => {
       // load the SVG when a new flight is selected
       this.mapContainer().nativeElement.innerHTML = this.highlights().mapSvg;
-
-      // draw the legends of the individual highlights
-      this.legendContainerRef().clear();
-      for (const [
-        highlightIdx,
-        highlight,
-      ] of this.highlights().highlights.entries()) {
-        // TODO: there is no need to do this using a ViewContainerRef, just do it in the template!
-        const legendComponent =
-          this.legendContainerRef().createComponent(MapLegendComponent);
-        legendComponent.setInput('label', highlight.title);
-        legendComponent.instance.click.subscribe(() => {
-          this.currentHighlightIdx.set(highlightIdx);
-        });
-
-        legendComponent.setInput('top', highlight.legendY);
-        legendComponent.setInput('left', highlight.legendX);
-      }
     });
 
     effect(() => {

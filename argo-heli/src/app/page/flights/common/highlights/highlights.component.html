@@ -1,10 +1,21 @@
-<div class="container">
+<div class="flex flex-row h-[660px]">
   <!-- The top-level flex item for the left side of the component. -->
   <div class="map">
     <!-- Container for both the map and the legends which scales with the map and provides a reference for the legends. -->
-    <div class="map-wrapper">
+    <div class="relative">
       <div #mapContainer></div>
-      <ng-template #legendContainer></ng-template>
+      @for (
+        highlight of highlights().highlights;
+        track highlight.title;
+        let i = $index
+      ) {
+        <app-map-legend
+          [label]="highlight.title"
+          [left]="highlight.legendX"
+          [top]="highlight.legendY"
+          (click)="currentHighlightIdx.set(i)"
+        ></app-map-legend>
+      }
     </div>
   </div>
   <div #highlight class="highlight" id="highlight">

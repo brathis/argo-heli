@@ -1,11 +1,5 @@
 @import "../../../../../vars.scss";
 
-.container {
-  height: 660px;
-  display: flex;
-  flex-direction: row;
-}
-
 .map {
   flex: 1 1 auto;
   width: 33%;
@@ -17,10 +11,6 @@
   justify-content: center;
 
   padding: 64px;
-
-  .map-wrapper {
-    position: relative;
-  }
 }
 
 .highlight {
@@ -40,7 +30,6 @@
   padding: 64px;
 
   .highlight-title {
-    margin-top: 0;
     margin-bottom: 48px;
     font-size: 48px;
     font-weight: 700;
