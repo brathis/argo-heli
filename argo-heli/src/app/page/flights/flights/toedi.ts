@@ -39,7 +39,7 @@ const mapSvg = `
   <svg id="heli" width="15%" height="15%" viewBox="0 0 105 75" version="1.1"
     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns:serif="http://www.serif.com/"
-    style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;transition: offset-distance 0.5s ease-in-out;offset-anchor:left 7.5% top 7.5%;offset-path:path('M636.561,287.644c-0,-0 -58.369,148.341 -83.763,185.809c-25.394,37.467 -171.96,108.546 -187.388,118.464c-15.428,9.918 -21.777,11.347 -33.611,29.479c-11.835,18.132 -31.121,70.263 -35.034,84.756c-3.913,14.493 -29.765,103.824 -25.852,140.603c3.914,36.779 23.438,73.514 22.316,91.741c-1.122,18.227 -22.591,32.096 -32.509,48.901c-9.918,16.806 -8.044,10.577 -9.918,16.806c-2.549,8.471 -5.786,24.657 -5.372,34.024c0.413,9.367 1.458,18.459 5.372,18.459c3.913,-0 28.146,-24.52 37.055,-24.107c8.908,0.414 10.606,10.056 15.565,11.02c4.959,0.965 88.849,-31.407 99.731,-50.278c10.882,-18.872 30.248,-79.207 33.611,-94.772c3.363,-15.566 24.848,-106.164 41.774,-157.916c33.299,-101.818 158.023,-326.036 158.023,-452.989Z');">
+    style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;transition: offset-distance 0.5s ease-in-out;offset-anchor:left 7.5% top 7.5%;offset-rotate: auto 180deg;offset-path:path('M636.561,287.644c-0,-0 -58.369,148.341 -83.763,185.809c-25.394,37.467 -171.96,108.546 -187.388,118.464c-15.428,9.918 -21.777,11.347 -33.611,29.479c-11.835,18.132 -31.121,70.263 -35.034,84.756c-3.913,14.493 -29.765,103.824 -25.852,140.603c3.914,36.779 23.438,73.514 22.316,91.741c-1.122,18.227 -22.591,32.096 -32.509,48.901c-9.918,16.806 -8.044,10.577 -9.918,16.806c-2.549,8.471 -5.786,24.657 -5.372,34.024c0.413,9.367 1.458,18.459 5.372,18.459c3.913,-0 28.146,-24.52 37.055,-24.107c8.908,0.414 10.606,10.056 15.565,11.02c4.959,0.965 88.849,-31.407 99.731,-50.278c10.882,-18.872 30.248,-79.207 33.611,-94.772c3.363,-15.566 24.848,-106.164 41.774,-157.916c33.299,-101.818 158.023,-326.036 158.023,-452.989Z');">
     <path id="Fuselage"
       d="M4.167,37.417c-0.024,-8.325 5.074,-12.5 20.834,-12.416c9.182,0.05 13.638,4.542 15.512,8.375l41.323,1.722l1.497,-5.931l4.167,-0l0,8.25c4.599,0 8.333,0.934 8.333,2.084c0,1.15 -3.734,2.083 -8.333,2.083c-4.133,0 -7.567,-0.754 -8.221,-1.741l-38.724,1.614c-1.85,3.851 -6.304,8.411 -15.555,8.46c-15.759,0.085 -20.857,-4.091 -20.833,-12.416c-0,-0.028 -0,-0.056 -0,-0.084Z"
       style="fill:#1c97d4;" />
@@ -98,7 +98,7 @@ export const toedi: Flight = {
           'Rund um die beiden Mythen gibt es herrliche Wanderwege und abgelegene Pfade ' +
           'durch das voralpine Naturparadies mit dem grössten Naturschutzgebiet im Kanton Schwyz.',
         imgSrc: '/flights/toedi/highlights/mythen.webp',
-        pathPosition: 0.27,
+        pathPosition: 0.245,
         legendX: 0,
         legendY: 41,
       },
@@ -110,7 +110,7 @@ export const toedi: Flight = {
           'Rund um die beiden Mythen gibt es herrliche Wanderwege und abgelegene Pfade ' +
           'durch das voralpine Naturparadies mit dem grössten Naturschutzgebiet im Kanton Schwyz.',
         imgSrc: '/flights/toedi/highlights/mythen.webp',
-        pathPosition: 0.32,
+        pathPosition: 0.295,
         legendX: -6,
         legendY: 50,
       },
@@ -122,7 +122,7 @@ export const toedi: Flight = {
           'Rund um die beiden Mythen gibt es herrliche Wanderwege und abgelegene Pfade ' +
           'durch das voralpine Naturparadies mit dem grössten Naturschutzgebiet im Kanton Schwyz.',
         imgSrc: '/flights/toedi/highlights/mythen.webp',
-        pathPosition: 0.53,
+        pathPosition: 0.51,
         legendX: 14,
         legendY: 93,
       },
@@ -130,7 +130,7 @@ export const toedi: Flight = {
         title: 'Tödi',
         description: 'Tödi beshde haha',
         imgSrc: '/flights/toedi/highlights/toedi.webp',
-        pathPosition: 0.66,
+        pathPosition: 0.64,
         legendX: 63,
         legendY: 73,
       },
@@ -138,7 +138,7 @@ export const toedi: Flight = {
         title: 'Glärnisch',
         description: 'Tödi beshde haha',
         imgSrc: '/flights/toedi/highlights/toedi.webp',
-        pathPosition: 0.75,
+        pathPosition: 0.73,
         legendX: 68,
         legendY: 61,
       },
@@ -146,7 +146,7 @@ export const toedi: Flight = {
         title: 'Walensee',
         description: 'Tödi beshde haha',
         imgSrc: '/flights/toedi/highlights/toedi.webp',
-        pathPosition: 0.83,
+        pathPosition: 0.80,
         legendX: 72,
         legendY: 45,
       },

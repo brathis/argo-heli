@@ -31,7 +31,7 @@ const mapSvg = `
   <svg id="heli" width="15%" height="15%" viewBox="0 0 105 75" version="1.1"
     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
     xmlns:serif="http://www.serif.com/"
-    style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;transition: offset-distance 0.5s ease-in-out;offset-anchor:left 7.5% top 7.5%;offset-path:path('M457.658,287.644c-0,-0 153.256,225.249 79.477,246.739c-69.833,20.34 -79.477,-119.786 -79.477,-246.739Z');">
+    style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;transition: offset-distance 0.5s ease-in-out;offset-anchor:left 7.5% top 7.5%;offset-rotate: auto 180deg;offset-path:path('M457.658,287.644c-0,-0 153.256,225.249 79.477,246.739c-69.833,20.34 -79.477,-119.786 -79.477,-246.739Z');">
     <path id="Fuselage"
       d="M4.167,37.417c-0.024,-8.325 5.074,-12.5 20.834,-12.416c9.182,0.05 13.638,4.542 15.512,8.375l41.323,1.722l1.497,-5.931l4.167,-0l0,8.25c4.599,0 8.333,0.934 8.333,2.084c0,1.15 -3.734,2.083 -8.333,2.083c-4.133,0 -7.567,-0.754 -8.221,-1.741l-38.724,1.614c-1.85,3.851 -6.304,8.411 -15.555,8.46c-15.759,0.085 -20.857,-4.091 -20.833,-12.416c-0,-0.028 -0,-0.056 -0,-0.084Z"
       style="fill:#1c97d4;" />
@@ -86,7 +86,7 @@ export const saentis: Flight = {
         title: 'St. Gallen',
         description: 'OLMA lol',
         imgSrc: '',
-        pathPosition: 0.19,
+        pathPosition: 0.12,
         legendX: +61,
         legendY: +11,
       },
@@ -94,7 +94,7 @@ export const saentis: Flight = {
         title: 'Appenzell',
         description: 'pschhhhhh...',
         imgSrc: '',
-        pathPosition: 0.32,
+        pathPosition: 0.26,
         legendX: +79,
         legendY: +54,
       },
@@ -102,7 +102,7 @@ export const saentis: Flight = {
         title: 'Säntis',
         description: 'Der Borg.',
         imgSrc: '',
-        pathPosition: 0.62,
+        pathPosition: 0.56,
         legendX: +25,
         legendY: +90,
       },
