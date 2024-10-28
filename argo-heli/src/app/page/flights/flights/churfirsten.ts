@@ -58,6 +58,11 @@ export const churfirsten: Flight = {
   cost: 180,
   duration: 45,
   hero: {
+    duration: {
+      startValue: 55,
+      endValue: 85,
+      property: 'top',
+    },
     foreground: {
       startValue: 30,
       endValue: 48,

@@ -41,6 +41,7 @@ export interface HeroImageLayerConfig extends HeroLayerConfig {
 }
 
 export interface HeroConfig {
+  duration: HeroLayerConfig;
   foreground: HeroImageLayerConfig;
   text: HeroLayerConfig;
   background: HeroImageLayerConfig;

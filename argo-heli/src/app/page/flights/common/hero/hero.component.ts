@@ -15,7 +15,6 @@ import { HeroLayerDirective } from './hero-layer.directive';
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './hero.component.html',
-  styleUrl: './hero.component.scss',
 })
 export class HeroComponent {
   container = viewChild.required<ElementRef>('container');

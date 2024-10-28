@@ -1,4 +1,4 @@
-<div class="flights">
+<div class="bg-white">
   <app-secondary-nav></app-secondary-nav>
   @if (flight) {
     <app-hero [id]="flight.title">
@@ -10,7 +10,7 @@
         [src]="flight.hero.background.imgSrc"
       />
       <div
-        class="hero-text"
+        class="mix-blend-plus-lighter text-[128px] font-bold text-secondary-300 text-center"
         appHeroLayer
         [startValue]="flight.hero.text.startValue"
         [endValue]="flight.hero.text.endValue"
@@ -25,15 +25,45 @@
         [property]="flight.hero.foreground.property"
         [src]="flight.hero.foreground.imgSrc"
       />
+      <div
+        appHeroLayer
+        [startValue]="flight.hero.duration.startValue"
+        [endValue]="flight.hero.duration.endValue"
+        [property]="flight.hero.duration.property"
+        class="mix-blend-plus-lighter flex flex-row items-center gap-[2px] justify-center"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          class="size-6 stroke-2 pr-[8px] stroke-secondary-300"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+          />
+        </svg>
+        <span class="text-[20px] font-bold text-secondary-300">
+          {{ flight.duration }}
+        </span>
+        <span class="text-[20px] text-secondary-300">min</span>
+      </div>
     </app-hero>
-    <div class="info">
-      <div class="synopsis">
+    <div class="flex flex-col items-center justify-center">
+      <div
+        class="text-[20px] leading-[40px] font-medium text-center text-gray-400 mt-[48px] w-3/4 max-w-[650px]"
+      >
         {{ flight.synopsis }}
       </div>
 
-      <app-price-tag class="price-tag" [price]="flight.cost"></app-price-tag>
+      <app-price-tag class="mt-[48px]" [price]="flight.cost"></app-price-tag>
 
-      <app-button class="button" label="Buchen" link="/booking"></app-button>
+      <app-button
+        class="mt-[16px] mb-[64px]"
+        label="Buchen"
+        link="/booking"
+      ></app-button>
     </div>
     @if (flight.highlights) {
       <app-highlights [highlights]="flight.highlights"></app-highlights>

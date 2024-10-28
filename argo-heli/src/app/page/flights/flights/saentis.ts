@@ -58,6 +58,11 @@ export const saentis: Flight = {
   cost: 140,
   duration: 25,
   hero: {
+    duration: {
+      startValue: 35,
+      endValue: 65,
+      property: 'top',
+    },
     foreground: {
       startValue: 20,
       endValue: 37,
@@ -65,8 +70,8 @@ export const saentis: Flight = {
       imgSrc: '/flights/saentis/foreground.webp',
     },
     text: {
-      startValue: 10,
-      endValue: 20,
+      startValue: 6,
+      endValue: 16,
       property: 'top',
     },
     background: {

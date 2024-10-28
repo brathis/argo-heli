@@ -33,7 +33,6 @@ import { toedi } from './flights/toedi';
     HeroLayerDirective,
   ],
   templateUrl: './flights.component.html',
-  styleUrl: './flights.component.scss',
 })
 export class FlightsComponent {
   static readonly FLIGHTS: { [key: string]: Flight } = {

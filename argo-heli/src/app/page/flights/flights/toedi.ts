@@ -66,6 +66,11 @@ export const toedi: Flight = {
   cost: 400,
   duration: 80,
   hero: {
+    duration: {
+      startValue: 45,
+      endValue: 65,
+      property: 'top',
+    },
     foreground: {
       startValue: 20,
       endValue: 53,
