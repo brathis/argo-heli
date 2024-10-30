@@ -15,6 +15,8 @@ import {
 export class SecondaryNavComponent {
   constructor(private readonly activatedRoute: ActivatedRoute) {}
   getRoutes(): Routes {
-    return this.activatedRoute.snapshot.routeConfig?.children ?? [];
+    return (this.activatedRoute.snapshot.routeConfig?.children ?? []).filter(
+      (route) => route.data && route.data['showInMenu'],
+    );
   }
 }
