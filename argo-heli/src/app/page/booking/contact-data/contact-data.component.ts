@@ -19,7 +19,6 @@ import { FormRowComponent } from '../form-row/form-row.component';
     ReactiveFormsModule,
   ],
   templateUrl: './contact-data.component.html',
-  styleUrl: './contact-data.component.scss',
 })
 export class ContactDataComponent implements AfterViewInit {
   firstNameFormControl = new FormControl('', [Validators.required]);

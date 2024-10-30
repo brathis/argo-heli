@@ -21,7 +21,6 @@ import { FormSelectComponent } from '../form-select/form-select.component';
     FormSelectComponent,
   ],
   templateUrl: './flight-data.component.html',
-  styleUrl: './flight-data.component.scss',
 })
 export class FlightDataComponent implements AfterViewInit {
   baseFormControl = new FormControl('', [Validators.required]);
