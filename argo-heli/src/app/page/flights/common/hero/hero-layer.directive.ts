@@ -20,5 +20,9 @@ export class HeroLayerDirective {
   constructor(public readonly el: ElementRef) {
     this.el.nativeElement.style.width = '100%';
     this.el.nativeElement.style.position = 'absolute';
+
+    if (this.el.nativeElement.tagName === 'IMG') {
+      this.el.nativeElement.style.minWidth = '1420px';
+    }
   }
 }
