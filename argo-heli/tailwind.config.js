@@ -26,6 +26,9 @@ module.exports = {
           800: "#804f00",
           900: "#5c3400",
         },
+        tertiary: {
+          500: "#33fff3",
+        },
         gray: {
           50: "#eff4f6",
           100: "#dfe8ec",

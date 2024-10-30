@@ -1,12 +1,9 @@
 import {
   Component,
+  effect,
   ElementRef,
-  EventEmitter,
-  Input,
   input,
-  OnChanges,
-  Output,
-  SimpleChanges,
+  output,
   viewChild,
 } from '@angular/core';
 
@@ -15,24 +12,20 @@ import {
   standalone: true,
   imports: [],
   templateUrl: './map-legend.component.html',
-  styleUrl: './map-legend.component.scss',
 })
 export class MapLegendComponent {
   el = viewChild.required<ElementRef<HTMLSpanElement>>('legend');
 
-  @Output()
-  click = new EventEmitter<void>();
+  click = output<void>();
 
-  @Input()
-  label: string = '';
+  label = input<string>();
+  top = input<number>();
+  left = input<number>();
 
-  @Input()
-  set top(top: number) {
-    this.el().nativeElement.style.top = `${top}%`;
-  }
-
-  @Input()
-  set left(left: number) {
-    this.el().nativeElement.style.left = `${left}%`;
+  constructor() {
+    effect(() => {
+      this.el().nativeElement.style.top = `${this.top()}%`;
+      this.el().nativeElement.style.left = `${this.left()}%`;
+    });
   }
 }

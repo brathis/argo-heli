@@ -1,12 +1,12 @@
 <div class="bg-gray-50">
   <div class="bg-gray-50 mx-auto py-[64px] max-w-[1000px]">
-    <h3 class="title">Rundflug buchen</h3>
+    <h3 class="text-[32px] font-bold text-gray-500 mb-[64px]">Rundflug buchen</h3>
     <app-contact-data
-      class="contact-data"
+      class="block mb-[64px]"
       [group]="this.contactDataFormGroup"
     ></app-contact-data>
     <app-flight-data
-      class="flight-data"
+      class="block mb-[64px]"
       [group]="this.flightDataFormGroup"
     ></app-flight-data>
     <app-flight-selector [formControl]="flightFormControl">

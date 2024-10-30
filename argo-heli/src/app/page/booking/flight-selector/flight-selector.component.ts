@@ -16,7 +16,6 @@ import { FlightSelectorItemComponent } from './flight-selector-item/flight-selec
   standalone: true,
   imports: [],
   templateUrl: './flight-selector.component.html',
-  styleUrl: './flight-selector.component.scss',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

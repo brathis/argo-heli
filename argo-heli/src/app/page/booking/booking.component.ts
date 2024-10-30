@@ -42,7 +42,6 @@ import { FlightSummaryComponent } from './flight-summary/flight-summary.componen
     ButtonLargeDirective,
   ],
   templateUrl: './booking.component.html',
-  styleUrl: './booking.component.scss',
   providers: [{ provide: BACKEND_SERVICE, useClass: DummyBackendService }],
 })
 export class BookingComponent {

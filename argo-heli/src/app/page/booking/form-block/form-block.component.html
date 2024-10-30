@@ -1,10 +1,10 @@
-<div class="form-block">
-  <div class="title">{{ title() }}</div>
-  <div class="row">
-    <div class="info-text">
+<div class="border-t-[1px] border-solid border-gray-300 pt-[8px]">
+  <div class="text-[24px] font-bold text-gray-300">{{ title() }}</div>
+  <div class="flex flex-row gap-[48px] mt-[32px] items-center">
+    <div class="text-[20px] font-normal leading-[24px] text-gray-400 w-[300px]">
       {{ infoText() }}
     </div>
-    <div class="form">
+    <div class="flex flex-col gap-[24px]">
       <ng-content></ng-content>
     </div>
   </div>

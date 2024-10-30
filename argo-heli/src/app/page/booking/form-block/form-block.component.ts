@@ -5,7 +5,6 @@ import { Component, input } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './form-block.component.html',
-  styleUrl: './form-block.component.scss',
 })
 export class FormBlockComponent {
   title = input.required();

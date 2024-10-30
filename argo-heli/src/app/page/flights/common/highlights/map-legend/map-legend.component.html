@@ -1,3 +1,7 @@
-<span #legend class="legend" (click)="click.emit()">
-  {{ label }}
+<span
+  #legend
+  class="absolute cursor-pointer text-[16px] font-semibold text-tertiary-500"
+  (click)="click.emit()"
+>
+  {{ label() }}
 </span>
