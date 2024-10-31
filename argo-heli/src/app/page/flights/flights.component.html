@@ -1,5 +1,5 @@
 <div class="bg-white flex flex-col">
-  <app-secondary-nav></app-secondary-nav>
+  <app-secondary-nav [routes]="routes"></app-secondary-nav>
   @if (flightA) {
     <app-hero [id]="flightA.title">
       <img

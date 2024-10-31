@@ -1,7 +1,7 @@
 <div
   class="py-8 flex flex-col sm:flex-row items-center justify-center gap-x-[100px]"
 >
-  @for (route of getRoutes(); track route.path) {
+  @for (route of routes(); track route.path) {
     <div class="text-gray-300 py-2 text-[20px] leading-[28px] font-bold">
       <a [routerLink]="route.path" routerLinkActive="!text-gray-600">{{
         route.title

@@ -36,9 +36,7 @@ export class FlightSelectorComponent
 
   constructor() {
     effect(() => {
-      // TODO: is there a better way?
-      const flight = this.selectedFlight();
-      this._isChanged(flight);
+      this._isChanged(this.selectedFlight());
     });
   }
 

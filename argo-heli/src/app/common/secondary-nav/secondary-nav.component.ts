@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
-import {
-  ActivatedRoute,
-  RouterLink,
-  RouterLinkActive,
-  Routes,
-} from '@angular/router';
+import { Component, input } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
+
+export interface SecondaryRoute {
+  title: string;
+  path: string;
+}
 
 @Component({
   selector: 'app-secondary-nav',
@@ -13,10 +13,5 @@ import {
   templateUrl: './secondary-nav.component.html',
 })
 export class SecondaryNavComponent {
-  constructor(private readonly activatedRoute: ActivatedRoute) {}
-  getRoutes(): Routes {
-    return (this.activatedRoute.snapshot.routeConfig?.children ?? []).filter(
-      (route) => route.data && route.data['showInMenu'],
-    );
-  }
+  routes = input<SecondaryRoute[]>();
 }

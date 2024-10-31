@@ -22,9 +22,9 @@ export class HeroComponent {
   layers = contentChildren(HeroLayerDirective);
 
   constructor() {
-    // TODO: This is a disgusting hack to get Angular to update the animation when a new flight is loaded.
-    //       Unfortunately, "layers" itself does not change when new children are projected into the component,
-    //       which is why we have to rely on a different signal.
+    // This is a bit of a hack to get Angular to update the animation when a new flight is loaded.
+    // Unfortunately, "layers" itself does not change when new children are projected into the component,
+    // which is why we have to rely on the "id" input to detect when the flight has changed.
     effect(() => {
       const _ = this.id();
       this.updateAnimation();

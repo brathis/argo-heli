@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Route, Router, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -8,15 +8,16 @@ import { Route, Router, RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './nav.component.html',
 })
 export class NavComponent {
-  constructor(private readonly router: Router) {}
+  private _routerConfig = inject(Router).config;
+  topLevelRoutes: Route[] = [];
 
-  getTopLevelRoutes(): Route[] {
-    const routes = [];
-    for (const route of this.router.config) {
-      if (route.data && route.data['showInMenu']) {
-        routes.push(route);
+  constructor() {
+    for (const route of this._routerConfig) {
+      const showInMenu = route.data ? route.data['showInMenu'] : false;
+      if (showInMenu) {
+        const link = showInMenu === true ? route.path : showInMenu;
+        this.topLevelRoutes.push({ ...route, path: link });
       }
     }
-    return routes;
   }
 }

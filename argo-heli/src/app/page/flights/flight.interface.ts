@@ -24,12 +24,6 @@ export interface Flight {
   thumbnailPath: string;
 }
 
-// TODO: needed?
-export enum HeroLayerType {
-  IMAGE,
-  TEXT,
-}
-
 export interface HeroLayerConfig {
   startValue: number;
   endValue: number;

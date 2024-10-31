@@ -6,12 +6,16 @@
     <p class="text-[20px] leading-[30px] font-medium text-gray-600">
       Wir werden diese prüfen und uns innert zwei Arbeitstagen bei Ihnen melden.
       Bei allfälligen Fragen erreichen Sie uns per E-Mail unter
-      <a href="mailto:info@argo-heli.ch" class="text-primary-700 underline"
-        >info&commat;argo-heli.ch</a
+      <a
+        [href]="config.contactEmail | emailLink"
+        class="text-primary-700 underline"
+        >{{ config.contactEmail }}</a
       >
       oder telefonisch unter
-      <a href="tel:+41767078527" class="text-primary-700 underline"
-        >+41 76 707 85 27</a
+      <a
+        [href]="config.contactPhone | phoneLink"
+        class="text-primary-700 underline"
+        >{{ config.contactPhone }}</a
       >.
     </p>
   </div>

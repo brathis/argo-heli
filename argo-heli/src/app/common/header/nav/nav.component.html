@@ -1,9 +1,9 @@
 <nav class="sm:flex flex-row gap-[128px] justify-end items-end">
-  @for (route of getTopLevelRoutes(); track route.path) {
+  @for (route of topLevelRoutes; track route.path) {
     <a
       class="flex flex-col text-primary-300 text-[32px] font-bold group"
       routerLinkActive="!text-primary-700 is-active"
-      [routerLinkActiveOptions]="{ exact: !route.children }"
+      [routerLinkActiveOptions]="{ exact: route.path === '' }"
       [routerLink]="route.path"
     >
       <div

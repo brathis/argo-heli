@@ -12,35 +12,14 @@ export const routes: Routes = [
     data: { showInMenu: true },
   },
   {
-    title: 'Flüge',
     path: 'flights',
+    redirectTo: 'flights/saentis',
+  },
+  {
+    title: 'Flüge',
+    path: 'flights/:flight',
     loadComponent: () => FlightsComponent,
-    data: { showInMenu: true },
-    children: [
-      {
-        path: '',
-        redirectTo: '/flights/saentis',
-        pathMatch: 'full',
-      },
-      {
-        title: 'Säntis',
-        path: 'saentis',
-        loadComponent: () => FlightsComponent,
-        data: { flightId: 'saentis', showInMenu: true },
-      },
-      {
-        title: 'Churfirsten',
-        path: 'churfirsten',
-        loadComponent: () => FlightsComponent,
-        data: { flightId: 'churfirsten', showInMenu: true },
-      },
-      {
-        title: 'Tödi',
-        path: 'toedi',
-        loadComponent: () => FlightsComponent,
-        data: { flightId: 'toedi', showInMenu: true },
-      },
-    ],
+    data: { showInMenu: 'flights' },
   },
   {
     title: 'Buchen',

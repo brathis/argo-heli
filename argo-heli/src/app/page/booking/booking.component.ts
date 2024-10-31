@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { ButtonLargeDirective } from '../../common/button/button-large.directive';
 import { ButtonComponent } from '../../common/button/button.component';
+import { Config, ConfigService } from '../../common/config.service';
 import { Flight } from '../flights/flight.interface';
 import { allFlights } from '../flights/flights/_all';
 import {
@@ -25,6 +26,7 @@ import { FlightDisclaimerComponent } from './flight-disclaimer/flight-disclaimer
 import { FlightSelectorItemComponent } from './flight-selector/flight-selector-item/flight-selector-item.component';
 import { FlightSelectorComponent } from './flight-selector/flight-selector.component';
 import { FlightSummaryComponent } from './flight-summary/flight-summary.component';
+import { PhoneLinkPipe } from '../../common/phone-link.pipe';
 
 @Component({
   selector: 'app-booking',
@@ -40,12 +42,12 @@ import { FlightSummaryComponent } from './flight-summary/flight-summary.componen
     FlightDisclaimerComponent,
     ButtonComponent,
     ButtonLargeDirective,
+    PhoneLinkPipe,
   ],
   templateUrl: './booking.component.html',
   providers: [{ provide: BACKEND_SERVICE, useClass: DummyBackendService }],
 })
 export class BookingComponent {
-  readonly fallbackEmailRecipient = 'info@argo-heli.ch';
   private readonly fallbackEmailSubjectTemplate = `Anfrage für Rundflug am <DATE>`;
   private readonly fallbackEmailBodyTemplate = `
   Guten Tag
@@ -76,10 +78,12 @@ export class BookingComponent {
   flights = allFlights;
 
   totalFlightCost: Observable<number | null>;
+  config: Config;
 
   constructor(
     @Inject(BACKEND_SERVICE) private readonly backendService: BackendService,
     private readonly router: Router,
+    configService: ConfigService,
   ) {
     this.totalFlightCost = this.bookingFormGroup.valueChanges.pipe(
       map((form) => {
@@ -92,6 +96,7 @@ export class BookingComponent {
         return null;
       }),
     );
+    this.config = configService.getConfig();
   }
 
   submit(): void {
@@ -147,7 +152,7 @@ export class BookingComponent {
     }
 
     return `mailto:${encodeURIComponent(
-      `${this.fallbackEmailRecipient}?subject=${subject}&body=${body}`,
+      `${this.config.contactEmail}?subject=${subject}&body=${body}`,
     )}`;
   }
 }

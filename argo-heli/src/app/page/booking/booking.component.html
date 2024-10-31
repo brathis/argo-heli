@@ -28,11 +28,13 @@
           Das tut uns leid. Gerne nehmen wir Ihre Anfrage dennoch per E-Mail
           entgegen unter
           <a class="underline" [href]="errorEmailLink()">{{
-            fallbackEmailRecipient
+            config.contactEmail
           }}</a
           >, oder telefonisch unter
-          <a class="underline" href="tel:+41767078527">+41 76 707 85 27</a>.
-          <!-- TODO: e-mail and phone should be set globally -->
+          <a class="underline" [href]="config.contactPhone | phoneLink">{{
+            config.contactPhone
+          }}</a
+          >.
         </p>
       </div>
     }
