@@ -1,37 +1,35 @@
 <div class="flex flex-col" (click)="clicked.emit()">
-  <div
-    #box
-    class="box group w-[450px] h-[250px] rounded-[5px] relative bg-cover cursor-pointer flex flex-col items-end justify-between p-[16px] mb-[8px] overflow-hidden shadow-[0px_2px_4px_#cbd7dc]"
-    [ngClass]="{
-      'is-selected': selected === null ? false : selected(),
-      'border-solid': selected === null ? false : selected(),
-      'border-primary-500': selected === null ? false : selected(),
-      'border-\[5px\]': selected === null ? false : selected(),
-      'bg-cover': selected === null ? false : selected(),
-    }"
+  <span
+    class="group"
+    [ngClass]="{ 'is-selected': selected === null ? false : selected() }"
   >
-    <h4
-      class="text-[32px] font-bold text-gray-400 uppercase tracking-[0.04] group-[.is-selected]:text-primary-900"
-    >
-      {{ flight().title }}
-    </h4>
-    <div class="flex flex-col gap-[8px]">
-      <span
-        class="flex flex-row items-baseline gap-[4px] font-bold text-gray-300 group-[.is-selected]:text-primary-100"
-      >
-        <span class="text-[24px]">{{ flight().duration }}</span>
-        <span class="text-[16px]">min</span>
-      </span>
-      <span
-        class="text-[24px] font-bold text-gray-300 group-[.is-selected]:text-primary-100"
-      >
-        {{ flight().cost }}.-
-      </span>
-    </div>
     <div
-      class="absolute hidden w-[120px] h-[120px] rounded-[50%] bottom-[-60px] left-[-60px] bg-[length:25%] bg-no-repeat bg-primary-500 bg-[75%_25%] bg-[url('/booking/check.svg')] group-[.is-selected]:block"
-    ></div>
-  </div>
+      #box
+      class="box w-[450px] h-[250px] rounded-[5px] relative bg-cover cursor-pointer flex flex-col items-end justify-between p-[16px] mb-[8px] overflow-hidden shadow-[0px_2px_4px_#cbd7dc] group-[.is-selected]:border-solid group-[.is-selected]:border-[5px] group-[.is-selected]:border-primary-500 group-[.is-selected]:bg-cover"
+    >
+      <h4
+        class="text-[32px] font-bold text-gray-400 uppercase tracking-[0.04] group-[.is-selected]:text-primary-900"
+      >
+        {{ flight().title }}
+      </h4>
+      <div class="flex flex-col gap-[8px]">
+        <span
+          class="flex flex-row items-baseline gap-[4px] font-bold text-gray-300 group-[.is-selected]:text-primary-100"
+        >
+          <span class="text-[24px]">{{ flight().duration }}</span>
+          <span class="text-[16px]">min</span>
+        </span>
+        <span
+          class="text-[24px] font-bold text-gray-300 group-[.is-selected]:text-primary-100"
+        >
+          {{ flight().cost }}.-
+        </span>
+      </div>
+      <div
+        class="absolute hidden w-[120px] h-[120px] rounded-[50%] bottom-[-60px] left-[-60px] bg-[length:25%] bg-no-repeat bg-primary-500 bg-[75%_25%] bg-[url('/booking/check.svg')] group-[.is-selected]:block"
+      ></div>
+    </div>
+  </span>
   <a
     [routerLink]="flight().path"
     class="text-[16px] font-semibold text-primary-800 underline"
