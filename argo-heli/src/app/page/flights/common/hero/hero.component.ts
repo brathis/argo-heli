@@ -49,9 +49,9 @@ export class HeroComponent {
     for (const layer of this.layers()) {
       const el = layer.el.nativeElement as HTMLElement;
       const value =
-        layer.startValue +
-        this.getAnimationProgress() * (layer.endValue - layer.startValue);
-      el.style.setProperty(layer.property, `${value}%`);
+        layer.startValue() +
+        this.getAnimationProgress() * (layer.endValue() - layer.startValue());
+      el.style.setProperty(layer.property(), `${value}%`);
     }
   }
 }

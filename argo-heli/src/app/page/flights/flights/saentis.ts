@@ -68,6 +68,7 @@ export const saentis: Flight = {
       endValue: 37,
       property: 'top',
       imgSrc: '/flights/saentis/foreground.webp',
+      aspectRatio: 0.282,
     },
     text: {
       startValue: 6,
@@ -79,6 +80,7 @@ export const saentis: Flight = {
       endValue: 0,
       property: 'top',
       imgSrc: '/flights/saentis/background.webp',
+      aspectRatio: 0.284,
     },
   },
   synopsis:

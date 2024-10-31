@@ -76,6 +76,7 @@ export const toedi: Flight = {
       endValue: 53,
       property: 'top',
       imgSrc: '/flights/toedi/foreground.webp',
+      aspectRatio: 0.436,
     },
     text: {
       startValue: 10,
@@ -87,6 +88,7 @@ export const toedi: Flight = {
       endValue: -5,
       property: 'top',
       imgSrc: '/flights/toedi/background.webp',
+      aspectRatio: 0.466,
     },
   },
   synopsis:

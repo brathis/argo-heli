@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import {
@@ -31,6 +31,7 @@ import { toedi } from './flights/toedi';
     CommonModule,
     HighlightsComponent,
     HeroLayerDirective,
+    NgOptimizedImage,
   ],
   templateUrl: './flights.component.html',
 })
@@ -41,21 +42,31 @@ export class FlightsComponent {
     toedi,
   };
 
-  flight: Flight | null = null;
+  flightA: Flight | null = null;
+  flightB: Flight | null = null;
 
   constructor(
     private readonly route: ActivatedRoute,
     private readonly router: Router,
   ) {
-    // TODO: This should not have to be this complicated... Something's up
+    // TODO: there has to be a better way than to subscribe to all router events?
     this.router.events
       .pipe(
         filter((event) => event instanceof NavigationEnd),
         takeUntilDestroyed(),
       )
       .subscribe((_) => {
+        // TODO: this switching business is beyond stupid. Surely there is a better way?
         const flightId = this.route.firstChild?.snapshot.data['flightId'];
-        this.flight = FlightsComponent.FLIGHTS[flightId];
+        if (!this.flightA && !this.flightB) {
+          this.flightA = FlightsComponent.FLIGHTS[flightId];
+        } else if (!this.flightA) {
+          this.flightA = FlightsComponent.FLIGHTS[flightId];
+          this.flightB = null;
+        } else {
+          this.flightB = FlightsComponent.FLIGHTS[flightId];
+          this.flightA = null;
+        }
       });
   }
 }

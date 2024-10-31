@@ -1,28 +1,14 @@
-import { Directive, ElementRef, Input } from '@angular/core';
+import { Directive, ElementRef, inject, input } from '@angular/core';
 
 @Directive({
   selector: '[appHeroLayer]',
   standalone: true,
 })
 export class HeroLayerDirective {
-  @Input()
-  appHeroLayer: string = '';
+  appHeroLayer = input('');
+  startValue = input(0);
+  endValue = input(0);
+  property = input('');
 
-  @Input()
-  startValue: number = 0;
-
-  @Input()
-  endValue: number = 0;
-
-  @Input()
-  property: string = '';
-
-  constructor(public readonly el: ElementRef) {
-    this.el.nativeElement.style.width = '100%';
-    this.el.nativeElement.style.position = 'absolute';
-
-    if (this.el.nativeElement.tagName === 'IMG') {
-      this.el.nativeElement.style.minWidth = '1420px';
-    }
-  }
+  el = inject(ElementRef);
 }

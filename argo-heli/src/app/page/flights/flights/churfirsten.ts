@@ -68,6 +68,7 @@ export const churfirsten: Flight = {
       endValue: 48,
       property: 'top',
       imgSrc: '/flights/churfirsten/foreground.webp',
+      aspectRatio: 0.372,
     },
     text: {
       startValue: 10,
@@ -79,6 +80,7 @@ export const churfirsten: Flight = {
       endValue: -35,
       property: 'top',
       imgSrc: '/flights/churfirsten/background.webp',
+      aspectRatio: 0.361,
     },
   },
   synopsis:

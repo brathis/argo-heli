@@ -38,6 +38,7 @@ export interface HeroLayerConfig {
 
 export interface HeroImageLayerConfig extends HeroLayerConfig {
   imgSrc: string;
+  aspectRatio: number;
 }
 
 export interface HeroConfig {
