@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, input } from '@angular/core';
+import { Component, effect, input } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -22,7 +22,7 @@ import { FormSelectComponent } from '../form-select/form-select.component';
   ],
   templateUrl: './flight-data.component.html',
 })
-export class FlightDataComponent implements AfterViewInit {
+export class FlightDataComponent {
   baseFormControl = new FormControl('', [Validators.required]);
   passengersFormControl = new FormControl('', [
     Validators.required,
@@ -41,11 +41,16 @@ export class FlightDataComponent implements AfterViewInit {
     departureTime: this.departureTimeFormControl,
   });
 
-  ngAfterViewInit(): void {
-    const group = this.group();
-    group.addControl('base', this.baseFormControl);
-    group.addControl('passengers', this.passengersFormControl);
-    group.addControl('departureDate', this.departureDateFormControl);
-    group.addControl('departureTime', this.departureTimeFormControl);
+  constructor() {
+    effect(() => {
+      const group = this.group();
+      if (!group) {
+        return;
+      }
+      group.addControl('base', this.baseFormControl);
+      group.addControl('passengers', this.passengersFormControl);
+      group.addControl('departureDate', this.departureDateFormControl);
+      group.addControl('departureTime', this.departureTimeFormControl);
+    });
   }
 }

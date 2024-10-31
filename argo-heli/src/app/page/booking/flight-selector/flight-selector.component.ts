@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   computed,
   contentChildren,
@@ -24,9 +23,7 @@ import { FlightSelectorItemComponent } from './flight-selector-item/flight-selec
     },
   ],
 })
-export class FlightSelectorComponent
-  implements AfterViewInit, ControlValueAccessor
-{
+export class FlightSelectorComponent implements ControlValueAccessor {
   items = contentChildren(FlightSelectorItemComponent);
   selectedFlight = signal<Flight | null>(null);
 
@@ -37,6 +34,17 @@ export class FlightSelectorComponent
   constructor() {
     effect(() => {
       this._isChanged(this.selectedFlight());
+    });
+    effect(() => {
+      for (const item of this.items()) {
+        item.clicked.subscribe(() => {
+          this._isTouched();
+          this.selectedFlight.set(item.flight());
+        });
+        item.selected = computed(() => {
+          return item.flight().title === this.selectedFlight()?.title;
+        });
+      }
     });
   }
 
@@ -50,18 +58,6 @@ export class FlightSelectorComponent
 
   registerOnTouched(fn: any): void {
     this._onTouched = fn;
-  }
-
-  ngAfterViewInit(): void {
-    for (const item of this.items()) {
-      item.clicked.subscribe(() => {
-        this._isTouched();
-        this.selectedFlight.set(item.flight());
-      });
-      item.selected = computed(() => {
-        return item.flight().title === this.selectedFlight()?.title;
-      });
-    }
   }
 
   private _isTouched(): void {

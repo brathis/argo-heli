@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, computed, input, Optional, output } from '@angular/core';
+import { Component, computed, inject, input, output } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { ButtonLargeDirective } from './button-large.directive';
 
@@ -17,15 +17,15 @@ export class ButtonComponent {
 
   click = output<void>();
 
-  classes;
+  private _buttonLargeDirective = inject(ButtonLargeDirective, {
+    optional: true,
+  });
 
-  constructor(@Optional() buttonLargeDirective: ButtonLargeDirective) {
-    this.classes = computed(() => ({
-      button: true,
-      'button--large': buttonLargeDirective !== null,
-      'button--enabled': this.enabled(),
-    }));
-  }
+  classes = computed(() => ({
+    button: true,
+    'button--large': this._buttonLargeDirective !== null,
+    'button--enabled': this.enabled(),
+  }));
 
   onClick() {
     if (this.enabled()) {

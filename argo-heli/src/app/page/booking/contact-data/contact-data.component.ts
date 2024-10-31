@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, input } from '@angular/core';
+import { Component, effect, input } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -20,7 +20,7 @@ import { FormRowComponent } from '../form-row/form-row.component';
   ],
   templateUrl: './contact-data.component.html',
 })
-export class ContactDataComponent implements AfterViewInit {
+export class ContactDataComponent {
   firstNameFormControl = new FormControl('', [Validators.required]);
   lastNameFormControl = new FormControl('', [Validators.required]);
   streetFormControl = new FormControl('', [Validators.required]);
@@ -33,13 +33,18 @@ export class ContactDataComponent implements AfterViewInit {
 
   group = input.required<FormGroup>();
 
-  ngAfterViewInit(): void {
-    const group = this.group();
-    group.addControl('firstName', this.firstNameFormControl);
-    group.addControl('lastName', this.lastNameFormControl);
-    group.addControl('street', this.streetFormControl);
-    group.addControl('city', this.cityFormControl);
-    group.addControl('email', this.emailFormControl);
-    group.addControl('phone', this.phoneFormControl);
+  constructor() {
+    effect(() => {
+      const group = this.group();
+      if (!group) {
+        return;
+      }
+      group.addControl('firstName', this.firstNameFormControl);
+      group.addControl('lastName', this.lastNameFormControl);
+      group.addControl('street', this.streetFormControl);
+      group.addControl('city', this.cityFormControl);
+      group.addControl('email', this.emailFormControl);
+      group.addControl('phone', this.phoneFormControl);
+    });
   }
 }

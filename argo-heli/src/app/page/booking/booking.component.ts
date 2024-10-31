@@ -1,5 +1,5 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, Inject, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { ButtonLargeDirective } from '../../common/button/button-large.directive';
 import { ButtonComponent } from '../../common/button/button.component';
-import { Config, ConfigService } from '../../common/config.service';
+import { ConfigService } from '../../common/config.service';
+import { PhoneLinkPipe } from '../../common/phone-link.pipe';
 import { Flight } from '../flights/flight.interface';
 import { allFlights } from '../flights/flights/_all';
 import {
@@ -26,7 +27,6 @@ import { FlightDisclaimerComponent } from './flight-disclaimer/flight-disclaimer
 import { FlightSelectorItemComponent } from './flight-selector/flight-selector-item/flight-selector-item.component';
 import { FlightSelectorComponent } from './flight-selector/flight-selector.component';
 import { FlightSummaryComponent } from './flight-summary/flight-summary.component';
-import { PhoneLinkPipe } from '../../common/phone-link.pipe';
 
 @Component({
   selector: 'app-booking',
@@ -48,8 +48,8 @@ import { PhoneLinkPipe } from '../../common/phone-link.pipe';
   providers: [{ provide: BACKEND_SERVICE, useClass: DummyBackendService }],
 })
 export class BookingComponent {
-  private readonly fallbackEmailSubjectTemplate = `Anfrage für Rundflug am <DATE>`;
-  private readonly fallbackEmailBodyTemplate = `
+  private static readonly FALLBACK_EMAIL_SUBJECT_TEMPLATE = `Anfrage für Rundflug am <DATE>`;
+  private static readonly FALLBACK_EMAIL_BODY_TEMPLATE = `
   Guten Tag
 
   Ich möchte gerne einen Rundflug buchen am <DATE> um <TIME> Uhr ab <BASE> für <PASSENGERS> Personen.
@@ -74,18 +74,9 @@ export class BookingComponent {
     flightData: this.flightDataFormGroup,
     flight: this.flightFormControl,
   });
-
   flights = allFlights;
-
-  totalFlightCost: Observable<number | null>;
-  config: Config;
-
-  constructor(
-    @Inject(BACKEND_SERVICE) private readonly backendService: BackendService,
-    private readonly router: Router,
-    configService: ConfigService,
-  ) {
-    this.totalFlightCost = this.bookingFormGroup.valueChanges.pipe(
+  totalFlightCost: Observable<number | null> =
+    this.bookingFormGroup.valueChanges.pipe(
       map((form) => {
         const passengers = (form?.flightData as { passengers?: number })
           ?.passengers;
@@ -96,8 +87,10 @@ export class BookingComponent {
         return null;
       }),
     );
-    this.config = configService.getConfig();
-  }
+  config = inject(ConfigService).getConfig();
+
+  private readonly _backendService: BackendService = inject(BACKEND_SERVICE);
+  private readonly router = inject(Router);
 
   submit(): void {
     if (!this.bookingFormGroup.valid || this.loading()) {
@@ -110,7 +103,7 @@ export class BookingComponent {
 
     this.loading.set(true);
     this.errorEmailLink.set(null);
-    this.backendService
+    this._backendService
       .submit({
         contactData,
         flightData,
@@ -143,8 +136,8 @@ export class BookingComponent {
       '<EMAIL>': contactData.email,
       '<PHONE>': contactData.phone,
     };
-    let subject = this.fallbackEmailSubjectTemplate;
-    let body = this.fallbackEmailBodyTemplate;
+    let subject = BookingComponent.FALLBACK_EMAIL_SUBJECT_TEMPLATE;
+    let body = BookingComponent.FALLBACK_EMAIL_BODY_TEMPLATE;
 
     for (const [pattern, value] of Object.entries(valueMap)) {
       subject = subject.replace(pattern, value);

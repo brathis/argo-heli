@@ -8,11 +8,12 @@ import {
 
 @Injectable()
 export class DummyBackendService implements BackendService {
-  constructor() {}
   private _isLoading = signal(false);
+
   get isLoading(): Signal<boolean> {
     return this._isLoading;
   }
+
   submit(request: BackendRequest): Observable<BackendResponse> {
     this._isLoading.set(true);
     return timer(1500).pipe(

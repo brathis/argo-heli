@@ -1,5 +1,5 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { Injectable, signal, Signal } from '@angular/core';
+import { inject, Injectable, signal, Signal } from '@angular/core';
 import { Observable } from 'rxjs';
 import {
   BackendRequest,
@@ -10,7 +10,7 @@ import {
 @Injectable()
 export class NetlifyFormsBackendService implements BackendService {
   private _isLoading = signal(false);
-  constructor(private readonly httpClient: HttpClient) {}
+  private _httpClient = inject(HttpClient);
 
   get isLoading(): Signal<boolean> {
     return this._isLoading;
@@ -23,7 +23,7 @@ export class NetlifyFormsBackendService implements BackendService {
         'form-name': 'Booking Request',
       },
     });
-    return this.httpClient.post<BackendResponse>('/', netlifyPayload, {
+    return this._httpClient.post<BackendResponse>('/', netlifyPayload, {
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     });
   }
