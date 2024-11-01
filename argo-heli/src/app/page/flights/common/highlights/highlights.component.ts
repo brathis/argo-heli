@@ -49,6 +49,7 @@ export class HighlightsComponent {
       }
 
       // update the highlight image when a new highlight is selected
+      // TODO: nicer to use viewchild instead of vanilla JS
       const highlight = document.querySelector('#highlight');
       if (highlight) {
         (highlight as HTMLElement).style.setProperty(
