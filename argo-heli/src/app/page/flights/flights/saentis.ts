@@ -91,7 +91,7 @@ export const saentis: Flight = {
       {
         title: 'St. Gallen',
         description: 'OLMA lol',
-        imgSrc: '',
+        imgSrc: '/flights/saentis/highlights/01_st_gallen.jpeg',
         pathPosition: 0.12,
         legendX: +61,
         legendY: +11,
@@ -99,7 +99,7 @@ export const saentis: Flight = {
       {
         title: 'Appenzell',
         description: 'pschhhhhh...',
-        imgSrc: '',
+        imgSrc: '/flights/saentis/highlights/02_appenzell.jpeg',
         pathPosition: 0.26,
         legendX: +79,
         legendY: +54,
@@ -107,7 +107,7 @@ export const saentis: Flight = {
       {
         title: 'Säntis',
         description: 'Der Borg.',
-        imgSrc: '',
+        imgSrc: '/flights/saentis/highlights/03_saentis.jpeg',
         pathPosition: 0.56,
         legendX: +25,
         legendY: +90,
