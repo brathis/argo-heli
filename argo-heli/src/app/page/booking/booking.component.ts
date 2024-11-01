@@ -14,13 +14,13 @@ import { ConfigService } from '../../common/config.service';
 import { PhoneLinkPipe } from '../../common/phone-link.pipe';
 import { Flight } from '../flights/flight.interface';
 import { allFlights } from '../flights/flights/_all';
+import { AwsBackendService } from './backend/aws-backend.service';
 import {
   BACKEND_SERVICE,
   BackendService,
   ContactData,
   FlightData,
 } from './backend/backend-service.interface';
-import { DummyBackendService } from './backend/dummy-backend.service';
 import { ContactDataComponent } from './contact-data/contact-data.component';
 import { FlightDataComponent } from './flight-data/flight-data.component';
 import { FlightDisclaimerComponent } from './flight-disclaimer/flight-disclaimer.component';
@@ -45,7 +45,7 @@ import { FlightSummaryComponent } from './flight-summary/flight-summary.componen
     PhoneLinkPipe,
   ],
   templateUrl: './booking.component.html',
-  providers: [{ provide: BACKEND_SERVICE, useClass: DummyBackendService }],
+  providers: [{ provide: BACKEND_SERVICE, useClass: AwsBackendService }],
 })
 export class BookingComponent {
   private static readonly FALLBACK_EMAIL_SUBJECT_TEMPLATE = `Anfrage für Rundflug am <DATE>`;

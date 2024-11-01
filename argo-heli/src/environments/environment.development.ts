@@ -1,4 +1,4 @@
 export const environment = {
   bookingRequestEndpoint:
-    'https://ws1xf8s7la.execute-api.eu-central-2.amazonaws.com/Prod/booking-requests',
+    'https://q0shhgupe8.execute-api.eu-central-2.amazonaws.com/default/booking-requests',
 };

@@ -13,7 +13,7 @@ export class ConfigService {
 
   getConfig(): Config {
     return {
-      contactEmail: 'info@argo-heli.ch',
+      contactEmail: 'mathis@argo-heli.ch',
       contactPhone: '+41 76 707 85 27',
     };
   }
