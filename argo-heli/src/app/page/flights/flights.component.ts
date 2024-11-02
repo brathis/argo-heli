@@ -12,6 +12,7 @@ import { HighlightsComponent } from './common/highlights/highlights.component';
 import { PriceTagComponent } from './common/price-tag/price-tag.component';
 import { Flight } from './flight.interface';
 import { allFlights, allFlightsMap } from './flights/_all';
+import { FlightSectionComponent } from "./flight-section/flight-section.component";
 
 @Component({
   selector: 'app-flights',
@@ -26,7 +27,8 @@ import { allFlights, allFlightsMap } from './flights/_all';
     HighlightsComponent,
     HeroLayerDirective,
     NgOptimizedImage,
-  ],
+    FlightSectionComponent
+],
   templateUrl: './flights.component.html',
 })
 export class FlightsComponent {
