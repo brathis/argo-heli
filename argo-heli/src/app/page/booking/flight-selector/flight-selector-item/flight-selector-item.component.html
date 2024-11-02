@@ -5,10 +5,10 @@
   >
     <div
       #box
-      class="box w-[450px] h-[250px] rounded-[5px] relative bg-cover cursor-pointer flex flex-col items-end justify-between p-[16px] mb-[8px] overflow-hidden shadow-[0px_2px_4px_#cbd7dc] group-[.is-selected]:border-solid group-[.is-selected]:border-[5px] group-[.is-selected]:border-primary-500 group-[.is-selected]:bg-cover"
+      class="box relative mb-[8px] flex h-[250px] w-[250px] cursor-pointer flex-col items-end justify-between overflow-hidden rounded-[5px] bg-cover p-[16px] shadow-[0px_2px_4px_#cbd7dc] group-[.is-selected]:border-[5px] group-[.is-selected]:border-solid group-[.is-selected]:border-primary-500 group-[.is-selected]:bg-cover sm:w-[450px]"
     >
       <h4
-        class="text-[32px] font-bold text-gray-400 uppercase tracking-[0.04] group-[.is-selected]:text-primary-900"
+        class="text-3xl font-bold uppercase tracking-[0.04] text-gray-400 group-[.is-selected]:text-primary-900 sm:text-[32px]"
       >
         {{ flight().title }}
       </h4>
@@ -26,7 +26,7 @@
         </span>
       </div>
       <div
-        class="absolute hidden w-[120px] h-[120px] rounded-[50%] bottom-[-60px] left-[-60px] bg-[length:25%] bg-no-repeat bg-primary-500 bg-[75%_25%] bg-[url('/booking/check.svg')] group-[.is-selected]:block"
+        class="absolute bottom-[-60px] left-[-60px] hidden h-[120px] w-[120px] rounded-[50%] bg-primary-500 bg-[url('/booking/check.svg')] bg-[length:25%] bg-[75%_25%] bg-no-repeat group-[.is-selected]:block"
       ></div>
     </div>
   </span>
