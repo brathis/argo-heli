@@ -1,14 +1,16 @@
 <div
-  class="sm:flex py-8 flex-row items-center justify-between px-16 text-[16px] font-semibold"
+  class="text-[16px] font-semibold px-16 py-8 flex flex-col gap-y-4 justify-between lg:flex-row lg:items-center"
 >
-  <div class="sm:flex flex-row gap-16">
-    <span class="block py-2 text-gray-200">&copy; {{ currentYear }}</span>
-    <a class="block py-2 text-gray-500" href="#">Impressum</a>
-    <a class="block py-2 text-gray-500" href="#">FAQ</a>
-    <a class="block py-2 text-gray-500" href="#">Datenschutzerklärung</a>
+  <div class="flex flex-col gap-y-4 lg:flex-row lg:gap-x-16">
+    <span class="text-gray-200 max-lg:mb-4">&copy; {{ currentYear }}</span>
+    <a class="text-gray-500" href="#">Impressum</a>
+    <a class="text-gray-500" href="#">FAQ</a>
+    <a class="text-gray-500" href="#">Datenschutzerklärung</a>
   </div>
-  <div class="sm:flex flex-col gap-4 text-gray-300 underline">
-    <div class="flex flex-row gap-4 py-2 sm:py-0">
+  <div
+    class="text-gray-300 underline flex flex-col gap-y-4 lg:gap-y-4 max-lg:mt-4"
+  >
+    <div class="flex flex-row gap-x-4">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
@@ -25,8 +27,7 @@
       </svg>
       <a [href]="config.contactPhone | phoneLink">{{ config.contactPhone }}</a>
     </div>
-
-    <div class="flex flex-row gap-4 py-2 sm:py-0">
+    <div class="flex flex-row gap-x-4">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
