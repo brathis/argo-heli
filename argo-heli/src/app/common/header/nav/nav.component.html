@@ -1,13 +1,15 @@
-<nav class="lg:flex flex-row gap-x-[128px] justify-end items-end">
+<nav
+  class="flex h-full flex-col items-stretch justify-end gap-x-[128px] lg:flex-row lg:items-center"
+>
   @for (route of topLevelRoutes; track route.path) {
     <a
-      class="flex flex-col text-primary-300 text-[32px] font-bold group"
-      routerLinkActive="!text-primary-700 is-active"
+      class="group flex flex-col gap-y-1 border-t-2 border-primary-100 px-8 py-4 text-lg font-bold text-primary-300 sm:gap-y-2 sm:border-t-0 sm:text-[32px]"
+      routerLinkActive="!text-primary-700 bg-primary-100 sm:bg-inherit is-active"
       [routerLinkActiveOptions]="{ exact: route.path === '' }"
       [routerLink]="route.path"
     >
       <div
-        class="link-active-marker h-[3px] w-[36px] bg-primary-700 hidden group-[.is-active]:block"
+        class="link-active-marker invisible h-[3px] w-[36px] bg-primary-700 group-[.is-active]:visible"
       ></div>
       {{ route.title }}
     </a>
