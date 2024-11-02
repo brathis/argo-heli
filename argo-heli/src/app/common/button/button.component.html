@@ -1,5 +1,5 @@
 @if (link()) {
-  <a [ngClass]="classes()" [routerLink]="link()">
+  <a [ngClass]="classes()" [routerLink]="link()" [queryParams]="queryParams()">
     {{ label() }}
   </a>
 } @else {

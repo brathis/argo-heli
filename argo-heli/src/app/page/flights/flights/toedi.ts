@@ -58,6 +58,7 @@ const mapSvg = `
 `;
 
 export const toedi: Flight = {
+  id: 'toedi',
   title: 'Tödi',
   path: '/flights/toedi',
   thumbnailPath: '/flights/toedi/thumbnail.webp',

@@ -50,6 +50,7 @@ const mapSvg = `
 `;
 
 export const churfirsten: Flight = {
+  id: 'churfirsten',
   title: 'Churfirsten',
   path: '/flights/churfirsten',
   thumbnailPath: '/flights/churfirsten/thumbnail.webp',

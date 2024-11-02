@@ -1,4 +1,7 @@
 export interface Flight {
+  /** Internal identifier of the flight for use in URLs, HTML attributes, etc. */
+  id: string;
+
   /** The name of the flight. */
   title: string;
 

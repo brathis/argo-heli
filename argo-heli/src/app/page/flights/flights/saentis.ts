@@ -50,6 +50,7 @@ const mapSvg = `
 `;
 
 export const saentis: Flight = {
+  id: 'saentis',
   title: 'Säntis',
   path: '/flights/saentis',
   thumbnailPath: '/flights/saentis/thumbnail.webp',

@@ -6,14 +6,14 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
 import { ButtonLargeDirective } from '../../common/button/button-large.directive';
 import { ButtonComponent } from '../../common/button/button.component';
 import { ConfigService } from '../../common/config.service';
 import { PhoneLinkPipe } from '../../common/phone-link.pipe';
 import { Flight } from '../flights/flight.interface';
-import { allFlights } from '../flights/flights/_all';
+import { allFlights, allFlightsMap } from '../flights/flights/_all';
 import { AwsBackendService } from './backend/aws-backend.service';
 import {
   BACKEND_SERVICE,
@@ -60,15 +60,17 @@ export class BookingComponent {
   <EMAIL>
   <PHONE>
   `;
+  private _route = inject(ActivatedRoute);
 
   loading = signal(false);
   errorEmailLink = signal<string | null>(null);
 
   contactDataFormGroup = new FormGroup({});
   flightDataFormGroup = new FormGroup({});
-  flightFormControl = new FormControl<Flight | null>(null, [
-    Validators.required,
-  ]);
+  flightFormControl = new FormControl<Flight | null>(
+    this.getFlightFromQueryParam(),
+    [Validators.required],
+  );
   bookingFormGroup = new FormGroup({
     contactData: this.contactDataFormGroup,
     flightData: this.flightDataFormGroup,
@@ -147,5 +149,13 @@ export class BookingComponent {
     return `mailto:${encodeURIComponent(
       `${this.config.contactEmail}?subject=${subject}&body=${body}`,
     )}`;
+  }
+
+  private getFlightFromQueryParam(): Flight | null {
+    const flightId = this._route.snapshot.queryParamMap.get('flight');
+    if (!flightId) {
+      return null;
+    }
+    return allFlightsMap[flightId];
   }
 }
