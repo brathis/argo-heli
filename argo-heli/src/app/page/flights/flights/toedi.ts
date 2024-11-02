@@ -103,7 +103,7 @@ export const toedi: Flight = {
           '- und das 360 Grad-Panorama auf dem Grossen Mythen ist überwältigend! ' +
           'Rund um die beiden Mythen gibt es herrliche Wanderwege und abgelegene Pfade ' +
           'durch das voralpine Naturparadies mit dem grössten Naturschutzgebiet im Kanton Schwyz.',
-        imgSrc: '/flights/toedi/highlights/mythen.webp',
+        imgSrc: '/flights/toedi/highlights/01_einsiedeln.jpeg',
         pathPosition: 0.245,
         legendX: 0,
         legendY: 41,
@@ -115,7 +115,7 @@ export const toedi: Flight = {
           '- und das 360 Grad-Panorama auf dem Grossen Mythen ist überwältigend! ' +
           'Rund um die beiden Mythen gibt es herrliche Wanderwege und abgelegene Pfade ' +
           'durch das voralpine Naturparadies mit dem grössten Naturschutzgebiet im Kanton Schwyz.',
-        imgSrc: '/flights/toedi/highlights/mythen.webp',
+        imgSrc: '/flights/toedi/highlights/02_mythen.jpeg',
         pathPosition: 0.295,
         legendX: -6,
         legendY: 50,
@@ -127,7 +127,7 @@ export const toedi: Flight = {
           '- und das 360 Grad-Panorama auf dem Grossen Mythen ist überwältigend! ' +
           'Rund um die beiden Mythen gibt es herrliche Wanderwege und abgelegene Pfade ' +
           'durch das voralpine Naturparadies mit dem grössten Naturschutzgebiet im Kanton Schwyz.',
-        imgSrc: '/flights/toedi/highlights/mythen.webp',
+        imgSrc: '/flights/toedi/highlights/03_oberalppass.jpeg',
         pathPosition: 0.51,
         legendX: 14,
         legendY: 93,
@@ -135,7 +135,7 @@ export const toedi: Flight = {
       {
         title: 'Tödi',
         description: 'Tödi beshde haha',
-        imgSrc: '/flights/toedi/highlights/toedi.webp',
+        imgSrc: '/flights/toedi/highlights/04_toedi.jpeg',
         pathPosition: 0.64,
         legendX: 63,
         legendY: 73,
@@ -143,7 +143,7 @@ export const toedi: Flight = {
       {
         title: 'Glärnisch',
         description: 'Tödi beshde haha',
-        imgSrc: '/flights/toedi/highlights/toedi.webp',
+        imgSrc: '/flights/toedi/highlights/05_glaernisch.jpeg',
         pathPosition: 0.73,
         legendX: 68,
         legendY: 61,
@@ -151,7 +151,7 @@ export const toedi: Flight = {
       {
         title: 'Walensee',
         description: 'Tödi beshde haha',
-        imgSrc: '/flights/toedi/highlights/toedi.webp',
+        imgSrc: '/flights/toedi/highlights/06_walensee.jpeg',
         pathPosition: 0.8,
         legendX: 72,
         legendY: 45,
