@@ -91,7 +91,7 @@ export const churfirsten: Flight = {
       {
         title: 'St. Gallen',
         description: 'hehe',
-        imgSrc: '',
+        imgSrc: '/flights/churfirsten/highlights/01_st_gallen.jpeg',
         pathPosition: 0.91,
         legendX: 73,
         legendY: 38,
@@ -99,7 +99,7 @@ export const churfirsten: Flight = {
       {
         title: 'Appenzell',
         description: 'hehe',
-        imgSrc: '',
+        imgSrc: '/flights/churfirsten/highlights/02_appenzell.jpeg',
         pathPosition: 0.82,
         legendX: 76,
         legendY: 49,
@@ -107,7 +107,7 @@ export const churfirsten: Flight = {
       {
         title: 'Säntis',
         description: 'hehe',
-        imgSrc: '',
+        imgSrc: '/flights/churfirsten/highlights/03_saentis.jpeg',
         pathPosition: 0.72,
         legendX: 74,
         legendY: 63,
@@ -115,7 +115,7 @@ export const churfirsten: Flight = {
       {
         title: 'Walensee',
         description: 'hehe',
-        imgSrc: '',
+        imgSrc: '/flights/churfirsten/highlights/04_walensee.mp4',
         pathPosition: 0.5,
         legendX: 38,
         legendY: 86,
@@ -123,7 +123,7 @@ export const churfirsten: Flight = {
       {
         title: 'Speer',
         description: 'hehe',
-        imgSrc: '',
+        imgSrc: '/flights/churfirsten/highlights/05_amden.jpeg',
         pathPosition: 0.36,
         legendX: 25,
         legendY: 55,
