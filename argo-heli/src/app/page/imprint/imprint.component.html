@@ -1,0 +1,19 @@
+<div class="mx-auto px-6 py-[64px] max-w-[1000px]">
+  <h3 class="text-[32px] font-bold text-gray-500 mb-[32px]">Impressum</h3>
+  <address class="not-italic">
+    Mathis Dedial<br />
+    Albisstrasse 124<br />
+    8038 Zürich <br />
+    <a
+      class="underline text-primary-600"
+      [href]="config.contactEmail | emailLink"
+    >
+      {{ config.contactEmail }} </a
+    ><br />
+    <a
+      class="underline text-primary-600"
+      [href]="config.contactPhone | phoneLink"
+      >{{ config.contactPhone }}</a
+    >
+  </address>
+</div>
