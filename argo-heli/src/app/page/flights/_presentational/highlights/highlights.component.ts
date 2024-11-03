@@ -15,7 +15,6 @@ import { MapLegendComponent } from './map-legend/map-legend.component';
   standalone: true,
   imports: [MapLegendComponent],
   templateUrl: './highlights.component.html',
-  styleUrl: './highlights.component.scss',
 })
 export class HighlightsComponent {
   highlights = input.required<HighlightsConfig>();
@@ -46,16 +45,6 @@ export class HighlightsComponent {
       if (heli) {
         (heli as HTMLElement).style.offsetDistance =
           `${100 * currentHighlight.pathPosition}%`;
-      }
-
-      // update the highlight image when a new highlight is selected
-      // TODO: nicer to use viewchild instead of vanilla JS
-      const highlight = document.querySelector('#highlight');
-      if (highlight) {
-        (highlight as HTMLElement).style.setProperty(
-          '--background-image-url',
-          `url(${currentHighlight.imgSrc})`,
-        );
       }
     });
   }

@@ -61,7 +61,10 @@ export interface HighlightConfig {
   description: string;
 
   /** URL/path to the highlight photo. */
-  imgSrc: string;
+  imgSrc?: string;
+
+  /** URL/path to the highlight video. If both imgSrc and videoSrc are set, the former takes precedence. */
+  videoSrc?: string;
 
   /** Position along the flight path in range [0, 1]. */
   pathPosition: number;

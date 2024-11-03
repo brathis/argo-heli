@@ -116,7 +116,7 @@ export const churfirsten: Flight = {
       {
         title: 'Walensee',
         description: 'hehe',
-        imgSrc: '/flights/churfirsten/highlights/04_walensee.mp4',
+        videoSrc: '/flights/churfirsten/highlights/04_churfirsten.mp4',
         pathPosition: 0.5,
         legendX: 38,
         legendY: 86,

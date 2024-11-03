@@ -52,6 +52,12 @@ module.exports = {
         md: "0 4px 4px rgba(0, 0, 0, 0.15)",
         lg: "0 8px 8px rgba(0, 0, 0, 0.15)",
       },
+      backgroundImage: {
+        whiteHorizontal:
+          "linear-gradient(to right, rgba(100% 100% 100% / 1) 0%, rgba(100% 100% 100% / 0) 64%)",
+        whiteVertical:
+          "linear-gradient(to bottom, rgba(100% 100% 100% / 1) 0%, rgba(100% 100% 100% / 0) 64%)",
+      },
     },
   },
   plugins: [],
