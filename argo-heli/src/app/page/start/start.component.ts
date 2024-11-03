@@ -4,6 +4,7 @@ import { HeroComponent } from '../flights/_presentational/hero/hero.component';
 import { OfferingsComponent } from './_presentational/offerings/offerings.component';
 import { ReviewsComponent } from './_presentational/reviews/reviews.component';
 import { ReviewComponent } from "./_presentational/reviews/review/review.component";
+import { PortraitComponent } from "./_presentational/portrait/portrait.component";
 
 @Component({
   selector: 'app-start',
@@ -13,7 +14,8 @@ import { ReviewComponent } from "./_presentational/reviews/review/review.compone
     HeroLayerDirective,
     OfferingsComponent,
     ReviewsComponent,
-    ReviewComponent
+    ReviewComponent,
+    PortraitComponent
 ],
   templateUrl: './start.component.html',
 })
