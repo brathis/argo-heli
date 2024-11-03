@@ -1,0 +1,22 @@
+<div
+  class="flex flex-col items-stretch gap-y-8 px-8 py-8 sm:items-center sm:gap-y-32 sm:px-16 sm:py-32"
+>
+  <app-offering
+    title="Rundflüge ab zwei Standorten in der Ostschweiz"
+    imgSrc="/start/bases.svg"
+  >
+    Deinen Rund- oder Taxiflug kannst du ausgehend von den Flugplätzen
+    Sitterdorf im Thurgau oder St. Gallen - Altenrhein nähe Rorschach buchen.
+    Auf Anfrage sind auch Flüge von anderen Plätzen möglich.
+  </app-offering>
+  <app-offering title="Selbstkostenpreis" imgSrc="/start/pricing.svg">
+    Wir mögen pragmatische Lösungen: Du bezahlst nur für die effektiv geflogene
+    Flugdauer, auf die Minute genau! Die Flugkosten werden geteilt durch die
+    Anzahl Passagiere. Das hält die Kosten tief. Ist der Heli gefüllt, gibt es
+    einen
+    <a class="text-primary-500 underline" routerLink="/flights/saentis"
+      >Säntisrundflug</a
+    >
+    schon ab CHF {{ saentisCost }}.- pro Person!
+  </app-offering>
+</div>
