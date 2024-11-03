@@ -1,14 +1,15 @@
 <div
-  class="text-[16px] font-semibold px-16 py-8 flex flex-col gap-y-4 justify-between lg:flex-row lg:items-center border-t-2 border-primary-100"
+  class="flex flex-col justify-between gap-y-4 border-t-2 border-primary-100 px-16 py-8 text-[16px] font-semibold lg:flex-row lg:items-center"
 >
   <div class="flex flex-col gap-y-4 lg:flex-row lg:gap-x-16">
     <span class="text-gray-200 max-lg:mb-4">&copy; {{ currentYear }}</span>
     <a class="text-gray-500" routerLink="/imprint">Impressum</a>
-    <a class="text-gray-500" href="#">FAQ</a>
-    <a class="text-gray-500" href="#">Datenschutzerklärung</a>
+    <a class="text-gray-500" routerLink="/privacy-policy"
+      >Datenschutzerklärung</a
+    >
   </div>
   <div
-    class="text-gray-300 underline flex flex-col gap-y-4 lg:gap-y-4 max-lg:mt-4"
+    class="flex flex-col gap-y-4 text-gray-300 underline max-lg:mt-4 lg:gap-y-4"
   >
     <div class="flex flex-row gap-x-4">
       <svg
