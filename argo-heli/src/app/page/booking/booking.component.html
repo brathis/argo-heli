@@ -1,14 +1,14 @@
 <div class="bg-gray-50">
-  <div class="bg-gray-50 mx-auto px-6 py-[64px] max-w-[1000px]">
-    <h3 class="text-[32px] font-bold text-gray-500 mb-[64px]">
+  <div class="mx-auto max-w-[1000px] bg-gray-50 px-6 py-[64px]">
+    <h3 class="mb-[64px] text-[32px] font-bold text-gray-500">
       Rundflug buchen
     </h3>
     <app-contact-data
-      class="block mb-[64px]"
+      class="mb-[64px] block"
       [group]="this.contactDataFormGroup"
     ></app-contact-data>
     <app-flight-data
-      class="block mb-[64px]"
+      class="mb-[64px] block"
       [group]="this.flightDataFormGroup"
     ></app-flight-data>
     <app-flight-selector [formControl]="flightFormControl">
@@ -18,29 +18,17 @@
     </app-flight-selector>
     <app-flight-summary [total]="totalFlightCost | async"></app-flight-summary>
     <app-flight-disclaimer></app-flight-disclaimer>
-    @if (errorEmailLink()) {
-      <div class="text-[20px] mt-[32px] p-[16px] bg-red-100 rounded-[5px]">
-        <h3 class="font-bold text-red-600 mb-[12px]">
-          Das hat leider nicht geklappt :(
-        </h3>
-        <p class="text-red-800">
-          Bei der Übermittlung Ihrer Buchungsanfrage ist etwas schiefgegangen.
-          Das tut uns leid. Gerne nehmen wir Ihre Anfrage dennoch per E-Mail
-          entgegen unter
-          <a class="underline" [href]="errorEmailLink()">{{
-            config.contactEmail
-          }}</a
-          >, oder telefonisch unter
-          <a class="underline" [href]="config.contactPhone | phoneLink">{{
-            config.contactPhone
-          }}</a
-          >.
-        </p>
-      </div>
+    @let currentErrorEmailLink = errorEmailLink();
+    @if (currentErrorEmailLink) {
+      <app-form-error
+        [contactEmail]="config.contactEmail"
+        [contactPhone]="config.contactPhone"
+        [errorEmailLink]="currentErrorEmailLink"
+      ></app-form-error>
     }
     <app-button
       appButtonLarge
-      class="block mt-[32px]"
+      class="mt-[32px] block"
       label="Buchen"
       [enabled]="bookingFormGroup.valid && !this.loading()"
       (click)="submit()"

@@ -1,27 +1,11 @@
 .button {
-  @apply block
-  bg-primary-200
-  text-primary-400
-    font-bold
-    text-[24px]
-    w-[150px]
-    h-[50px]
-    border-none
-    text-center
-    leading-[50px]
-    rounded-[5px]
-    cursor-not-allowed
-    drop-shadow-md;
+  @apply block h-[50px] w-[150px] cursor-not-allowed rounded-[5px] border-none bg-primary-200 text-center text-[24px] font-bold leading-[50px] text-primary-400 shadow-sm;
 }
 
 .button--large {
-  @apply text-[36px]
-    w-[250px]
-    h-[70px];
+  @apply h-[70px] w-[250px] text-[36px];
 }
 
 .button--enabled {
-  @apply bg-primary-500
-  text-white
-  cursor-pointer;
+  @apply cursor-pointer bg-primary-500 text-white;
 }

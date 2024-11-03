@@ -27,6 +27,7 @@ import { FlightDisclaimerComponent } from './flight-disclaimer/flight-disclaimer
 import { FlightSelectorItemComponent } from './flight-selector/flight-selector-item/flight-selector-item.component';
 import { FlightSelectorComponent } from './flight-selector/flight-selector.component';
 import { FlightSummaryComponent } from './flight-summary/flight-summary.component';
+import { FormErrorComponent } from './form-error/form-error.component';
 
 @Component({
   selector: 'app-booking',
@@ -43,6 +44,7 @@ import { FlightSummaryComponent } from './flight-summary/flight-summary.componen
     ButtonComponent,
     ButtonLargeDirective,
     PhoneLinkPipe,
+    FormErrorComponent,
   ],
   templateUrl: './booking.component.html',
   providers: [{ provide: BACKEND_SERVICE, useClass: AwsBackendService }],

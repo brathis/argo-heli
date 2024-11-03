@@ -1,0 +1,17 @@
+<div
+  class="shadow-insetMd mt-[32px] rounded-[5px] bg-red-100 p-[16px] text-[20px]"
+>
+  <h3 class="mb-[12px] font-bold text-red-600">
+    Das hat leider nicht geklappt :(
+  </h3>
+  <p class="text-red-800">
+    Bei der Übermittlung Ihrer Buchungsanfrage ist etwas schiefgegangen. Das tut
+    uns leid. Gerne nehmen wir Ihre Anfrage dennoch per E-Mail entgegen unter
+    <a class="underline" [href]="errorEmailLink()">{{ contactEmail() }}</a
+    >, oder telefonisch unter
+    <a class="underline" [href]="contactPhone() | phoneLink">{{
+      contactPhone()
+    }}</a
+    >.
+  </p>
+</div>

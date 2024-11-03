@@ -45,6 +45,13 @@ module.exports = {
       fontFamily: {
         sans: ["Instrument Sans", "system-ui", "sans"],
       },
+      boxShadow: {
+        insetSm: "0 2px 2px rgba(0, 0, 0, 0.15) inset",
+        insetMd: "0 4px 4px rgba(0, 0, 0, 0.15) inset",
+        sm: "0 2px 2px rgba(0, 0, 0, 0.15)",
+        md: "0 4px 4px rgba(0, 0, 0, 0.15)",
+        lg: "0 8px 8px rgba(0, 0, 0, 0.15)",
+      },
     },
   },
   plugins: [],
