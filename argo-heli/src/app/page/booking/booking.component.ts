@@ -21,13 +21,13 @@ import {
   ContactData,
   FlightData,
 } from './backend/backend-service.interface';
-import { ContactDataComponent } from './contact-data/contact-data.component';
-import { FlightDataComponent } from './flight-data/flight-data.component';
-import { FlightDisclaimerComponent } from './flight-disclaimer/flight-disclaimer.component';
-import { FlightSelectorItemComponent } from './flight-selector/flight-selector-item/flight-selector-item.component';
-import { FlightSelectorComponent } from './flight-selector/flight-selector.component';
-import { FlightSummaryComponent } from './flight-summary/flight-summary.component';
-import { FormErrorComponent } from './form-error/form-error.component';
+import { ContactDataComponent } from './_presentational/contact-data/contact-data.component';
+import { FlightDataComponent } from './_presentational/flight-data/flight-data.component';
+import { FlightDisclaimerComponent } from './_presentational/flight-disclaimer/flight-disclaimer.component';
+import { FlightSelectorItemComponent } from './_presentational/flight-selector/flight-selector-item/flight-selector-item.component';
+import { FlightSelectorComponent } from './_presentational/flight-selector/flight-selector.component';
+import { FlightSummaryComponent } from './_presentational/flight-summary/flight-summary.component';
+import { FormErrorComponent } from './_presentational/form-error/form-error.component';
 
 @Component({
   selector: 'app-booking',

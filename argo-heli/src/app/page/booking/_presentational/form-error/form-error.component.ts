@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { PhoneLinkPipe } from '../../../common/phone-link.pipe';
+import { PhoneLinkPipe } from '../../../../common/phone-link.pipe';
 
 @Component({
   selector: 'app-form-error',

@@ -9,7 +9,7 @@ import {
   viewChild,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { Flight } from '../../../flights/flight.interface';
+import { Flight } from '../../../../flights/flight.interface';
 
 @Component({
   selector: 'app-flight-selector-item',

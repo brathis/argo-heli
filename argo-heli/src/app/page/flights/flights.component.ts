@@ -5,14 +5,14 @@ import { ButtonComponent } from '../../common/button/button.component';
 import {
   SecondaryNavComponent,
   SecondaryRoute,
-} from '../../common/secondary-nav/secondary-nav.component';
-import { HeroLayerDirective } from './common/hero/hero-layer.directive';
-import { HeroComponent } from './common/hero/hero.component';
-import { HighlightsComponent } from './common/highlights/highlights.component';
-import { PriceTagComponent } from './common/price-tag/price-tag.component';
+} from './_presentational/secondary-nav/secondary-nav.component';
+import { FlightSectionComponent } from './_presentational/flight-section/flight-section.component';
+import { HeroLayerDirective } from './_presentational/hero/hero-layer.directive';
+import { HeroComponent } from './_presentational/hero/hero.component';
+import { HighlightsComponent } from './_presentational/highlights/highlights.component';
+import { PriceTagComponent } from './_presentational/price-tag/price-tag.component';
 import { Flight } from './flight.interface';
 import { allFlights, allFlightsMap } from './flights/_all';
-import { FlightSectionComponent } from "./flight-section/flight-section.component";
 
 @Component({
   selector: 'app-flights',
@@ -27,8 +27,8 @@ import { FlightSectionComponent } from "./flight-section/flight-section.componen
     HighlightsComponent,
     HeroLayerDirective,
     NgOptimizedImage,
-    FlightSectionComponent
-],
+    FlightSectionComponent,
+  ],
   templateUrl: './flights.component.html',
 })
 export class FlightsComponent {

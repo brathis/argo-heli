@@ -7,7 +7,7 @@ import {
   signal,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Flight } from '../../flights/flight.interface';
+import { Flight } from '../../../flights/flight.interface';
 import { FlightSelectorItemComponent } from './flight-selector-item/flight-selector-item.component';
 
 @Component({
