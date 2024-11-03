@@ -1,11 +1,11 @@
-<div class="flex flex-col" (click)="clicked.emit()">
+<div class="flex snap-center snap-always flex-col" (click)="clicked.emit()">
   <span
     class="group"
     [ngClass]="{ 'is-selected': selected === null ? false : selected() }"
   >
     <div
       #box
-      class="box relative mb-[8px] flex h-[250px] w-[250px] cursor-pointer flex-col items-end justify-between overflow-hidden rounded-[5px] bg-cover p-[16px] shadow-sm group-[.is-selected]:border-[5px] group-[.is-selected]:border-solid group-[.is-selected]:border-primary-500 group-[.is-selected]:bg-cover sm:w-[450px]"
+      class="box relative mb-[8px] flex h-[250px] w-[250px] cursor-pointer flex-col items-end justify-between overflow-hidden rounded-[5px] bg-cover p-[16px] shadow-sm group-[.is-selected]:bg-cover group-[.is-selected]:outline group-[.is-selected]:outline-[5px] group-[.is-selected]:outline-primary-500 sm:w-[450px]"
     >
       <h4
         class="text-3xl font-bold uppercase tracking-[0.04] text-gray-400 group-[.is-selected]:text-primary-900 sm:text-[32px]"

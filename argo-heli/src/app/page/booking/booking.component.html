@@ -13,7 +13,10 @@
     ></app-flight-data>
     <app-flight-selector [formControl]="flightFormControl">
       @for (flight of flights; track $index) {
-        <app-flight-selector-item [flight]="flight"></app-flight-selector-item>
+        <app-flight-selector-item
+          [flight]="flight"
+          class="first:ml-[149px] last:mr-[149px] sm:first:ml-[249px] sm:last:mr-[249px]"
+        ></app-flight-selector-item>
       }
     </app-flight-selector>
     <app-flight-summary [total]="totalFlightCost | async"></app-flight-summary>
