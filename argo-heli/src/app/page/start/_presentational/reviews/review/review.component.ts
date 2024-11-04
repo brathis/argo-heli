@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { StarComponent } from "../star/star.component";
+import { StarComponent } from '../star/star.component';
 
 @Component({
   selector: 'app-review',
@@ -10,4 +10,5 @@ import { StarComponent } from "../star/star.component";
 export class ReviewComponent {
   imgSrc = input.required<string>();
   title = input.required<string>();
+  name = input<string>();
 }
