@@ -54,9 +54,9 @@ module.exports = {
       },
       backgroundImage: {
         whiteHorizontal:
-          "linear-gradient(to right, rgba(100% 100% 100% / 1) 0%, rgba(100% 100% 100% / 0) 64%)",
+          "linear-gradient(to right, rgba(100% 100% 100% / 1) 0%, rgba(100% 100% 100% / 0) 25%)",
         whiteVertical:
-          "linear-gradient(to bottom, rgba(100% 100% 100% / 1) 0%, rgba(100% 100% 100% / 0) 64%)",
+          "linear-gradient(to bottom, rgba(100% 100% 100% / 1) 0%, rgba(100% 100% 100% / 0) 25%)",
       },
     },
   },

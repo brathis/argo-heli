@@ -23,13 +23,13 @@ const mapSvg = `
       style="fill:#88cdff;fill-rule:nonzero;" />
   </g>
   <g id="Legends">
-    <path d="M477.333,744.357l139.07,31.871" style="fill:none;stroke:#33fff3;stroke-width:3.13px;" />
-    <path d="M436.862,898.096l129.541,31.257" style="fill:none;stroke:#33fff3;stroke-width:3.13px;" />
+    <path d="M477.333,744.357l139.07,31.871" style="fill:none;stroke:#4fb5e8;stroke-width:3.13px;" />
+    <path d="M436.862,898.096l129.541,31.257" style="fill:none;stroke:#4fb5e8;stroke-width:3.13px;" />
     <path d="M294.727,713.552l-150.199,-62.324"
-      style="fill:none;stroke:#33fff3;stroke-width:3.13px;" />
-    <path d="M530.574,614.599l123.329,-22.746" style="fill:none;stroke:#33fff3;stroke-width:3.13px;" />
-    <path d="M289.397,1032.75l-4.244,109.101" style="fill:none;stroke:#33fff3;stroke-width:3.13px;" />
-    <path d="M329.395,625.357l-62.992,-64.754" style="fill:none;stroke:#33fff3;stroke-width:3.13px;" />
+      style="fill:none;stroke:#4fb5e8;stroke-width:3.13px;" />
+    <path d="M530.574,614.599l123.329,-22.746" style="fill:none;stroke:#4fb5e8;stroke-width:3.13px;" />
+    <path d="M289.397,1032.75l-4.244,109.101" style="fill:none;stroke:#4fb5e8;stroke-width:3.13px;" />
+    <path d="M329.395,625.357l-62.992,-64.754" style="fill:none;stroke:#4fb5e8;stroke-width:3.13px;" />
   </g>
   <g id="Route---Highlights" serif:id="Route &amp; Highlights">
     <path id="Route"

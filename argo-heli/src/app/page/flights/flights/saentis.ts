@@ -17,9 +17,9 @@ const mapSvg = `
       style="fill:#88cdff;" />
   </g>
   <g id="Legends">
-    <path d="M540.315,436.493l115.935,-17.723" style="fill:none;stroke:#33fff3;stroke-width:4.17px;" />
-    <path d="M502.815,364.618l90.935,-216.023" style="fill:none;stroke:#33fff3;stroke-width:4.17px;" />
-    <path d="M295.77,643.127l193.367,-129.129" style="fill:none;stroke:#33fff3;stroke-width:4.17px;" />
+    <path d="M540.315,436.493l115.935,-17.723" style="fill:none;stroke:#4fb5e8;stroke-width:4.17px;" />
+    <path d="M502.815,364.618l90.935,-216.023" style="fill:none;stroke:#4fb5e8;stroke-width:4.17px;" />
+    <path d="M295.77,643.127l193.367,-129.129" style="fill:none;stroke:#4fb5e8;stroke-width:4.17px;" />
   </g>
   <g id="Route---Highlights" serif:id="Route &amp; Highlights">
     <circle id="Highlight---LSZV" serif:id="Highlight - LSZV" cx="457.658" cy="287.644" r="3.913"
@@ -91,7 +91,8 @@ export const saentis: Flight = {
     highlights: [
       {
         title: 'St. Gallen',
-        description: 'OLMA lol',
+        description:
+          'Nur wenige Minuten nach dem Start überfliegen wir die Stadt St. Gallen.',
         imgSrc: '/flights/saentis/highlights/01_st_gallen.jpeg',
         pathPosition: 0.12,
         legendX: +61,
@@ -99,7 +100,9 @@ export const saentis: Flight = {
       },
       {
         title: 'Appenzell',
-        description: 'pschhhhhh...',
+        description:
+          'Weiter geht es im Steigflug über den Hauptort des Kantons Appenzell Innerrhoden. ' +
+          'Von hier erhaschen wir einen ersten Anblick auf den Alpstein und den Säntis in der Ferne.',
         imgSrc: '/flights/saentis/highlights/02_appenzell.jpeg',
         pathPosition: 0.26,
         legendX: +79,
@@ -107,7 +110,11 @@ export const saentis: Flight = {
       },
       {
         title: 'Säntis',
-        description: 'Der Borg.',
+        description:
+          'Nach rund einer Viertelstunde Flugzeit nähern wir uns dem Highlight dieses Rundflugs: ' +
+          'Dem Säntis. Mit einer Höhe von 2505 m.ü.M. ist er der grösste Berg im Kanton St. Gallen. ' +
+          'Bevor wir den Rückflug antreten drehen wir aber noch ein paar Kreise, was mehr als genug ' +
+          'Gelegenheit für Fotos und Videos bietet.',
         imgSrc: '/flights/saentis/highlights/03_saentis.jpeg',
         pathPosition: 0.56,
         legendX: +25,

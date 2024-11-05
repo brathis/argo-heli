@@ -1,3 +1,4 @@
+import { NgClass } from '@angular/common';
 import {
   Component,
   effect,
@@ -10,7 +11,7 @@ import {
 @Component({
   selector: 'app-map-legend',
   standalone: true,
-  imports: [],
+  imports: [NgClass],
   templateUrl: './map-legend.component.html',
 })
 export class MapLegendComponent {
@@ -21,6 +22,7 @@ export class MapLegendComponent {
   label = input<string>();
   top = input<number>();
   left = input<number>();
+  active = input<boolean>();
 
   constructor() {
     effect(() => {
