@@ -76,5 +76,12 @@
   ></app-button>
 </div>
 @if (flightSnapshot.highlights) {
-  <app-highlights [highlights]="flightSnapshot.highlights"></app-highlights>
+  <app-highlights
+    class="hidden lg:block"
+    [highlights]="flightSnapshot.highlights"
+  ></app-highlights>
+  <app-highlights-small
+    class="block lg:hidden"
+    [highlights]="flightSnapshot.highlights"
+  ></app-highlights-small>
 }

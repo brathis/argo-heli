@@ -1,0 +1,16 @@
+<div class="relative">
+  <div #mapContainer></div>
+  @for (
+    highlight of highlights().highlights;
+    track highlight.title;
+    let i = $index
+  ) {
+    <app-map-legend
+      [label]="highlight.title"
+      [left]="highlight.legendX"
+      [top]="highlight.legendY"
+      [active]="currentHighlightIdx() === i"
+      (click)="highlightClicked.emit(i)"
+    ></app-map-legend>
+  }
+</div>
