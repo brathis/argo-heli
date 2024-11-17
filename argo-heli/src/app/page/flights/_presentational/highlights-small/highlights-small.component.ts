@@ -1,4 +1,12 @@
-import { Component, computed, input, signal } from '@angular/core';
+import {
+  Component,
+  computed,
+  ElementRef,
+  input,
+  signal,
+  viewChild,
+} from '@angular/core';
+import { scrollIntoViewHorizontally } from '../../../../common/scroll.util';
 import { HighlightConfig, HighlightsConfig } from '../../flight.interface';
 import { MapComponent } from './map/map.component';
 
@@ -9,6 +17,7 @@ import { MapComponent } from './map/map.component';
   templateUrl: './highlights-small.component.html',
 })
 export class HighlightsSmallComponent {
+  scrollContainer = viewChild.required<ElementRef>('scrollContainer');
   highlights = input.required<HighlightsConfig>();
   currentHighlightIdx = signal<number>(0);
   currentHighlight = computed<HighlightConfig>(() => {
@@ -45,10 +54,10 @@ export class HighlightsSmallComponent {
     }
     const newHighlightEl = document.querySelector(
       `[data-highlight-id="${highlightIdx}"]`,
-    );
-    if (!newHighlightEl) {
-      return;
+    ) as HTMLElement;
+    const scrollContainer = this.scrollContainer().nativeElement as HTMLElement;
+    if (newHighlightEl && scrollContainer) {
+      scrollIntoViewHorizontally(scrollContainer, newHighlightEl);
     }
-    (newHighlightEl as HTMLElement).scrollIntoView({ behavior: 'smooth' });
   }
 }

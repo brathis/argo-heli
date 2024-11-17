@@ -16,6 +16,7 @@
         <app-flight-selector-item
           [flight]="flight"
           class="first:ml-[149px] last:mr-[149px] sm:first:ml-[249px] sm:last:mr-[249px]"
+          [attr.data-flight-id]="flight?.id"
         ></app-flight-selector-item>
       }
     </app-flight-selector>

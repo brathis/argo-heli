@@ -3,10 +3,13 @@ import {
   computed,
   contentChildren,
   effect,
+  ElementRef,
   forwardRef,
   signal,
+  viewChild,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { scrollIntoViewHorizontally } from '../../../../common/scroll.util';
 import { Flight } from '../../../flights/flight.interface';
 import { FlightSelectorItemComponent } from './flight-selector-item/flight-selector-item.component';
 
@@ -24,6 +27,7 @@ import { FlightSelectorItemComponent } from './flight-selector-item/flight-selec
   ],
 })
 export class FlightSelectorComponent implements ControlValueAccessor {
+  scrollContainer = viewChild.required<ElementRef>('scrollContainer');
   items = contentChildren(FlightSelectorItemComponent);
   selectedFlight = signal<Flight | null>(null);
 
@@ -42,14 +46,18 @@ export class FlightSelectorComponent implements ControlValueAccessor {
           this.selectedFlight.set(item.flight());
         });
         item.selected = computed(() => {
-          return item.flight().title === this.selectedFlight()?.title;
+          return item.flight().id === this.selectedFlight()?.id;
         });
+        if (item.flight().id === this.selectedFlight()?.id) {
+          this._scrollIntoView(item.flight().id);
+        }
       }
     });
   }
 
   writeValue(obj: any): void {
     this.selectedFlight.set(obj);
+    this._scrollIntoView((obj as Flight)?.id);
   }
 
   registerOnChange(fn: any): void {
@@ -73,6 +81,19 @@ export class FlightSelectorComponent implements ControlValueAccessor {
   private _isChanged(value: any): void {
     if (this._onChange !== null) {
       this._onChange(value);
+    }
+  }
+
+  private _scrollIntoView(flightId: string | undefined): void {
+    if (!flightId) {
+      return;
+    }
+    const flightEl = document.querySelector(
+      `[data-flight-id="${flightId}"]`,
+    ) as HTMLElement;
+    const scrollContainer = this.scrollContainer().nativeElement as HTMLElement;
+    if (flightEl && scrollContainer) {
+      scrollIntoViewHorizontally(scrollContainer, flightEl);
     }
   }
 }
