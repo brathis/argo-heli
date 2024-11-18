@@ -1,0 +1,72 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: >
+  The argo-heli.ch frontend.
+
+Parameters:
+  BucketName:
+    Type: String
+    # https://stackoverflow.com/a/50484916
+    AllowedPattern: (?!(^xn--|.+-s3alias$))^[a-z0-9][a-z0-9-]{1,61}[a-z0-9]$
+
+Resources:
+  StaticWebsiteDistributionOAC:
+    Type: AWS::CloudFront::OriginAccessControl
+    Properties:
+      OriginAccessControlConfig:
+        Name: !Sub "${AWS::StackName}-s3-oac"
+        OriginAccessControlOriginType: s3
+        SigningBehavior: always
+        SigningProtocol: sigv4
+  StaticWebsiteDistribution:
+    Type: AWS::CloudFront::Distribution
+    Properties:
+      DistributionConfig:
+        DefaultCacheBehavior:
+          # https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html#managed-cache-policy-caching-disabled
+          # TODO: Surely this can be optimized a lot
+          CachePolicyId: 4135ea2d-6df8-44a3-9df3-4b5a84be39ad
+          TargetOriginId: !Sub "${AWS::StackName}-s3-origin"
+          ViewerProtocolPolicy: "redirect-to-https"
+        Enabled: true
+        Origins:
+          - S3OriginConfig:
+              OriginAccessIdentity: ""
+            DomainName: !GetAtt StaticWebsiteBucket.RegionalDomainName
+            Id: !Sub "${AWS::StackName}-s3-origin"
+            OriginAccessControlId: !Ref StaticWebsiteDistributionOAC
+        PriceClass: PriceClass_100
+        DefaultRootObject: index.html
+        CustomErrorResponses:
+          - ErrorCode: 403
+            ResponseCode: 200
+            ResponsePagePath: /index.html
+            ErrorCachingMinTTL: 0
+  StaticWebsiteBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref BucketName
+      Tags:
+        # This tag is used to grant the deployment user access to the bucket before the bucket name is known.
+        - Key: Role
+          Value: WebsiteBucket
+  StaticWebsiteBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref StaticWebsiteBucket
+      PolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          Sid: AllowCloudFrontServicePrincipalReadOnly
+          Effect: Allow
+          Principal:
+            Service: cloudfront.amazonaws.com
+          Action: s3:GetObject
+          Resource: !Sub "arn:aws:s3:::${StaticWebsiteBucket}/*"
+          Condition:
+            StringEquals:
+              AWS:SourceArn: !Sub "arn:aws:cloudfront::${AWS::AccountId}:distribution/${StaticWebsiteDistribution}"
+
+Outputs:
+  StaticWebsiteDistributionUrl:
+    Description: Domain name of the CloudFront distribution serving the static website.
+    Value: !GetAtt StaticWebsiteDistribution.DomainName
