@@ -1,0 +1,96 @@
+name: Deploy to AWS (Prod)
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  NG_BUILD_WORKDIR: argo-heli/
+  NG_BUILD_OUTPUT_DIR: argo-heli/dist/argo-heli/browser/
+  AWS_REGION: eu-central-2
+  AWS_CF_STACK_NAME_PROD: argo-heli-website-prod
+  AWS_BUCKET_NAME_PROD: argo-heli-website-prod
+  AWS_CLOUDFORMATION_SERVICE_ROLE_ARN_PROD: arn:aws:iam::116676244915:role/argo-heli-website-bootstr-CloudFormationServiceRole-qTsM5NiafoQB
+
+jobs:
+  build-angular-app:
+    name: Angular Build
+    runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: ${{ env.NG_BUILD_WORKDIR }}
+
+    steps:
+      - name: Checkout the source code
+        uses: actions/checkout@v3
+        with:
+          lfs: true
+
+      - name: Setup Node.js $
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: "npm"
+          cache-dependency-path: ${{ env.NG_BUILD_WORKDIR }}package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          path: ${{ env.NG_BUILD_OUTPUT_DIR }}
+          if-no-files-found: error
+
+  update-cloudformation-stack-prod:
+    name: Update AWS CloudFormation stack (Prod)
+    runs-on: ubuntu-22.04
+    environment: prod
+    needs:
+      - build-angular-app
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_CLOUDFORMATION_ACCESS_KEY_ID_PROD }}
+          aws-secret-access-key: ${{ secrets.AWS_CLOUDFORMATION_SECRET_ACCESS_KEY_PROD }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Update AWS CloudFormation stack (Prod)
+        uses: aws-actions/aws-cloudformation-github-deploy@v1
+        with:
+          name: ${{ env.AWS_CF_STACK_NAME_PROD }}
+          role-arn: ${{ env.AWS_CLOUDFORMATION_SERVICE_ROLE_ARN_PROD }}
+          template: aws/template.yaml
+          no-fail-on-empty-changeset: "1"
+          parameter-overrides: BucketName=${{ env.AWS_BUCKET_NAME_PROD }}
+
+  copy-to-s3-prod:
+    name: Deploy to S3 (Prod)
+    runs-on: ubuntu-22.04
+    environment: prod
+    needs:
+      - build-angular-app
+      - update-cloudformation-stack-prod
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          path: ./build
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_DEPLOYMENT_ACCESS_KEY_ID_PROD }}
+          aws-secret-access-key: ${{ secrets.AWS_DEPLOYMENT_SECRET_ACCESS_KEY_PROD }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Upload to S3 (Prod)
+        run: aws s3 sync ./build/artifact s3://${{ env.AWS_BUCKET_NAME_PROD }} --delete
