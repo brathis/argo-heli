@@ -1,4 +1,3 @@
 export const environment = {
-  bookingRequestEndpoint:
-    'https://16nd8wo5d3.execute-api.eu-central-2.amazonaws.com/default/booking-requests',
+  bookingRequestEndpoint: 'https://api-prod.argo-heli.ch/booking-requests',
 };
