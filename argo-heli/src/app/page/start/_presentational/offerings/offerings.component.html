@@ -1,20 +1,32 @@
 <div
   class="mb-8 flex flex-col items-stretch gap-y-24 px-8 py-16 sm:items-center sm:gap-y-32 sm:py-32"
 >
-  <app-offering
-    title="Rundflüge ab zwei Standorten in der Ostschweiz"
-    imgSrc="/start/bases.svg"
-  >
-    Ihren Rundflug können Sie ab den Flugplätzen Sitterdorf im Thurgau oder St.
-    Gallen - Altenrhein nähe Rorschach buchen. Auf Anfrage sind auch Flüge von
-    anderen Plätzen möglich.
+  <app-offering title="Zentraler Standort" imgSrc="/start/base_simple.svg">
+    Der Flugplatz Buttwil liegt auf dem Lindenberg zwischen dem Hallwilersee und
+    Muri. Er ist in rund 35 min ab Zürich oder 30 min ab Aarau erreichbar und
+    eignet sich hervorragend als Ausgangspunkt für Flüge über Zürich oder in die
+    Zentralschweiz.
   </app-offering>
-  <app-offering title="Selbstkostenpreis" imgSrc="/start/pricing.svg">
-    Sie bezahlen nur für die effektiv geflogene Flugdauer, auf die Minute genau!
-    Das hält die Kosten tief. Einen
-    <a class="text-primary-500 underline" routerLink="/flights/saentis"
-      >Säntisrundflug</a
-    >
-    gibt es so schon ab CHF {{ saentisCost }}.- pro Person!
+
+  <app-offering
+    title="Zum Mitfliegen oder Verschenken"
+    imgSrc="/start/book_or_gift.svg"
+  >
+    Senden Sie eine Buchungsanfrage oder bestellen Sie einen Gutschein zum
+    Verschenken - beides direkt über die Website.
+  </app-offering>
+
+  <app-offering
+    title="Rundflüge für 2-3 Personen"
+    imgSrc="/start/r44.svg"
+  >
+    Wählen Sie aus unserer Auswahl von Rundflugangeboten zwischen 25 und 60
+    Minuten, oder planen Sie mit uns Ihre ganz persönliche Flugroute.
+  </app-offering>
+
+  <app-offering title="Attraktive Konditionen" imgSrc="/start/pricing.svg">
+    Da ich die Rundflüge als Privatperson anbiete, zahlen Sie nur die Kosten für
+    den Helikoptercharter. So sind Rundflüge bereits ab CHF 130.- pro Person
+    erhältlich.
   </app-offering>
 </div>
