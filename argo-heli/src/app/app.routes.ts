@@ -15,7 +15,7 @@ export const routes: Routes = [
   },
   {
     path: 'flights',
-    redirectTo: 'flights/saentis',
+    redirectTo: 'flights/uetliberg',
   },
   {
     title: 'Flüge',

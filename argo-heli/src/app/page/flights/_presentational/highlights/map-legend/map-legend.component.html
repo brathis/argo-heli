@@ -1,9 +1,0 @@
-@let isActive = active();
-<span
-  #legend
-  class="absolute cursor-pointer text-[16px] font-medium text-primary-600 underline decoration-dotted"
-  [ngClass]="{ '!text-primary-800': isActive, '!font-bold': isActive }"
-  (click)="click.emit()"
->
-  {{ label() }}
-</span>

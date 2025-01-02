@@ -31,7 +31,7 @@ export class FlightSelectorItemComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.boxRef().nativeElement.style.setProperty(
       '--background-url',
-      `url("${this.flight().thumbnailPath}")`,
+      `url("flights/${this.flight().id}/thumbnail.webp")`,
     );
   }
 }

@@ -1,28 +1,10 @@
 <div>
-  <app-hero id="start">
-    <img
-      appHeroLayer
-      property="top"
-      [startValue]="-90"
-      [endValue]="-50"
-      alt="Foto aus dem Helikopter-Cockpit"
-      src="/start/hero.jpg"
-      class="absolute w-full min-w-[1420px]"
-    />
-    <div
-      appHeroLayer
-      class="absolute left-[5%] font-bold text-secondary-300 mix-blend-luminosity"
-      style="
-        font-size: calc(min(10vw, 96px));
-        line-height: calc(min(10vw, 96px));
-      "
-      [startValue]="25"
-      [endValue]="45"
-      property="top"
-    >
-      Einsteigen<br />und Abheben!
-    </div>
-  </app-hero>
+  <app-hero-static
+    title="Einsteigen und abheben!"
+    [duration]="0"
+    imgSrc="/start/hero.jpg"
+    overrideTextColor="white"
+  ></app-hero-static>
 
   <app-offerings></app-offerings>
 

@@ -5,9 +5,6 @@ export interface Flight {
   /** The name of the flight. */
   title: string;
 
-  /** The URL path of the flight. */
-  path: string;
-
   /** The flight cost per person, in CHF. */
   cost: number;
 
@@ -17,14 +14,8 @@ export interface Flight {
   /** A short textual description of the flight's highlights. */
   synopsis: string;
 
-  /** The config for the hero section at the top of the page. */
-  hero: HeroConfig;
-
-  /** The config for the highlights section at the bottom of the page. */
-  highlights?: HighlightsConfig;
-
-  /** The path to the thumbnail image shown in the flight selector component on the booking page. */
-  thumbnailPath: string;
+  /** Optional override for hero text color. */
+  textColor?: string;
 }
 
 export interface HeroLayerConfig {
@@ -43,35 +34,4 @@ export interface HeroConfig {
   foreground: HeroImageLayerConfig;
   text: HeroLayerConfig;
   background: HeroImageLayerConfig;
-}
-
-export interface HighlightsConfig {
-  /** The individual highlights along the route. */
-  highlights: HighlightConfig[];
-
-  /** The map's raw SVG data. */
-  mapSvg: string;
-}
-
-export interface HighlightConfig {
-  /** Title of the highlight. */
-  title: string;
-
-  /** Short description of the highlight. */
-  description: string;
-
-  /** URL/path to the highlight photo. */
-  imgSrc?: string;
-
-  /** URL/path to the highlight video. If both imgSrc and videoSrc are set, the former takes precedence. */
-  videoSrc?: string;
-
-  /** Position along the flight path in range [0, 1]. */
-  pathPosition: number;
-
-  /** X-component in SVG coordinates of the highlight label's position. */
-  legendX: number;
-
-  /** Y-component in SVG coordinates of the highlight label's position. */
-  legendY: number;
 }

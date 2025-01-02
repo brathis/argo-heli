@@ -1,12 +1,10 @@
 import { Flight } from '../flight.interface';
-import { churfirsten } from './churfirsten';
-import { saentis } from './saentis';
-import { toedi } from './toedi';
+import { rigi } from './rigi';
+import { uetliberg } from './uetliberg';
 
 // The single source of truth for all available flights.
-export const allFlights: Flight[] = [saentis, churfirsten, toedi];
 export const allFlightsMap: { [key: string]: Flight } = {
-  saentis,
-  churfirsten,
-  toedi,
+  uetliberg,
+  rigi,
 };
+export const allFlights: Flight[] = Object.values(allFlightsMap);

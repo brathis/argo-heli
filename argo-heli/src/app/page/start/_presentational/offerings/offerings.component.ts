@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
-import { saentis } from '../../../flights/flights/saentis';
+import { uetliberg } from '../../../flights/flights/uetliberg';
 import { OfferingComponent } from './offering/offering.component';
 
 @Component({
   selector: 'app-offerings',
   standalone: true,
-  imports: [OfferingComponent, RouterLink],
+  imports: [OfferingComponent],
   templateUrl: './offerings.component.html',
 })
 export class OfferingsComponent {
-  saentisCost = saentis.cost;
+  cheapestFlightCost = uetliberg.cost;
 }
