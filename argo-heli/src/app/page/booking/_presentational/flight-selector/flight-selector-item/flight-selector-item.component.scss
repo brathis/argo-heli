@@ -6,11 +6,11 @@
 
   background:
     linear-gradient(to left, $primary-100 21%, rgba(255, 255, 255, 0) 100%),
-    var(--background-url) no-repeat;
+    var(--background-url) no-repeat center/cover;
 }
 
 .is-selected .box {
   background:
     linear-gradient(to left, $primary-500 21%, rgba(255, 255, 255, 0) 100%),
-    var(--background-url) no-repeat;
+    var(--background-url) no-repeat center/cover;
 }
