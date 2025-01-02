@@ -25,7 +25,7 @@ import { FormSelectComponent } from '../form-select/form-select.component';
   templateUrl: './flight-data.component.html',
 })
 export class FlightDataComponent {
-  baseFormControl = new FormControl('', [Validators.required]);
+  baseFormControl = new FormControl('LSZU', [Validators.required]);
   passengersFormControl = new FormControl('', [
     Validators.required,
     Validators.min(1),
