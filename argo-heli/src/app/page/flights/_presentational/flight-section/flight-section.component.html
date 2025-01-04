@@ -6,7 +6,8 @@
   [overrideTextColor]="flightSnapshot.textColor"
 ></app-hero-static>
 <div class="flex flex-col items-center justify-center">
-  <img class="mt-12 w-[80%] max-w-[500px] lg:mt-24" [src]="routeImgSrc()" />
+  <div class="mt-12 w-[80%] max-w-[500px] lg:mt-24" [innerHTML]="mapSvg()">
+  </div>
 
   <div
     class="mt-12 max-w-[650px] hyphens-auto text-center text-[20px] font-medium leading-[40px] text-gray-400 max-sm:p-6 sm:w-3/4 lg:mt-24"

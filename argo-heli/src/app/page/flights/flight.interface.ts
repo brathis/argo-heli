@@ -11,6 +11,9 @@ export interface Flight {
   /** The approximate flight duration in minutes. */
   duration: number;
 
+  /** SVG source of the map depicting the flight route. */
+  mapSvg: string;
+
   /** A short textual description of the flight's highlights. */
   synopsis: string;
 
