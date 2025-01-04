@@ -3,7 +3,7 @@
   [ngStyle]="{ 'background-image': 'url(' + imgSrc() + ')' }"
 >
   <h1
-    class="absolute top-[20%] w-full text-center font-bold"
+    class="absolute top-[20%] w-full text-center font-bold mix-blend-plus-lighter"
     [ngStyle]="{
       color: this.textColor(),
       'font-size': 'calc(min(18vw, 128px))',
@@ -18,7 +18,7 @@
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
-        class="size-6 stroke-2 pr-[8px]"
+        class="size-6 stroke-2 pr-[8px] mix-blend-plus-lighter"
         [ngStyle]="{ stroke: textColor() }"
       >
         <path
@@ -27,10 +27,12 @@
           d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
         />
       </svg>
-      <span class="text-2xl font-bold" [ngStyle]="{ color: textColor() }">{{
-        duration()
-      }}</span>
-      <span class="text-2xl" [ngStyle]="{ color: textColor() }"> min</span>
+      <span
+        class="text-2xl font-bold mix-blend-plus-lighter"
+        [ngStyle]="{ color: textColor() }"
+        >{{ duration() }}</span
+      >
+      <span class="text-2xl mix-blend-plus-lighter" [ngStyle]="{ color: textColor() }"> min</span>
     </div>
   }
   <svg class="absolute bottom-0" width="100%" viewBox="0 0 2000 100">
