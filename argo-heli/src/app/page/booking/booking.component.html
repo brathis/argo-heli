@@ -21,7 +21,9 @@
       }
     </app-flight-selector>
     <app-flight-summary [total]="totalFlightCost | async"></app-flight-summary>
-    <app-flight-disclaimer></app-flight-disclaimer>
+    <app-flight-disclaimer
+      [group]="termsAndConditionsFormGroup"
+    ></app-flight-disclaimer>
     @let currentErrorEmailLink = errorEmailLink();
     @if (currentErrorEmailLink) {
       <app-form-error
@@ -32,7 +34,7 @@
     }
     <app-button
       appButtonLarge
-      class="mt-[32px] block"
+      class="mt-12 block"
       label="Buchen"
       [enabled]="bookingFormGroup.valid && !this.loading()"
       (click)="submit()"

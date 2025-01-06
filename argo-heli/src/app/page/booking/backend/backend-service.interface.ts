@@ -17,12 +17,18 @@ export interface FlightData {
   passengers: number;
 }
 
+export interface TermsAndConditions {
+  acceptedTermsOfBookingRequest: boolean;
+  acceptedPrivacyPolicy: boolean;
+}
+
 export interface BackendRequest {
   contactData: ContactData;
   flightData: FlightData;
   flight: {
     title: string;
   };
+  termsAndConditions: TermsAndConditions;
 }
 
 export interface BackendResponse {

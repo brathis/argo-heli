@@ -39,13 +39,6 @@ export class FlightDataComponent {
 
   group = input.required<FormGroup>();
 
-  flightDataFormGroup = new FormGroup({
-    base: this.baseFormControl,
-    passengers: this.passengersFormControl,
-    departureDate: this.departureDateFormControl,
-    departureTime: this.departureTimeFormControl,
-  });
-
   constructor() {
     effect(() => {
       const group = this.group();

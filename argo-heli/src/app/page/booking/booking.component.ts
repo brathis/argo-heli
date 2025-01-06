@@ -11,16 +11,8 @@ import { map, Observable } from 'rxjs';
 import { ButtonLargeDirective } from '../../common/button/button-large.directive';
 import { ButtonComponent } from '../../common/button/button.component';
 import { ConfigService } from '../../common/config.service';
-import { PhoneLinkPipe } from '../../common/phone-link.pipe';
 import { Flight } from '../flights/flight.interface';
 import { allFlights, allFlightsMap } from '../flights/flights/_all';
-import { AwsBackendService } from './backend/aws-backend.service';
-import {
-  BACKEND_SERVICE,
-  BackendService,
-  ContactData,
-  FlightData,
-} from './backend/backend-service.interface';
 import { ContactDataComponent } from './_presentational/contact-data/contact-data.component';
 import { FlightDataComponent } from './_presentational/flight-data/flight-data.component';
 import { FlightDisclaimerComponent } from './_presentational/flight-disclaimer/flight-disclaimer.component';
@@ -28,6 +20,14 @@ import { FlightSelectorItemComponent } from './_presentational/flight-selector/f
 import { FlightSelectorComponent } from './_presentational/flight-selector/flight-selector.component';
 import { FlightSummaryComponent } from './_presentational/flight-summary/flight-summary.component';
 import { FormErrorComponent } from './_presentational/form-error/form-error.component';
+import { AwsBackendService } from './backend/aws-backend.service';
+import {
+  BACKEND_SERVICE,
+  BackendService,
+  ContactData,
+  FlightData,
+  TermsAndConditions,
+} from './backend/backend-service.interface';
 
 @Component({
   selector: 'app-booking',
@@ -43,7 +43,6 @@ import { FormErrorComponent } from './_presentational/form-error/form-error.comp
     FlightDisclaimerComponent,
     ButtonComponent,
     ButtonLargeDirective,
-    PhoneLinkPipe,
     FormErrorComponent,
   ],
   templateUrl: './booking.component.html',
@@ -73,10 +72,12 @@ export class BookingComponent {
     this.getFlightFromQueryParam(),
     [Validators.required],
   );
+  termsAndConditionsFormGroup = new FormGroup({});
   bookingFormGroup = new FormGroup({
     contactData: this.contactDataFormGroup,
     flightData: this.flightDataFormGroup,
     flight: this.flightFormControl,
+    termsAndConditions: this.termsAndConditionsFormGroup,
   });
   flights = allFlights;
   totalFlightCost: Observable<number | null> =
@@ -104,6 +105,8 @@ export class BookingComponent {
     const contactData = this.bookingFormGroup.value.contactData as ContactData;
     const flightData = this.bookingFormGroup.value.flightData as FlightData;
     const flight = this.bookingFormGroup.value.flight as Flight;
+    const termsAndConditions = this.bookingFormGroup.value
+      .termsAndConditions as TermsAndConditions;
 
     this.loading.set(true);
     this.errorEmailLink.set(null);
@@ -114,6 +117,7 @@ export class BookingComponent {
         flight: {
           title: flight.title,
         },
+        termsAndConditions,
       })
       .subscribe((response) => {
         this.loading.set(false);
