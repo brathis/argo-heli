@@ -13,7 +13,7 @@ import { PriceTagComponent } from '../price-tag/price-tag.component';
 })
 export class FlightSectionComponent {
   private readonly sanitizer = inject(DomSanitizer);
-  
+
   flight = input.required<Flight>();
 
   heroImgSrc = computed(() => `/flights/${this.flight().id}/hero.webp`);

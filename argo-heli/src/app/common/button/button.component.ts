@@ -13,7 +13,7 @@ import { ButtonLargeDirective } from './button-large.directive';
 export class ButtonComponent {
   label = input.required();
   link = input<string>();
-  queryParams = input<{[key: string]: string}>();
+  queryParams = input<{ [key: string]: string }>();
   enabled = input<boolean>(true);
 
   click = output<void>();
