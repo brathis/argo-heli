@@ -30,6 +30,7 @@ export class FlightDataComponent {
     Validators.required,
     Validators.min(1),
     Validators.max(3),
+    Validators.pattern(/\d+/),
   ]);
   departureDateFormControl = new FormControl('', [
     Validators.required,
