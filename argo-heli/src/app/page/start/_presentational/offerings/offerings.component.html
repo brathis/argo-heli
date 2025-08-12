@@ -12,13 +12,23 @@
     title="Zum Mitfliegen oder Verschenken"
     imgSrc="/start/book_or_gift.svg"
   >
-    Senden Sie eine Buchungsanfrage oder bestellen Sie einen Gutschein zum
-    Verschenken - beides direkt über die Website.
+    Schicken Sie Ihre Anfrage direkt über das
+    <a class="text-primary-600 underline" routerLink="/booking"
+      >Buchungsformular</a
+    >
+    auf der Website. Sie wollen einen Flug verschenken? Gerne stelle ich Ihnen
+    einen hochwertigen ausgedruckten Geschenkgutschein per Post zu. Senden Sie
+    dazu Ihre Bestellung per E-Mail an
+    <a class="text-primary-600 underline" [href]="contactEmail() | emailLink">{{
+      contactEmail()
+    }}</a
+    >.
   </app-offering>
 
-  <app-offering title="Rundflüge für 2-3 Personen" imgSrc="/start/r44.svg">
-    Wählen Sie aus unserer Auswahl von Rundflugangeboten zwischen 25 und 60
-    Minuten, oder planen Sie mit uns Ihre ganz persönliche Flugroute.
+  <app-offering title="Rundflüge für 2 Personen" imgSrc="/start/r44.svg">
+    Wählen Sie aus einer Auswahl von Rundflugangeboten zwischen
+    {{ shortestFlightDuration }} und {{ longestFlightDuration }}
+    Minuten, oder planen Sie mit mir Ihre ganz persönliche Flugroute.
   </app-offering>
 
   <app-offering title="Attraktive Konditionen" imgSrc="/start/pricing.svg">

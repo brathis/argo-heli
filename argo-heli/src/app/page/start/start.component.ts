@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { ConfigService } from '../../common/config.service';
 import { HeroStaticComponent } from '../flights/_presentational/hero-static/hero-static.component';
 import { OfferingsComponent } from './_presentational/offerings/offerings.component';
 import { PortraitComponent } from './_presentational/portrait/portrait.component';
@@ -17,4 +18,6 @@ import { ReviewsComponent } from './_presentational/reviews/reviews.component';
   ],
   templateUrl: './start.component.html',
 })
-export class StartComponent {}
+export class StartComponent {
+  config = inject(ConfigService).getConfig();
+}
