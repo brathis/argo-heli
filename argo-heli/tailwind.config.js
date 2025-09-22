@@ -53,10 +53,8 @@ module.exports = {
         lg: "0 8px 8px rgba(0, 0, 0, 0.15)",
       },
       backgroundImage: {
-        whiteHorizontal:
-          "linear-gradient(to right, rgba(100% 100% 100% / 1) 0%, rgba(100% 100% 100% / 0) 25%)",
-        whiteVertical:
-          "linear-gradient(to bottom, rgba(100% 100% 100% / 1) 0%, rgba(100% 100% 100% / 0) 25%)",
+        portrait:
+          "linear-gradient(to right, rgba(100% 100% 100% / 0) 0%, rgba(100% 100% 100% / 0) 25%, rgba(100% 100% 100% / 1) 50%), url('/start/portrait.jpg')",
       },
     },
   },
