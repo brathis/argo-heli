@@ -53,7 +53,9 @@ module.exports = {
         lg: "0 8px 8px rgba(0, 0, 0, 0.15)",
       },
       backgroundImage: {
-        portrait:
+        "portrait-fadeout-top":
+          "linear-gradient(to top, rgba(100% 100% 100% / 0) 55%, rgba(100% 100% 100% / 1) 65%, rgba(100% 100% 100% / 1) 100%), url('/start/portrait_fadeout_top.jpg')",
+        "portrait-fadeout-right":
           "linear-gradient(to right, rgba(100% 100% 100% / 0) 0%, rgba(100% 100% 100% / 0) 25%, rgba(100% 100% 100% / 1) 50%), url('/start/portrait.jpg')",
       },
     },
