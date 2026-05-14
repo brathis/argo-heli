@@ -12,11 +12,10 @@ import { RouterLink } from '@angular/router';
 import { Flight } from '../../../../flights/flight.interface';
 
 @Component({
-  selector: 'app-flight-selector-item',
-  standalone: true,
-  imports: [NgClass, RouterLink],
-  templateUrl: './flight-selector-item.component.html',
-  styleUrl: './flight-selector-item.component.scss',
+    selector: 'app-flight-selector-item',
+    imports: [NgClass, RouterLink],
+    templateUrl: './flight-selector-item.component.html',
+    styleUrl: './flight-selector-item.component.scss'
 })
 export class FlightSelectorItemComponent implements AfterViewInit {
   flight = input.required<Flight>();

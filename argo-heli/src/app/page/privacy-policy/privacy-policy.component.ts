@@ -5,10 +5,9 @@ import { SectionComponent } from './_presentational/section/section.component';
 import { SubsectionComponent } from './_presentational/subsection/subsection.component';
 
 @Component({
-  selector: 'app-privacy-policy',
-  standalone: true,
-  imports: [BasicPageComponent, SectionComponent, SubsectionComponent],
-  templateUrl: './privacy-policy.component.html',
+    selector: 'app-privacy-policy',
+    imports: [BasicPageComponent, SectionComponent, SubsectionComponent],
+    templateUrl: './privacy-policy.component.html'
 })
 export class PrivacyPolicyComponent {
   config = inject(ConfigService).getConfig();

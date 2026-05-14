@@ -7,16 +7,15 @@ import { ReviewComponent } from './_presentational/reviews/review/review.compone
 import { ReviewsComponent } from './_presentational/reviews/reviews.component';
 
 @Component({
-  selector: 'app-start',
-  standalone: true,
-  imports: [
-    OfferingsComponent,
-    ReviewsComponent,
-    ReviewComponent,
-    PortraitComponent,
-    HeroStaticComponent,
-  ],
-  templateUrl: './start.component.html',
+    selector: 'app-start',
+    imports: [
+        OfferingsComponent,
+        ReviewsComponent,
+        ReviewComponent,
+        PortraitComponent,
+        HeroStaticComponent,
+    ],
+    templateUrl: './start.component.html'
 })
 export class StartComponent {
   config = inject(ConfigService).getConfig();

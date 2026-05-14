@@ -6,10 +6,9 @@ import { HeroStaticComponent } from '../hero-static/hero-static.component';
 import { PriceTagComponent } from '../price-tag/price-tag.component';
 
 @Component({
-  selector: 'app-flight-section',
-  standalone: true,
-  imports: [PriceTagComponent, ButtonComponent, HeroStaticComponent],
-  templateUrl: './flight-section.component.html',
+    selector: 'app-flight-section',
+    imports: [PriceTagComponent, ButtonComponent, HeroStaticComponent],
+    templateUrl: './flight-section.component.html'
 })
 export class FlightSectionComponent {
   private readonly sanitizer = inject(DomSanitizer);

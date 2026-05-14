@@ -5,10 +5,9 @@ import { EmailLinkPipe } from '../email-link.pipe';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-footer',
-  standalone: true,
-  imports: [PhoneLinkPipe, EmailLinkPipe, RouterLink],
-  templateUrl: './footer.component.html',
+    selector: 'app-footer',
+    imports: [PhoneLinkPipe, EmailLinkPipe, RouterLink],
+    templateUrl: './footer.component.html'
 })
 export class FooterComponent {
   config = inject(ConfigService).getConfig();

@@ -4,11 +4,10 @@ import { RouterLink } from '@angular/router';
 import { ButtonLargeDirective } from './button-large.directive';
 
 @Component({
-  selector: 'app-button',
-  standalone: true,
-  imports: [RouterLink, NgClass],
-  templateUrl: './button.component.html',
-  styleUrl: './button.component.scss',
+    selector: 'app-button',
+    imports: [RouterLink, NgClass],
+    templateUrl: './button.component.html',
+    styleUrl: './button.component.scss'
 })
 export class ButtonComponent {
   label = input.required();

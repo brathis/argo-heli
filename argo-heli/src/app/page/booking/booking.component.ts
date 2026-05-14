@@ -30,23 +30,22 @@ import {
 } from './backend/backend-service.interface';
 
 @Component({
-  selector: 'app-booking',
-  standalone: true,
-  imports: [
-    ContactDataComponent,
-    FlightDataComponent,
-    FlightSelectorComponent,
-    FlightSelectorItemComponent,
-    ReactiveFormsModule,
-    FlightSummaryComponent,
-    AsyncPipe,
-    FlightDisclaimerComponent,
-    ButtonComponent,
-    ButtonLargeDirective,
-    FormErrorComponent,
-  ],
-  templateUrl: './booking.component.html',
-  providers: [{ provide: BACKEND_SERVICE, useClass: AwsBackendService }],
+    selector: 'app-booking',
+    imports: [
+        ContactDataComponent,
+        FlightDataComponent,
+        FlightSelectorComponent,
+        FlightSelectorItemComponent,
+        ReactiveFormsModule,
+        FlightSummaryComponent,
+        AsyncPipe,
+        FlightDisclaimerComponent,
+        ButtonComponent,
+        ButtonLargeDirective,
+        FormErrorComponent,
+    ],
+    templateUrl: './booking.component.html',
+    providers: [{ provide: BACKEND_SERVICE, useClass: AwsBackendService }]
 })
 export class BookingComponent {
   private static readonly FALLBACK_EMAIL_SUBJECT_TEMPLATE = `Anfrage für Rundflug am <DATE>`;

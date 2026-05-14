@@ -7,10 +7,9 @@ export interface SecondaryRoute {
 }
 
 @Component({
-  selector: 'app-secondary-nav',
-  standalone: true,
-  imports: [RouterLink, RouterLinkActive],
-  templateUrl: './secondary-nav.component.html',
+    selector: 'app-secondary-nav',
+    imports: [RouterLink, RouterLinkActive],
+    templateUrl: './secondary-nav.component.html'
 })
 export class SecondaryNavComponent {
   routes = input<SecondaryRoute[]>();

@@ -1,10 +1,9 @@
 import { Component, input } from '@angular/core';
 
 @Component({
-  selector: 'app-form-block',
-  standalone: true,
-  imports: [],
-  templateUrl: './form-block.component.html',
+    selector: 'app-form-block',
+    imports: [],
+    templateUrl: './form-block.component.html'
 })
 export class FormBlockComponent {
   title = input.required();

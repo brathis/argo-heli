@@ -8,10 +8,9 @@ import {
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-flight-disclaimer',
-  standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
-  templateUrl: './flight-disclaimer.component.html',
+    selector: 'app-flight-disclaimer',
+    imports: [ReactiveFormsModule, RouterLink],
+    templateUrl: './flight-disclaimer.component.html'
 })
 export class FlightDisclaimerComponent {
   acceptedTermsOfBookingRequestFormControl = new FormControl(false, [

@@ -5,8 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="efb38138-7d1a-432d-aeb6-fda4b1cb4ad4" name="Changes" comment="🔃 Update to Angular 21">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/argo-heli/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/common/basic-page/basic-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/common/basic-page/basic-page.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/common/button/button.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/common/button/button.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/common/footer/footer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/common/footer/footer.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/common/header/header.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/common/header/header.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/common/header/logo/logo.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/common/header/logo/logo.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/common/header/nav/nav.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/common/header/nav/nav.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/contact-data/contact-data.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/contact-data/contact-data.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/flight-data/flight-data.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/flight-data/flight-data.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/flight-disclaimer/flight-disclaimer.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/flight-disclaimer/flight-disclaimer.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/flight-selector/flight-selector-item/flight-selector-item.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/flight-selector/flight-selector-item/flight-selector-item.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/flight-selector/flight-selector-item/flight-selector-item.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/flight-selector/flight-selector-item/flight-selector-item.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/flight-selector/flight-selector.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/flight-selector/flight-selector.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/flight-summary/flight-summary.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/flight-summary/flight-summary.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/form-block/form-block.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/form-block/form-block.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/form-error/form-error.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/form-error/form-error.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/form-input/form-input.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/form-input/form-input.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/form-input/form-input.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/form-input/form-input.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/form-row/form-row.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/form-row/form-row.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/form-select/form-select.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/form-select/form-select.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/booking.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/booking.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/success/success.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/success/success.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/flights/_presentational/flight-section/flight-section.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/flights/_presentational/flight-section/flight-section.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/flights/_presentational/hero-static/hero-static.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/flights/_presentational/hero-static/hero-static.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/flights/_presentational/price-tag/price-tag.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/flights/_presentational/price-tag/price-tag.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/flights/_presentational/secondary-nav/secondary-nav.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/flights/_presentational/secondary-nav/secondary-nav.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/flights/flights.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/flights/flights.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/imprint/imprint.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/imprint/imprint.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/privacy-policy/_presentational/section/section.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/privacy-policy/_presentational/section/section.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/privacy-policy/_presentational/subsection/subsection.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/privacy-policy/_presentational/subsection/subsection.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/privacy-policy/privacy-policy.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/privacy-policy/privacy-policy.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/start/_presentational/offerings/offering/offering.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/start/_presentational/offerings/offering/offering.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/start/_presentational/offerings/offerings.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/start/_presentational/offerings/offerings.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/start/_presentational/portrait/portrait.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/start/_presentational/portrait/portrait.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/start/_presentational/reviews/review/review.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/start/_presentational/reviews/review/review.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/start/_presentational/reviews/reviews.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/start/_presentational/reviews/reviews.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/start/_presentational/reviews/star/star.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/start/_presentational/reviews/star/star.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/start/start.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/start/start.component.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,7 +151,7 @@
       <workItem from="1776191817890" duration="1519000" />
       <workItem from="1776285165180" duration="448000" />
       <workItem from="1778311298182" duration="43000" />
-      <workItem from="1778756407726" duration="303000" />
+      <workItem from="1778756407726" duration="909000" />
     </task>
     <task id="LOCAL-00001" summary="✨ Restructure and deploy to GitHub Pages">
       <option name="closed" value="true" />

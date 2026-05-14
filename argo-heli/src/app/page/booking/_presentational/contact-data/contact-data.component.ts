@@ -10,15 +10,14 @@ import { FormInputComponent } from '../form-input/form-input.component';
 import { FormRowComponent } from '../form-row/form-row.component';
 
 @Component({
-  selector: 'app-contact-data',
-  standalone: true,
-  imports: [
-    FormBlockComponent,
-    FormRowComponent,
-    FormInputComponent,
-    ReactiveFormsModule,
-  ],
-  templateUrl: './contact-data.component.html',
+    selector: 'app-contact-data',
+    imports: [
+        FormBlockComponent,
+        FormRowComponent,
+        FormInputComponent,
+        ReactiveFormsModule,
+    ],
+    templateUrl: './contact-data.component.html'
 })
 export class ContactDataComponent {
   firstNameFormControl = new FormControl('', [Validators.required]);

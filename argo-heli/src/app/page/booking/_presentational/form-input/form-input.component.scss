@@ -1,4 +1,4 @@
-@import "../../../../../vars.scss";
+@use "../../../../../vars.scss";
 
 .ng-invalid.ng-touched {
   @apply border-2 border-red-700;

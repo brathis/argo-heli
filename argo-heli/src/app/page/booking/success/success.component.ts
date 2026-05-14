@@ -5,10 +5,9 @@ import { PhoneLinkPipe } from '../../../common/phone-link.pipe';
 import { BasicPageComponent } from '../../../common/basic-page/basic-page.component';
 
 @Component({
-  selector: 'app-success',
-  standalone: true,
-  imports: [EmailLinkPipe, PhoneLinkPipe, BasicPageComponent],
-  templateUrl: './success.component.html',
+    selector: 'app-success',
+    imports: [EmailLinkPipe, PhoneLinkPipe, BasicPageComponent],
+    templateUrl: './success.component.html'
 })
 export class SuccessComponent {
   config = inject(ConfigService).getConfig();

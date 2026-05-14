@@ -9,10 +9,9 @@ import { Flight } from './flight.interface';
 import { allFlights, allFlightsMap } from './flights/_all';
 
 @Component({
-  selector: 'app-flights',
-  standalone: true,
-  imports: [SecondaryNavComponent, CommonModule, FlightSectionComponent],
-  templateUrl: './flights.component.html',
+    selector: 'app-flights',
+    imports: [SecondaryNavComponent, CommonModule, FlightSectionComponent],
+    templateUrl: './flights.component.html'
 })
 export class FlightsComponent {
   flight = input<string>();

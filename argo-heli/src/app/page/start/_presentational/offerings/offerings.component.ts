@@ -9,10 +9,9 @@ import {
 import { OfferingComponent } from './offering/offering.component';
 
 @Component({
-  selector: 'app-offerings',
-  standalone: true,
-  imports: [OfferingComponent, EmailLinkPipe, RouterLink],
-  templateUrl: './offerings.component.html',
+    selector: 'app-offerings',
+    imports: [OfferingComponent, EmailLinkPipe, RouterLink],
+    templateUrl: './offerings.component.html'
 })
 export class OfferingsComponent {
   cheapestFlightCost = getCheapestFlightCost();
