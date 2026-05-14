@@ -9,8 +9,6 @@ export interface Config {
   providedIn: 'root',
 })
 export class ConfigService {
-  constructor() {}
-
   getConfig(): Config {
     return {
       contactEmail: 'mathis@argo-heli.ch',

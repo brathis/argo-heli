@@ -3,7 +3,7 @@ import { rigi } from './rigi';
 import { uetliberg } from './uetliberg';
 
 // The single source of truth for all available flights.
-export const allFlightsMap: { [key: string]: Flight } = {
+export const allFlightsMap: Record<string, Flight> = {
   uetliberg,
   rigi,
 };

@@ -11,14 +11,12 @@ This is the website for [argo-heli.ch](https://argo-heli.ch), a Swiss helicopter
 All commands run from `argo-heli/`:
 
 ```bash
-npm start          # dev server at localhost:4200
+npm run start      # dev server at localhost:4200
 npm run build      # production build → dist/argo-heli/browser/
-npm run watch      # build in watch mode (development config)
-npm test           # unit tests with Karma/Jasmine
-npx prettier --write .  # format all files (Tailwind class sorting applied automatically)
+npm run test       # unit tests with Karma/Jasmine
+npm run lint       # check formatting with prettier and run ESLint with angular-eslint plugin
+npm run fix        # format all files (Tailwind class sorting applied automatically)
 ```
-
-No lint script is configured; Prettier (with `prettier-plugin-tailwindcss`) handles formatting.
 
 ## Architecture
 

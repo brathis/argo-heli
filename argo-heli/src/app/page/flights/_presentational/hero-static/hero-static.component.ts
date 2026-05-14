@@ -13,8 +13,9 @@ export class HeroStaticComponent {
   imgSrc = input.required<string>();
   overrideTextColor = input<string>();
 
-  private readonly defaultTextColor = (tailwindConfig.theme?.extend as any)
-    .colors['primary'][400];
+  // @ts-expect-error TailwindCSS typing is a bit messy, which is why it does not detect that 'primary' is in fact present.
+  private readonly defaultTextColor =
+    tailwindConfig.theme?.extend?.colors?.['primary'][400];
 
   textColor = computed(() => {
     const overrideTextColor = this.overrideTextColor();

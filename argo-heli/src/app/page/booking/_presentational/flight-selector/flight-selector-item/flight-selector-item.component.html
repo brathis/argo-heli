@@ -1,4 +1,9 @@
-<div class="flex snap-center snap-always flex-col" (click)="clicked.emit()">
+<div
+  class="flex snap-center snap-always flex-col"
+  (click)="clicked.emit()"
+  (keydown)="clicked.emit()"
+  tabindex="0"
+>
   <span
     class="group"
     [ngClass]="{ 'is-selected': selected === null ? false : selected() }"

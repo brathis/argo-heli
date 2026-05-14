@@ -1,10 +1,6 @@
 import { Injectable, signal, Signal } from '@angular/core';
 import { map, Observable, tap, timer } from 'rxjs';
-import {
-  BackendRequest,
-  BackendResponse,
-  BackendService,
-} from './backend-service.interface';
+import { BackendResponse, BackendService } from './backend-service.interface';
 
 @Injectable()
 export class DummyBackendService implements BackendService {
@@ -14,7 +10,7 @@ export class DummyBackendService implements BackendService {
     return this._isLoading;
   }
 
-  submit(request: BackendRequest): Observable<BackendResponse> {
+  submit(): Observable<BackendResponse> {
     this._isLoading.set(true);
     return timer(1500).pipe(
       map(() => {
