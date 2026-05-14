@@ -1,10 +1,5 @@
 <p class="my-12 text-[20px] font-medium leading-[30px] text-gray-400">
-  Mit dem Klicken auf "Buchen" kommt eine verbindliche Reservation zustande. Aus
-  betrieblichen Gründen (z.B. Wetter oder Wartungsarbeiten an den Helikoptern)
-  kann es sein, dass ein Flug nicht an dem gewünschten Tag stattfinden kann,
-  oder abgekürzt werden muss. Es besteht kein Anspruch auf die Durchführung
-  eines Fluges. In jedem Fall werden nur die tatsächlich angefallenen Flugkosten
-  verrechnet.
+  {{ "booking.disclaimer.text" | translate }}
 </p>
 
 <!-- TODO: These need to be components -->
@@ -16,9 +11,9 @@
       [formControl]="acceptedTermsOfBookingRequestFormControl"
       class="mr-4 h-6 w-6 shrink-0 accent-primary-600"
     />
-    <label for="acceptedTermsOfBookingInput"
-      >Ich akzeptiere obige Bedingungen für die Buchungsanfrage.</label
-    >
+    <label for="acceptedTermsOfBookingInput">{{
+      "booking.disclaimer.accept-terms" | translate
+    }}</label>
   </div>
 
   <div class="my-4 flex flex-row items-center">
@@ -29,9 +24,10 @@
       class="mr-4 h-6 w-6 shrink-0 accent-primary-600"
     />
     <label for="acceptedPrivacyPolicyInput"
-      >Ich akzeptiere die
-      <a class="text-primary-600 underline" routerLink="/privacy-policy"
-        >Datenschutzerklärung</a
+      >{{ "booking.disclaimer.accept-privacy-before" | translate }}
+      <a class="text-primary-600 underline" routerLink="/privacy-policy">{{
+        "booking.disclaimer.privacy-link" | translate
+      }}</a
       >.</label
     >
   </div>

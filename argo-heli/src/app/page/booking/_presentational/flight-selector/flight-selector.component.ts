@@ -9,21 +9,22 @@ import {
   viewChild,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 import { scrollIntoViewHorizontally } from '../../../../common/scroll.util';
 import { Flight } from '../../../flights/flight.interface';
 import { FlightSelectorItemComponent } from './flight-selector-item/flight-selector-item.component';
 
 @Component({
-    selector: 'app-flight-selector',
-    imports: [],
-    templateUrl: './flight-selector.component.html',
-    providers: [
-        {
-            provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => FlightSelectorComponent),
-            multi: true,
-        },
-    ]
+  selector: 'app-flight-selector',
+  imports: [TranslateModule],
+  templateUrl: './flight-selector.component.html',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => FlightSelectorComponent),
+      multi: true,
+    },
+  ],
 })
 export class FlightSelectorComponent implements ControlValueAccessor {
   scrollContainer = viewChild.required<ElementRef>('scrollContainer');

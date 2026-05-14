@@ -7,6 +7,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { map, Observable } from 'rxjs';
 import { ButtonLargeDirective } from '../../common/button/button-large.directive';
 import { ButtonComponent } from '../../common/button/button.component';
@@ -30,37 +31,27 @@ import {
 } from './backend/backend-service.interface';
 
 @Component({
-    selector: 'app-booking',
-    imports: [
-        ContactDataComponent,
-        FlightDataComponent,
-        FlightSelectorComponent,
-        FlightSelectorItemComponent,
-        ReactiveFormsModule,
-        FlightSummaryComponent,
-        AsyncPipe,
-        FlightDisclaimerComponent,
-        ButtonComponent,
-        ButtonLargeDirective,
-        FormErrorComponent,
-    ],
-    templateUrl: './booking.component.html',
-    providers: [{ provide: BACKEND_SERVICE, useClass: AwsBackendService }]
+  selector: 'app-booking',
+  imports: [
+    ContactDataComponent,
+    FlightDataComponent,
+    FlightSelectorComponent,
+    FlightSelectorItemComponent,
+    ReactiveFormsModule,
+    FlightSummaryComponent,
+    AsyncPipe,
+    FlightDisclaimerComponent,
+    ButtonComponent,
+    ButtonLargeDirective,
+    FormErrorComponent,
+    TranslateModule,
+  ],
+  templateUrl: './booking.component.html',
+  providers: [{ provide: BACKEND_SERVICE, useClass: AwsBackendService }],
 })
 export class BookingComponent {
-  private static readonly FALLBACK_EMAIL_SUBJECT_TEMPLATE = `Anfrage für Rundflug am <DATE>`;
-  private static readonly FALLBACK_EMAIL_BODY_TEMPLATE = `
-  Guten Tag
-
-  Ich möchte gerne einen Rundflug buchen am <DATE> um <TIME> Uhr ab <BASE> für <PASSENGERS> Personen.
-
-  Meine Kontaktdaten lauten wie folgt:
-  <FIRST_NAME> <LAST_NAME>
-  <STREET> <CITY>
-  <EMAIL>
-  <PHONE>
-  `;
   private _route = inject(ActivatedRoute);
+  private _translate = inject(TranslateService);
 
   loading = signal(false);
   errorEmailLink = signal<string | null>(null);
@@ -131,25 +122,20 @@ export class BookingComponent {
   private createEmailLink(): string {
     const flightData = this.bookingFormGroup.value.flightData as FlightData;
     const contactData = this.bookingFormGroup.value.contactData as ContactData;
-    const valueMap = {
-      '<DATE>': new Date(flightData.departureDate).toLocaleDateString('de-CH'),
-      '<TIME>': new Date(flightData.departureTime).toLocaleTimeString('de-CH'),
-      '<BASE>': flightData.base,
-      '<PASSENGERS>': flightData.passengers.toString(),
-      '<FIRST_NAME>': contactData.firstName,
-      '<LAST_NAME>': contactData.lastName,
-      '<STREET>': contactData.street,
-      '<CITY>': contactData.city,
-      '<EMAIL>': contactData.email,
-      '<PHONE>': contactData.phone,
+    const params = {
+      date: new Date(flightData.departureDate).toLocaleDateString('de-CH'),
+      time: new Date(flightData.departureTime).toLocaleTimeString('de-CH'),
+      base: flightData.base,
+      passengers: flightData.passengers.toString(),
+      firstName: contactData.firstName,
+      lastName: contactData.lastName,
+      street: contactData.street,
+      city: contactData.city,
+      email: contactData.email,
+      phone: contactData.phone,
     };
-    let subject = BookingComponent.FALLBACK_EMAIL_SUBJECT_TEMPLATE;
-    let body = BookingComponent.FALLBACK_EMAIL_BODY_TEMPLATE;
-
-    for (const [pattern, value] of Object.entries(valueMap)) {
-      subject = subject.replace(pattern, value);
-      body = body.replace(pattern, value);
-    }
+    const subject = this._translate.instant('booking.email.subject', params);
+    const body = this._translate.instant('booking.email.body', params);
 
     return `mailto:${encodeURIComponent(
       `${this.config.contactEmail}?subject=${subject}&body=${body}`,

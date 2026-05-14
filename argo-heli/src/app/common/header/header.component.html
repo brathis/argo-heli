@@ -1,8 +1,13 @@
-<header
-  class="flex flex-col items-stretch justify-between border-b-[6px] border-solid border-primary-500 bg-white sm:flex-row sm:px-[90px] sm:py-[45px]"
->
-  <app-logo
-    class="flex shrink-0 items-center justify-center max-sm:my-8 lg:mr-16"
-  ></app-logo>
-  <app-nav class="shrink lg:grow"></app-nav>
+<header>
+  <div class="bg-white py-1">
+    <app-lang-switcher />
+  </div>
+  <div
+    class="flex flex-col items-stretch justify-between border-b-[6px] border-solid border-primary-500 bg-white sm:flex-row sm:px-[90px] sm:py-[45px]"
+  >
+    <app-logo
+      class="flex shrink-0 items-center justify-center max-sm:my-8 lg:mr-16"
+    ></app-logo>
+    <app-nav class="shrink lg:grow"></app-nav>
+  </div>
 </header>

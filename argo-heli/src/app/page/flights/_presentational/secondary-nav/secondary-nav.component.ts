@@ -1,5 +1,6 @@
 import { Component, input } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 export interface SecondaryRoute {
   title: string;
@@ -7,9 +8,9 @@ export interface SecondaryRoute {
 }
 
 @Component({
-    selector: 'app-secondary-nav',
-    imports: [RouterLink, RouterLinkActive],
-    templateUrl: './secondary-nav.component.html'
+  selector: 'app-secondary-nav',
+  imports: [RouterLink, RouterLinkActive, TranslateModule],
+  templateUrl: './secondary-nav.component.html',
 })
 export class SecondaryNavComponent {
   routes = input<SecondaryRoute[]>();

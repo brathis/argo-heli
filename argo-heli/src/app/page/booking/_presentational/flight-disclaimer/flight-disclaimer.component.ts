@@ -6,11 +6,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-    selector: 'app-flight-disclaimer',
-    imports: [ReactiveFormsModule, RouterLink],
-    templateUrl: './flight-disclaimer.component.html'
+  selector: 'app-flight-disclaimer',
+  imports: [ReactiveFormsModule, RouterLink, TranslateModule],
+  templateUrl: './flight-disclaimer.component.html',
 })
 export class FlightDisclaimerComponent {
   acceptedTermsOfBookingRequestFormControl = new FormControl(false, [

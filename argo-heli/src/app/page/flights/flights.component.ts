@@ -1,4 +1,3 @@
-
 import { Component, effect, input } from '@angular/core';
 import { FlightSectionComponent } from './_presentational/flight-section/flight-section.component';
 import {
@@ -9,15 +8,15 @@ import { Flight } from './flight.interface';
 import { allFlights, allFlightsMap } from './flights/_all';
 
 @Component({
-    selector: 'app-flights',
-    imports: [SecondaryNavComponent, FlightSectionComponent],
-    templateUrl: './flights.component.html'
+  selector: 'app-flights',
+  imports: [SecondaryNavComponent, FlightSectionComponent],
+  templateUrl: './flights.component.html',
 })
 export class FlightsComponent {
   flight = input<string>();
 
   routes = allFlights.map((flight) => ({
-    title: flight.title,
+    title: `flights.${flight.id}.title`,
     path: `/flights/${flight.id}`,
   })) as SecondaryRoute[];
   // TODO:  Switching back and forth is simply because NgOptimizedImage cannot handle changing "width" and "height" attributes,

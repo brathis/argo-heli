@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { Route, Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-    selector: 'app-nav',
-    imports: [RouterLink, RouterLinkActive],
-    templateUrl: './nav.component.html'
+  selector: 'app-nav',
+  imports: [RouterLink, RouterLinkActive, TranslateModule],
+  templateUrl: './nav.component.html',
 })
 export class NavComponent {
   private _routerConfig = inject(Router).config;

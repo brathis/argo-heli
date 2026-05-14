@@ -52,6 +52,20 @@ The booking page injects `BACKEND_SERVICE` (an `InjectionToken`), which can reso
 
 GitHub Actions workflows in `.github/workflows/` build and deploy automatically on push to the respective branch (AWS region: `eu-central-2`).
 
+### Internationalisation (i18n)
+
+The app uses `@ngx-translate/core` v17 with `@ngx-translate/http-loader`. Translation files live at `public/i18n/de.json` and `public/i18n/en.json` (served as `/i18n/*.json`).
+
+- Configured in `app.config.ts` via `provideTranslateService` + `provideTranslateHttpLoader({ prefix: '/i18n/', suffix: '.json' })`
+- Language is auto-detected from the browser on startup (`app.component.ts`) and defaults to `'de'`
+- A DE/EN switcher is rendered inside the nav (`common/header/lang-switcher/`)
+- Every component that uses the `| translate` pipe must import `TranslateModule` in its own `imports` array (no shared module)
+- Route `title` fields are translation keys (e.g. `'nav.start'`); a custom `TranslateTitleStrategy` in `translate-title.strategy.ts` translates them for the browser document title
+- Flight title and synopsis are translated via dynamic keys: `'flights.' + flight.id + '.title'` and `'flights.' + flight.id + '.synopsis'` — the `id` field on each flight object acts as the namespace
+- The booking email fallback template is translated via `TranslateService.instant('booking.email.subject', params)` and `'booking.email.body'` with named interpolation params
+
+When adding a new translatable string: add the key to both `de.json` and `en.json`, then use `{{ 'key' | translate }}` in the template (or `translate.instant('key')` in TypeScript).
+
 ### Styling
 
 Tailwind CSS 3 with a custom theme: `primary` (blues), `secondary` (yellows), `tertiary` (cyan), and a custom font ("Instrument Sans"). Tailwind classes are always sorted by Prettier — don't manually order them. SCSS is used for component styles where Tailwind alone is insufficient.

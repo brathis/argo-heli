@@ -3,10 +3,12 @@
 >
   <div class="flex flex-col gap-y-4 lg:flex-row lg:gap-x-16">
     <span class="text-gray-200 max-lg:mb-4">&copy; {{ currentYear }}</span>
-    <a class="text-gray-500" routerLink="/imprint">Impressum</a>
-    <a class="text-gray-500" routerLink="/privacy-policy"
-      >Datenschutzerklärung</a
-    >
+    <a class="text-gray-500" routerLink="/imprint">{{
+      "footer.imprint" | translate
+    }}</a>
+    <a class="text-gray-500" routerLink="/privacy-policy">{{
+      "footer.privacy-policy" | translate
+    }}</a>
   </div>
   <div
     class="flex flex-col gap-y-4 text-gray-300 underline max-lg:mt-4 lg:gap-y-4"

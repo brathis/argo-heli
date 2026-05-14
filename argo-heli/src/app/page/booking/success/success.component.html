@@ -1,13 +1,12 @@
-<app-basic-page title="Danke für Ihre Anfrage!">
+<app-basic-page [title]="'booking-success.title' | translate">
   <p class="text-[20px] font-medium leading-[30px] text-gray-600">
-    Wir werden diese prüfen und uns innert zwei Arbeitstagen bei Ihnen melden.
-    Bei allfälligen Fragen erreichen Sie uns per E-Mail unter
+    {{ "booking-success.text1" | translate }}
     <a
       [href]="config.contactEmail | emailLink"
       class="text-primary-700 underline"
       >{{ config.contactEmail }}</a
     >
-    oder telefonisch unter
+    {{ "booking-success.text2" | translate }}
     <a
       [href]="config.contactPhone | phoneLink"
       class="text-primary-700 underline"

@@ -5,7 +5,8 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "watch": "ng build --watch --configuration development",
+    "lint": "./node_modules/.bin/prettier --check **/*.{ts,html,json}",
+    "fix": "./node_modules/.bin/prettier --write **/*.{ts,html,json}",
     "test": "ng test"
   },
   "private": true,
@@ -18,6 +19,8 @@
     "@angular/platform-browser": "^21.2.13",
     "@angular/platform-browser-dynamic": "^21.2.13",
     "@angular/router": "^21.2.13",
+    "@ngx-translate/core": "^17.0.0",
+    "@ngx-translate/http-loader": "^17.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },

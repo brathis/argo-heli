@@ -9,13 +9,14 @@ import {
   viewChild,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { Flight } from '../../../../flights/flight.interface';
 
 @Component({
-    selector: 'app-flight-selector-item',
-    imports: [NgClass, RouterLink],
-    templateUrl: './flight-selector-item.component.html',
-    styleUrl: './flight-selector-item.component.scss'
+  selector: 'app-flight-selector-item',
+  imports: [NgClass, RouterLink, TranslateModule],
+  templateUrl: './flight-selector-item.component.html',
+  styleUrl: './flight-selector-item.component.scss',
 })
 export class FlightSelectorItemComponent implements AfterViewInit {
   flight = input<Flight>();

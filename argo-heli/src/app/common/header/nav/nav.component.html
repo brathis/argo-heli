@@ -11,7 +11,7 @@
       <div
         class="link-active-marker invisible h-[3px] w-[36px] bg-primary-700 group-[.is-active]:visible"
       ></div>
-      {{ route.title }}
+      {{ $any(route.title) | translate }}
     </a>
   }
 </nav>

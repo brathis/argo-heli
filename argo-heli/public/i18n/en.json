@@ -1,0 +1,101 @@
+{
+  "nav": {
+    "start": "Home",
+    "flights": "Flights",
+    "booking": "Book"
+  },
+  "footer": {
+    "imprint": "Imprint",
+    "privacy-policy": "Privacy Policy"
+  },
+  "start": {
+    "hero-title": "Hop in and take off!",
+    "portrait": {
+      "greeting": "Hello!",
+      "text": "I'm Mathis, a helicopter pilot by passion. I've been fascinated by aviation for as long as I can remember. Now I want to share my love of flying with as many people as possible. I'd be delighted to welcome you on board soon!"
+    },
+    "reviews-heading": "Reviews",
+    "offerings": {
+      "location": {
+        "title": "Central location",
+        "text": "Buttwil airfield sits on the Lindenberg between Lake Hallwil and Muri. It can be reached in about 35 minutes from Zurich or 30 minutes from Aarau, making it an excellent starting point for flights over Zurich or into central Switzerland."
+      },
+      "book": {
+        "title": "Fly or gift a flight",
+        "text1": "Send your request directly via the",
+        "booking-link": "booking form",
+        "text2": "on the website. Want to give a flight as a gift? I'm happy to send you a high-quality printed gift voucher by post. Simply send your order by email to"
+      },
+      "tours": {
+        "title": "Tours for 2 passengers",
+        "text": "Choose from a range of scenic flight packages between {{shortest}} and {{longest}} minutes, or plan your very own personal flight route with me."
+      },
+      "pricing": {
+        "title": "Attractive pricing",
+        "text": "Since I offer the scenic flights as a private individual, you only pay the helicopter charter costs. That means scenic flights are available from CHF {{cheapest}}.- per person."
+      }
+    }
+  },
+  "flights": {
+    "uetliberg": {
+      "title": "Uetliberg",
+      "synopsis": "This scenic flight is especially beautiful just before sunset. In the evening light, the city of Zurich reveals itself from a completely new perspective. This route has two variants, as overflight of the city may not always be possible depending on traffic at Zurich Airport."
+    },
+    "rigi": {
+      "title": "Rigi",
+      "synopsis": "This scenic flight through central Switzerland takes us first to Lake Zug, then past the Rigi to the Mythen peaks. Above Schwyz we turn and follow Lake Lucerne towards Lucerne. Via Lake Baldegg we then return to Buttwil."
+    },
+    "per-person": "/ Person",
+    "book-button": "Book"
+  },
+  "booking": {
+    "heading": "Book a scenic flight",
+    "contact-data": {
+      "title": "Contact details",
+      "info": "We use this information solely to contact you and to send you an invoice after the flight.",
+      "first-name": "First name",
+      "last-name": "Last name",
+      "street": "Street + No.",
+      "city": "Postcode + City",
+      "email": "E-mail",
+      "phone": "Phone"
+    },
+    "flight-data": {
+      "title": "Flight details",
+      "info": "After receiving your booking we will check availability. You will receive a booking confirmation from us once helicopter availability has been confirmed.",
+      "base": "Departure location",
+      "base-buttwil": "Buttwil",
+      "passengers": "Passengers",
+      "date": "Date",
+      "departure-time": "Departure time"
+    },
+    "flight-selector": {
+      "label": "Flight route",
+      "discover-link": "Discover flight"
+    },
+    "summary": {
+      "total": "Total"
+    },
+    "disclaimer": {
+      "text": "By clicking \"Book\" you are making a binding reservation. For operational reasons (e.g. weather or maintenance on the helicopters) it is possible that a flight cannot take place on the requested day or may have to be cut short. There is no entitlement to a flight being carried out. In any case, only the flight costs actually incurred will be charged.",
+      "accept-terms": "I accept the above conditions for the booking request.",
+      "accept-privacy-before": "I accept the",
+      "privacy-link": "Privacy Policy"
+    },
+    "submit-button": "Book",
+    "error": {
+      "title": "Something went wrong :(",
+      "text1": "Something went wrong while submitting your booking request. We're sorry about that. You're welcome to send your request by email to",
+      "text2": ", or by phone to"
+    },
+    "email": {
+      "subject": "Scenic flight request for {{date}}",
+      "body": "Hello\n\nI would like to book a scenic flight on {{date}} at {{time}} from {{base}} for {{passengers}} passenger(s).\n\nMy contact details are as follows:\n{{firstName}} {{lastName}}\n{{street}} {{city}}\n{{email}}\n{{phone}}"
+    }
+  },
+  "booking-success": {
+    "title": "Thank you for your request!",
+    "text1": "We will review it and get back to you within two business days. If you have any questions, you can reach us by email at",
+    "text2": "or by phone at"
+  }
+}

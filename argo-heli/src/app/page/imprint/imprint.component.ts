@@ -5,9 +5,9 @@ import { EmailLinkPipe } from '../../common/email-link.pipe';
 import { PhoneLinkPipe } from '../../common/phone-link.pipe';
 
 @Component({
-    selector: 'app-imprint',
-    imports: [EmailLinkPipe, PhoneLinkPipe, BasicPageComponent],
-    templateUrl: './imprint.component.html'
+  selector: 'app-imprint',
+  imports: [EmailLinkPipe, PhoneLinkPipe, BasicPageComponent],
+  templateUrl: './imprint.component.html',
 })
 export class ImprintComponent {
   config = inject(ConfigService).getConfig();

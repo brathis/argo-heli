@@ -7,21 +7,23 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { TranslateModule } from '@ngx-translate/core';
 import { FormBlockComponent } from '../form-block/form-block.component';
 import { FormInputComponent } from '../form-input/form-input.component';
 import { FormRowComponent } from '../form-row/form-row.component';
 import { FormSelectComponent } from '../form-select/form-select.component';
 
 @Component({
-    selector: 'app-flight-data',
-    imports: [
-        FormBlockComponent,
-        FormRowComponent,
-        FormInputComponent,
-        ReactiveFormsModule,
-        FormSelectComponent,
-    ],
-    templateUrl: './flight-data.component.html'
+  selector: 'app-flight-data',
+  imports: [
+    FormBlockComponent,
+    FormRowComponent,
+    FormInputComponent,
+    ReactiveFormsModule,
+    FormSelectComponent,
+    TranslateModule,
+  ],
+  templateUrl: './flight-data.component.html',
 })
 export class FlightDataComponent {
   baseFormControl = new FormControl('LSZU', [Validators.required]);

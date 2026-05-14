@@ -2,9 +2,9 @@ import { Component, input } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
-    selector: 'app-form-select',
-    imports: [ReactiveFormsModule],
-    templateUrl: './form-select.component.html'
+  selector: 'app-form-select',
+  imports: [ReactiveFormsModule],
+  templateUrl: './form-select.component.html',
 })
 export class FormSelectComponent {
   label = input.required();

@@ -10,7 +10,7 @@
       <h4
         class="text-3xl font-bold uppercase tracking-[0.04] text-gray-400 group-[.is-selected]:text-primary-900 sm:text-[32px]"
       >
-        {{ flight()?.title }}
+        {{ "flights." + flight()?.id + ".title" | translate }}
       </h4>
       <div class="flex flex-col gap-[8px]">
         <span
@@ -33,6 +33,6 @@
   <a
     [routerLink]="'/flights/' + flight()?.id"
     class="text-[16px] font-semibold text-primary-800 underline"
-    >Flug entdecken</a
+    >{{ "booking.flight-selector.discover-link" | translate }}</a
   >
 </div>

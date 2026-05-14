@@ -1,0 +1,17 @@
+<div
+  class="flex flex-row items-center justify-end gap-x-1 px-4 text-sm font-semibold text-primary-300"
+>
+  @for (lang of languages; track lang; let last = $last) {
+    <button
+      class="px-1 uppercase hover:text-primary-700"
+      [class.text-primary-700]="currentLang === lang"
+      [class.font-bold]="currentLang === lang"
+      (click)="switchTo(lang)"
+    >
+      {{ lang }}
+    </button>
+    @if (!last) {
+      <span class="text-primary-200">|</span>
+    }
+  }
+</div>

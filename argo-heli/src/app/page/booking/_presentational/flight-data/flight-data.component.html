@@ -1,19 +1,20 @@
 <app-form-block
-  title="Flugdaten"
-  infoText="Nach Eingang Ihrer Buchung werden wir die Verfügbarkeit prüfen. 
-  Sie erhalten von uns eine Buchungsbestätigung, sobald die Verfügbarkeit des Helikopters sichergestellt ist."
+  [title]="'booking.flight-data.title' | translate"
+  [infoText]="'booking.flight-data.info' | translate"
   [formGroup]="group()"
 >
   <app-form-row>
     <app-form-select
-      label="Abflugort"
+      [label]="'booking.flight-data.base' | translate"
       formControlId="contact-data-base"
       [control]="this.baseFormControl"
     >
-      <option value="LSZU">Buttwil</option>
+      <option value="LSZU">{{
+        "booking.flight-data.base-buttwil" | translate
+      }}</option>
     </app-form-select>
     <app-form-group
-      label="Passagiere"
+      [label]="'booking.flight-data.passengers' | translate"
       formControlId="contact-data-passengers"
       [control]="this.passengersFormControl"
       type="number"
@@ -23,13 +24,13 @@
   </app-form-row>
   <app-form-row>
     <app-form-group
-      label="Datum"
+      [label]="'booking.flight-data.date' | translate"
       formControlId="contact-data-departure-date"
       [control]="this.departureDateFormControl"
       type="date"
     ></app-form-group>
     <app-form-group
-      label="Abflugzeit"
+      [label]="'booking.flight-data.departure-time' | translate"
       formControlId="contact-data-departure-time"
       [control]="this.departureTimeFormControl"
       type="time"

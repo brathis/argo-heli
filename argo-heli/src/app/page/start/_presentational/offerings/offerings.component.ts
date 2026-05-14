@@ -1,5 +1,6 @@
 import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { EmailLinkPipe } from '../../../../common/email-link.pipe';
 import {
   getCheapestFlightCost,
@@ -9,9 +10,9 @@ import {
 import { OfferingComponent } from './offering/offering.component';
 
 @Component({
-    selector: 'app-offerings',
-    imports: [OfferingComponent, EmailLinkPipe, RouterLink],
-    templateUrl: './offerings.component.html'
+  selector: 'app-offerings',
+  imports: [OfferingComponent, EmailLinkPipe, RouterLink, TranslateModule],
+  templateUrl: './offerings.component.html',
 })
 export class OfferingsComponent {
   cheapestFlightCost = getCheapestFlightCost();

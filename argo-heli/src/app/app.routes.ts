@@ -8,7 +8,7 @@ import { StartComponent } from './page/start/start.component';
 
 export const routes: Routes = [
   {
-    title: 'Start',
+    title: 'nav.start',
     path: '',
     loadComponent: () => StartComponent,
     data: { showInMenu: true },
@@ -18,29 +18,29 @@ export const routes: Routes = [
     redirectTo: 'flights/uetliberg',
   },
   {
-    title: 'Flüge',
+    title: 'nav.flights',
     path: 'flights/:flight',
     loadComponent: () => FlightsComponent,
     data: { showInMenu: 'flights' },
   },
   {
-    title: 'Buchen',
+    title: 'nav.booking',
     path: 'booking',
     loadComponent: () => BookingComponent,
     data: { showInMenu: true },
   },
   {
-    title: 'Danke für Ihre Anfrage!',
+    title: 'booking-success.title',
     path: 'booking/success',
     loadComponent: () => SuccessComponent,
   },
   {
-    title: 'Impressum',
+    title: 'footer.imprint',
     path: 'imprint',
     loadComponent: () => ImprintComponent,
   },
   {
-    title: 'Datenschutzerklärung',
+    title: 'footer.privacy-policy',
     path: 'privacy-policy',
     loadComponent: () => PrivacyPolicyComponent,
   },

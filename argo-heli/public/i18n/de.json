@@ -1,0 +1,101 @@
+{
+  "nav": {
+    "start": "Start",
+    "flights": "Flüge",
+    "booking": "Buchen"
+  },
+  "footer": {
+    "imprint": "Impressum",
+    "privacy-policy": "Datenschutzerklärung"
+  },
+  "start": {
+    "hero-title": "Einsteigen und abheben!",
+    "portrait": {
+      "greeting": "Grüezi!",
+      "text": "Ich bin Mathis, Helikopterpilot aus Leidenschaft. Seit ich denken kann, bin ich begeistert von der Fliegerei. Nun möchte ich meine Passion für das Fliegen mit möglichst vielen Leuten teilen. Es würde mich freuen, Sie bald mit an Bord begrüssen zu dürfen!"
+    },
+    "reviews-heading": "Erfahrungsberichte",
+    "offerings": {
+      "location": {
+        "title": "Zentraler Standort",
+        "text": "Der Flugplatz Buttwil liegt auf dem Lindenberg zwischen dem Hallwilersee und Muri. Er ist in rund 35 min ab Zürich oder 30 min ab Aarau erreichbar und eignet sich hervorragend als Ausgangspunkt für Flüge über Zürich oder in die Zentralschweiz."
+      },
+      "book": {
+        "title": "Zum Mitfliegen oder Verschenken",
+        "text1": "Schicken Sie Ihre Anfrage direkt über das",
+        "booking-link": "Buchungsformular",
+        "text2": "auf der Website. Sie wollen einen Flug verschenken? Gerne stelle ich Ihnen einen hochwertigen ausgedruckten Geschenkgutschein per Post zu. Senden Sie dazu Ihre Bestellung per E-Mail an"
+      },
+      "tours": {
+        "title": "Rundflüge für 2 Personen",
+        "text": "Wählen Sie aus einer Auswahl von Rundflugangeboten zwischen {{shortest}} und {{longest}} Minuten, oder planen Sie mit mir Ihre ganz persönliche Flugroute."
+      },
+      "pricing": {
+        "title": "Attraktive Konditionen",
+        "text": "Da ich die Rundflüge als Privatperson anbiete, zahlen Sie nur die Kosten für den Helikoptercharter. So sind Rundflüge bereits ab CHF {{cheapest}}.- pro Person erhältlich."
+      }
+    }
+  },
+  "flights": {
+    "uetliberg": {
+      "title": "Uetliberg",
+      "synopsis": "Dieser Rundflug ist besonders schön kurz vor Sonnenuntergang. Im Abendlicht zeigt sich die Stadt Zürich aus einer ganz neuen Perspektive. Bei dieser Route gibt es zwei Varianten, da je nach Verkehrsaufkommen am Flughafen Zürich ein Überflug über die Stadt nicht möglich ist."
+    },
+    "rigi": {
+      "title": "Rigi",
+      "synopsis": "Dieser Rundflug durch die Zentralschweiz führt uns zunächst zum Zugersee, dann weiter an der Rigi vorbei zu den Mythen. Über Schwyz drehen wir ab und folgen dem Vierwaldstättersee in Richtung Luzern. Via Baldeggersee geht es dann zurück nach Buttwil."
+    },
+    "per-person": "/ Person",
+    "book-button": "Buchen"
+  },
+  "booking": {
+    "heading": "Rundflug buchen",
+    "contact-data": {
+      "title": "Kontaktdaten",
+      "info": "Wir verwenden diese Daten ausschliesslich um Sie zu kontaktieren und Ihnen nach dem Flug eine Rechnung auszustellen.",
+      "first-name": "Vorname",
+      "last-name": "Nachname",
+      "street": "Strasse + Nr.",
+      "city": "PLZ + Ort",
+      "email": "E-Mail",
+      "phone": "Telefon"
+    },
+    "flight-data": {
+      "title": "Flugdaten",
+      "info": "Nach Eingang Ihrer Buchung werden wir die Verfügbarkeit prüfen. Sie erhalten von uns eine Buchungsbestätigung, sobald die Verfügbarkeit des Helikopters sichergestellt ist.",
+      "base": "Abflugort",
+      "base-buttwil": "Buttwil",
+      "passengers": "Passagiere",
+      "date": "Datum",
+      "departure-time": "Abflugzeit"
+    },
+    "flight-selector": {
+      "label": "Flugroute",
+      "discover-link": "Flug entdecken"
+    },
+    "summary": {
+      "total": "Total"
+    },
+    "disclaimer": {
+      "text": "Mit dem Klicken auf \"Buchen\" kommt eine verbindliche Reservation zustande. Aus betrieblichen Gründen (z.B. Wetter oder Wartungsarbeiten an den Helikoptern) kann es sein, dass ein Flug nicht an dem gewünschten Tag stattfinden kann, oder abgekürzt werden muss. Es besteht kein Anspruch auf die Durchführung eines Fluges. In jedem Fall werden nur die tatsächlich angefallenen Flugkosten verrechnet.",
+      "accept-terms": "Ich akzeptiere obige Bedingungen für die Buchungsanfrage.",
+      "accept-privacy-before": "Ich akzeptiere die",
+      "privacy-link": "Datenschutzerklärung"
+    },
+    "submit-button": "Buchen",
+    "error": {
+      "title": "Das hat leider nicht geklappt :(",
+      "text1": "Bei der Übermittlung Ihrer Buchungsanfrage ist etwas schiefgegangen. Das tut uns leid. Gerne nehmen wir Ihre Anfrage dennoch per E-Mail entgegen unter",
+      "text2": ", oder telefonisch unter"
+    },
+    "email": {
+      "subject": "Anfrage für Rundflug am {{date}}",
+      "body": "Guten Tag\n\nIch möchte gerne einen Rundflug buchen am {{date}} um {{time}} Uhr ab {{base}} für {{passengers}} Personen.\n\nMeine Kontaktdaten lauten wie folgt:\n{{firstName}} {{lastName}}\n{{street}} {{city}}\n{{email}}\n{{phone}}"
+    }
+  },
+  "booking-success": {
+    "title": "Danke für Ihre Anfrage!",
+    "text1": "Wir werden diese prüfen und uns innert zwei Arbeitstagen bei Ihnen melden. Bei allfälligen Fragen erreichen Sie uns per E-Mail unter",
+    "text2": "oder telefonisch unter"
+  }
+}

@@ -1,7 +1,7 @@
 <div class="bg-gray-50">
   <div class="mx-auto max-w-[1000px] bg-gray-50 px-6 py-[64px]">
     <h3 class="mb-[64px] text-[32px] font-bold text-gray-500">
-      Rundflug buchen
+      {{ "booking.heading" | translate }}
     </h3>
     <app-contact-data
       class="mb-[64px] block"
@@ -35,7 +35,7 @@
     <app-button
       appButtonLarge
       class="mt-12 block"
-      label="Buchen"
+      [label]="'booking.submit-button' | translate"
       [enabled]="bookingFormGroup.valid && !this.loading()"
       (click)="submit()"
     ></app-button>

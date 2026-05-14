@@ -3,9 +3,9 @@ import { Component, computed, input } from '@angular/core';
 import tailwindConfig from '../../../../../../tailwind.config.js';
 
 @Component({
-    selector: 'app-hero-static',
-    imports: [NgStyle],
-    templateUrl: './hero-static.component.html'
+  selector: 'app-hero-static',
+  imports: [NgStyle],
+  templateUrl: './hero-static.component.html',
 })
 export class HeroStaticComponent {
   title = input.required<string>();
