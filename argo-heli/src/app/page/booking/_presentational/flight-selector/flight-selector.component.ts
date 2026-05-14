@@ -31,7 +31,7 @@ export class FlightSelectorComponent implements ControlValueAccessor {
   items = contentChildren(FlightSelectorItemComponent);
   selectedFlight = signal<Flight | null>(null);
 
-  private _onChange: ((_) => void) | null = null;
+  private _onChange: ((flight: Flight | null) => void) | null = null;
   private _onTouched: (() => void) | null = null;
   private _touched = false;
 
@@ -55,16 +55,16 @@ export class FlightSelectorComponent implements ControlValueAccessor {
     });
   }
 
-  writeValue(obj): void {
+  writeValue(obj: Flight | null): void {
     this.selectedFlight.set(obj);
     this._scrollIntoView((obj as Flight)?.id);
   }
 
-  registerOnChange(fn): void {
+  registerOnChange(fn: (flight: Flight | null) => void): void {
     this._onChange = fn;
   }
 
-  registerOnTouched(fn): void {
+  registerOnTouched(fn: () => void): void {
     this._onTouched = fn;
   }
 
@@ -78,7 +78,7 @@ export class FlightSelectorComponent implements ControlValueAccessor {
     }
   }
 
-  private _isChanged(value: unknown): void {
+  private _isChanged(value: Flight | null): void {
     if (this._onChange !== null) {
       this._onChange(value);
     }

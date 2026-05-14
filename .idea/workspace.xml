@@ -4,24 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="efb38138-7d1a-432d-aeb6-fda4b1cb4ad4" name="Changes" comment="🚀 Add i18n using ngx-translate">
+    <list default="true" id="efb38138-7d1a-432d-aeb6-fda4b1cb4ad4" name="Changes" comment="🧹 Remove GitHub actions workflows">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CLAUDE.md" beforeDir="false" afterPath="$PROJECT_DIR$/CLAUDE.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/argo-heli/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/argo-heli/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/argo-heli/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/app.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/app.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/common/button/button.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/common/button/button.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/common/config.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/common/config.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/flight-selector/flight-selector-item/flight-selector-item.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/flight-selector/flight-selector-item/flight-selector-item.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/flight-selector/flight-selector.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/flight-selector/flight-selector.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/flight-selector/flight-selector.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/_presentational/flight-selector/flight-selector.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/backend/dummy-backend.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/backend/dummy-backend.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/booking/booking.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/booking/booking.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/flights/_presentational/hero-static/hero-static.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/flights/_presentational/hero-static/hero-static.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/flights/flights/_all.ts" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/flights/flights/_all.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/start/_presentational/offerings/offering/offering.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/start/_presentational/offerings/offering/offering.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/argo-heli/src/app/page/start/_presentational/reviews/review/review.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/argo-heli/src/app/page/start/_presentational/reviews/review/review.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +54,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_interpreter_path": "/home/mathis/.nvm/versions/node/v24.12.0/bin/node",
     "nodejs_package_manager_path": "npm",
+    "npm.build.executor": "Run",
     "npm.fix.executor": "Run",
     "npm.lint.executor": "Run",
     "npm.start.executor": "Run",
@@ -81,7 +69,17 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.lint">
+  <component name="RunManager" selected="npm.build">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/argo-heli/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="fix" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/argo-heli/package.json" />
       <command value="run" />
@@ -123,6 +121,7 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="npm.build" />
       <item itemvalue="npm.fix" />
       <item itemvalue="npm.lint" />
       <item itemvalue="npm.start" />
@@ -130,6 +129,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build" />
         <item itemvalue="npm.lint" />
         <item itemvalue="npm.fix" />
         <item itemvalue="npm.start" />
@@ -156,7 +156,7 @@
       <workItem from="1776191817890" duration="1519000" />
       <workItem from="1776285165180" duration="448000" />
       <workItem from="1778311298182" duration="43000" />
-      <workItem from="1778756407726" duration="7864000" />
+      <workItem from="1778756407726" duration="9795000" />
     </task>
     <task id="LOCAL-00001" summary="✨ Restructure and deploy to GitHub Pages">
       <option name="closed" value="true" />
@@ -350,16 +350,27 @@
       <option name="project" value="LOCAL" />
       <updated>1778778616334</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="✨ Configure ESLint">
+      <option name="closed" value="true" />
+      <created>1778779418289</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1778779418289</updated>
+    </task>
+    <task id="LOCAL-00026" summary="🧹 Remove GitHub actions workflows">
+      <option name="closed" value="true" />
+      <created>1778779608108</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1778779608108</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/argo-heli/eslint.config.js" />
-      </list>
-    </option>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -383,6 +394,8 @@
     <MESSAGE value=" Update to Angular 20" />
     <MESSAGE value=" Update to Angular 21" />
     <MESSAGE value=" Add i18n using ngx-translate" />
-    <option name="LAST_COMMIT_MESSAGE" value=" Add i18n using ngx-translate" />
+    <MESSAGE value="✨ Configure ESLint" />
+    <MESSAGE value=" Remove GitHub actions workflows" />
+    <option name="LAST_COMMIT_MESSAGE" value=" Remove GitHub actions workflows" />
   </component>
 </project>
