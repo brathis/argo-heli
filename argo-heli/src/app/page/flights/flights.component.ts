@@ -1,4 +1,4 @@
-import { CommonModule } from '@angular/common';
+
 import { Component, effect, input } from '@angular/core';
 import { FlightSectionComponent } from './_presentational/flight-section/flight-section.component';
 import {
@@ -10,7 +10,7 @@ import { allFlights, allFlightsMap } from './flights/_all';
 
 @Component({
     selector: 'app-flights',
-    imports: [SecondaryNavComponent, CommonModule, FlightSectionComponent],
+    imports: [SecondaryNavComponent, FlightSectionComponent],
     templateUrl: './flights.component.html'
 })
 export class FlightsComponent {

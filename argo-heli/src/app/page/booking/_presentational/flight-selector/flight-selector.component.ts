@@ -42,13 +42,13 @@ export class FlightSelectorComponent implements ControlValueAccessor {
       for (const item of this.items()) {
         item.clicked.subscribe(() => {
           this._isTouched();
-          this.selectedFlight.set(item.flight());
+          this.selectedFlight.set(item.flight() ?? null);
         });
         item.selected = computed(() => {
-          return item.flight().id === this.selectedFlight()?.id;
+          return item.flight()?.id === this.selectedFlight()?.id;
         });
-        if (item.flight().id === this.selectedFlight()?.id) {
-          this._scrollIntoView(item.flight().id);
+        if (item.flight()?.id === this.selectedFlight()?.id) {
+          this._scrollIntoView(item.flight()?.id);
         }
       }
     });

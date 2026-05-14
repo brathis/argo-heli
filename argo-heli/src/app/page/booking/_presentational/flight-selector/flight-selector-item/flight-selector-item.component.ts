@@ -18,7 +18,7 @@ import { Flight } from '../../../../flights/flight.interface';
     styleUrl: './flight-selector-item.component.scss'
 })
 export class FlightSelectorItemComponent implements AfterViewInit {
-  flight = input.required<Flight>();
+  flight = input<Flight>();
 
   // this is set by the parent FlightSelectorComponent
   selected: Signal<boolean> | null = null;
@@ -30,7 +30,7 @@ export class FlightSelectorItemComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.boxRef().nativeElement.style.setProperty(
       '--background-url',
-      `url("flights/${this.flight().id}/thumbnail.webp")`,
+      `url("flights/${this.flight()?.id}/thumbnail.webp")`,
     );
   }
 }
