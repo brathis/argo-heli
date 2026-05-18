@@ -1,3 +1,3 @@
 export const environment = {
-  bookingRequestEndpoint: 'https://api-prod.argo-heli.ch/booking-requests',
+  bookingRequestEndpoint: 'https://api.argo-heli.ch/booking-requests',
 };

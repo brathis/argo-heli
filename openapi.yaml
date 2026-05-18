@@ -1,0 +1,143 @@
+openapi: 3.1.0
+info:
+  title: Argo Heli Booking API
+  description: Backend API for submitting helicopter flight booking requests from argo-heli.ch.
+  version: 1.0.0
+
+servers:
+  - url: https://api.argo-heli.ch
+    description: Production
+  - url: https://api.develop.argo-heli.ch
+    description: Development
+
+paths:
+  /booking-requests:
+    post:
+      summary: Submit a flight booking request
+      operationId: submitBookingRequest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BookingRequest'
+      responses:
+        '200':
+          description: Request processed. Check the `success` field — a false value indicates a business-level failure.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BookingResponse'
+        '400':
+          description: Malformed request body.
+        '500':
+          description: Internal server error.
+
+components:
+  schemas:
+    BookingRequest:
+      type: object
+      required:
+        - contactData
+        - flightData
+        - flight
+        - termsAndConditions
+      properties:
+        contactData:
+          $ref: '#/components/schemas/ContactData'
+        flightData:
+          $ref: '#/components/schemas/FlightData'
+        flight:
+          $ref: '#/components/schemas/FlightInfo'
+        termsAndConditions:
+          $ref: '#/components/schemas/TermsAndConditions'
+
+    ContactData:
+      type: object
+      required:
+        - firstName
+        - lastName
+        - street
+        - city
+        - email
+        - phone
+      properties:
+        firstName:
+          type: string
+          example: Max
+        lastName:
+          type: string
+          example: Muster
+        street:
+          type: string
+          example: Musterstrasse 1
+        city:
+          type: string
+          example: Zürich
+        email:
+          type: string
+          format: email
+          example: max.muster@example.com
+        phone:
+          type: string
+          example: '+41791234567'
+
+    FlightData:
+      type: object
+      required:
+        - base
+        - departureDate
+        - departureTime
+        - passengers
+      properties:
+        base:
+          type: string
+          description: Departure base / helipad identifier.
+          example: Zürich-Heliport
+        departureDate:
+          type: string
+          format: date
+          description: Requested departure date (ISO 8601).
+          example: '2026-07-15'
+        departureTime:
+          type: string
+          description: Requested departure time (HH:MM, 24-hour).
+          pattern: '^([01]\d|2[0-3]):[0-5]\d$'
+          example: '10:30'
+        passengers:
+          type: integer
+          minimum: 1
+          description: Number of passengers (excluding pilot).
+          example: 3
+
+    FlightInfo:
+      type: object
+      required:
+        - title
+      properties:
+        title:
+          type: string
+          description: Human-readable flight product title.
+          example: Rundflug Zürich
+
+    TermsAndConditions:
+      type: object
+      required:
+        - acceptedTermsOfBookingRequest
+        - acceptedPrivacyPolicy
+      properties:
+        acceptedTermsOfBookingRequest:
+          type: boolean
+          description: Customer has accepted the booking request terms.
+        acceptedPrivacyPolicy:
+          type: boolean
+          description: Customer has accepted the privacy policy.
+
+    BookingResponse:
+      type: object
+      required:
+        - success
+      properties:
+        success:
+          type: boolean
+          description: Whether the booking request was accepted successfully.
