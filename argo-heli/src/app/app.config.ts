@@ -8,7 +8,7 @@ import {
   provideRouter,
   TitleStrategy,
   withComponentInputBinding,
-  withInMemoryScrolling,
+  withInMemoryScrolling, withViewTransitions
 } from '@angular/router';
 
 import { provideHttpClient } from '@angular/common/http';
@@ -25,10 +25,11 @@ export const appConfig: ApplicationConfig = {
       routes,
       withComponentInputBinding(),
       withInMemoryScrolling({ scrollPositionRestoration: 'top' }),
+      withViewTransitions()
     ),
     provideHttpClient(),
     provideTranslateService({
-      loader: provideTranslateHttpLoader({ prefix: '/i18n/', suffix: '.json' }),
+      loader: provideTranslateHttpLoader({ prefix: '/i18n/', suffix: '.json' })
     }),
     provideAppInitializer(async () => {
       const translate = inject(TranslateService);
@@ -38,6 +39,6 @@ export const appConfig: ApplicationConfig = {
       const lang = browserLang?.match(/de|en/) ? browserLang : 'de';
       return firstValueFrom(translate.use(lang)).then(() => undefined);
     }),
-    { provide: TitleStrategy, useClass: TranslateTitleStrategy },
-  ],
+    { provide: TitleStrategy, useClass: TranslateTitleStrategy }
+  ]
 };
