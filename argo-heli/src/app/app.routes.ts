@@ -1,4 +1,7 @@
+import { inject } from '@angular/core';
 import { Routes } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { langGuard } from './common/i18n/lang.guard';
 import { BookingComponent } from './page/booking/booking.component';
 import { SuccessComponent } from './page/booking/success/success.component';
 import { FlightsComponent } from './page/flights/flights.component';
@@ -6,7 +9,7 @@ import { ImprintComponent } from './page/imprint/imprint.component';
 import { PrivacyPolicyComponent } from './page/privacy-policy/privacy-policy.component';
 import { StartComponent } from './page/start/start.component';
 
-export const routes: Routes = [
+export const langChildRoutes: Routes = [
   {
     title: 'nav.start',
     path: '',
@@ -43,5 +46,32 @@ export const routes: Routes = [
     title: 'footer.privacy-policy',
     path: 'privacy-policy',
     loadComponent: () => PrivacyPolicyComponent,
+  },
+  {
+    path: '**',
+    redirectTo: '',
+  },
+];
+
+function browserLangRedirect(): string {
+  const translate = inject(TranslateService);
+  const browserLang = translate.getBrowserLang();
+  return browserLang?.match(/de|en/) ? browserLang : 'de';
+}
+
+export const routes: Routes = [
+  {
+    path: ':lang',
+    canActivate: [langGuard],
+    children: langChildRoutes,
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: browserLangRedirect,
+  },
+  {
+    path: '**',
+    redirectTo: browserLangRedirect,
   },
 ];

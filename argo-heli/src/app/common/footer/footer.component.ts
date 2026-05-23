@@ -1,9 +1,10 @@
 import { Component, inject } from '@angular/core';
-import { ConfigService } from '../config.service';
-import { PhoneLinkPipe } from '../phone-link.pipe';
-import { EmailLinkPipe } from '../email-link.pipe';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { ConfigService } from '../config.service';
+import { EmailLinkPipe } from '../email-link.pipe';
+import { LangService } from '../i18n/lang.service';
+import { PhoneLinkPipe } from '../phone-link.pipe';
 
 @Component({
   selector: 'app-footer',
@@ -12,5 +13,6 @@ import { TranslateModule } from '@ngx-translate/core';
 })
 export class FooterComponent {
   config = inject(ConfigService).getConfig();
+  currentLang = inject(LangService).currentLang;
   currentYear = new Date().getFullYear();
 }

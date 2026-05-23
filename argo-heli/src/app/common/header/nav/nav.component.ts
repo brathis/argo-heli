@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { Route, Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { Route, RouterLink, RouterLinkActive } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { langChildRoutes } from '../../../app.routes';
+import { LangService } from '../../i18n/lang.service';
 
 @Component({
   selector: 'app-nav',
@@ -8,15 +10,15 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './nav.component.html',
 })
 export class NavComponent {
-  private _routerConfig = inject(Router).config;
-  topLevelRoutes: Route[] = [];
+  readonly currentLang = inject(LangService).currentLang;
+  readonly topLevelRoutes: Route[] = [];
 
   constructor() {
-    for (const route of this._routerConfig) {
-      const showInMenu = route.data ? route.data['showInMenu'] : false;
+    for (const route of langChildRoutes) {
+      const showInMenu = route.data?.['showInMenu'];
       if (showInMenu) {
-        const link = showInMenu === true ? route.path : showInMenu;
-        this.topLevelRoutes.push({ ...route, path: link });
+        const path = showInMenu === true ? route.path : showInMenu;
+        this.topLevelRoutes.push({ ...route, path });
       }
     }
   }

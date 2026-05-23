@@ -8,15 +8,15 @@ import {
   provideRouter,
   TitleStrategy,
   withComponentInputBinding,
-  withInMemoryScrolling, withViewTransitions
+  withInMemoryScrolling,
+  withViewTransitions,
 } from '@angular/router';
 
 import { provideHttpClient } from '@angular/common/http';
 import { provideTranslateService, TranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
-import { firstValueFrom } from 'rxjs';
 import { routes } from './app.routes';
-import { TranslateTitleStrategy } from './common/translate-title.strategy';
+import { TranslateTitleStrategy } from './common/i18n/translate-title.strategy';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -25,20 +25,17 @@ export const appConfig: ApplicationConfig = {
       routes,
       withComponentInputBinding(),
       withInMemoryScrolling({ scrollPositionRestoration: 'top' }),
-      withViewTransitions()
+      withViewTransitions(),
     ),
     provideHttpClient(),
     provideTranslateService({
-      loader: provideTranslateHttpLoader({ prefix: '/i18n/', suffix: '.json' })
+      loader: provideTranslateHttpLoader({ prefix: '/i18n/', suffix: '.json' }),
     }),
-    provideAppInitializer(async () => {
+    provideAppInitializer(() => {
       const translate = inject(TranslateService);
       translate.addLangs(['de', 'en']);
       translate.setFallbackLang('de');
-      const browserLang = translate.getBrowserLang();
-      const lang = browserLang?.match(/de|en/) ? browserLang : 'de';
-      return firstValueFrom(translate.use(lang)).then(() => undefined);
     }),
-    { provide: TitleStrategy, useClass: TranslateTitleStrategy }
-  ]
+    { provide: TitleStrategy, useClass: TranslateTitleStrategy },
+  ],
 };

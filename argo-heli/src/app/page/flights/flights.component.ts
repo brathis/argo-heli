@@ -1,4 +1,5 @@
-import { Component, effect, input } from '@angular/core';
+import { Component, effect, inject, input } from '@angular/core';
+import { LangService } from '../../common/i18n/lang.service';
 import { FlightSectionComponent } from './_presentational/flight-section/flight-section.component';
 import {
   SecondaryNavComponent,
@@ -13,12 +14,15 @@ import { allFlights, allFlightsMap } from './flights/_all';
   templateUrl: './flights.component.html',
 })
 export class FlightsComponent {
+  private readonly lang = inject(LangService).currentLang;
   flight = input<string>();
 
-  routes = allFlights.map((flight) => ({
-    title: `flights.${flight.id}.title`,
-    path: `/flights/${flight.id}`,
-  })) as SecondaryRoute[];
+  get routes(): SecondaryRoute[] {
+    return allFlights.map((flight) => ({
+      title: `flights.${flight.id}.title`,
+      path: `/${this.lang()}/flights/${flight.id}`,
+    }));
+  }
   // TODO:  Switching back and forth is simply because NgOptimizedImage cannot handle changing "width" and "height" attributes,
   //        forcing us to ensure that a new component is created each time the user selects a different flight.
   //        Maybe there's a better way?

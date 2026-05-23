@@ -12,7 +12,9 @@ export class TranslateTitleStrategy extends TitleStrategy {
   constructor() {
     super();
     this.translate.onLangChange.subscribe(() => {
-      if (this.lastState) this.applyTitle(this.lastState);
+      if (this.lastState) {
+        this.applyTitle(this.lastState);
+      }
     });
   }
 
@@ -23,6 +25,8 @@ export class TranslateTitleStrategy extends TitleStrategy {
 
   private applyTitle(state: RouterStateSnapshot): void {
     const key = this.buildTitle(state);
-    if (key) this.title.setTitle(this.translate.instant(key));
+    if (key) {
+      this.title.setTitle(this.translate.instant(key));
+    }
   }
 }

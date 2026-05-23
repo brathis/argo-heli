@@ -23,7 +23,7 @@
   <app-button
     class="mb-12 mt-4 lg:mb-24"
     [label]="'flights.book-button' | translate"
-    link="/booking"
+    [routerLink]="['/', currentLang(), 'booking']"
     [queryParams]="{ flight: flightSnapshot.id }"
   ></app-button>
 </div>
