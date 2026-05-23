@@ -11,7 +11,7 @@ export interface Config {
 export class ConfigService {
   getConfig(): Config {
     return {
-      contactEmail: 'mathis@argo-heli.ch',
+      contactEmail: 'info@argo-heli.ch',
       contactPhone: '+41 76 707 85 27',
     };
   }
