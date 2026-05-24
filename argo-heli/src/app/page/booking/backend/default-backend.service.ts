@@ -9,7 +9,7 @@ import {
 } from './backend-service.interface';
 
 @Injectable()
-export class AwsBackendService implements BackendService {
+export class DefaultBackendService implements BackendService {
   private readonly _httpClient = inject(HttpClient);
 
   isLoading = signal(false);

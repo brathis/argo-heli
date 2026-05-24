@@ -21,7 +21,7 @@ import { FlightSelectorItemComponent } from './_presentational/flight-selector/f
 import { FlightSelectorComponent } from './_presentational/flight-selector/flight-selector.component';
 import { FlightSummaryComponent } from './_presentational/flight-summary/flight-summary.component';
 import { FormErrorComponent } from './_presentational/form-error/form-error.component';
-import { AwsBackendService } from './backend/aws-backend.service';
+import { DefaultBackendService } from './backend/default-backend.service';
 import {
   BACKEND_SERVICE,
   BackendService,
@@ -47,7 +47,7 @@ import {
     TranslateModule,
   ],
   templateUrl: './booking.component.html',
-  providers: [{ provide: BACKEND_SERVICE, useClass: AwsBackendService }],
+  providers: [{ provide: BACKEND_SERVICE, useClass: DefaultBackendService }],
 })
 export class BookingComponent {
   private _route = inject(ActivatedRoute);
@@ -112,7 +112,7 @@ export class BookingComponent {
       .subscribe((response) => {
         this.loading.set(false);
         if (response.success) {
-          this.router.navigateByUrl('/booking/success');
+          this.router.navigate(['/', this._translate.getCurrentLang(), 'booking', 'success']);
         } else {
           this.errorEmailLink.set(this.createEmailLink());
         }

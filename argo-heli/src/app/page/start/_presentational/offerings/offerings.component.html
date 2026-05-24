@@ -13,7 +13,7 @@
     imgSrc="/start/book_or_gift.svg"
   >
     {{ "start.offerings.book.text1" | translate }}
-    <a class="text-primary-600 underline" routerLink="/booking">{{
+    <a class="text-primary-600 underline" [routerLink]="['/', currentLang(), 'booking']">{{
       "start.offerings.book.booking-link" | translate
     }}</a>
     {{ "start.offerings.book.text2" | translate }}
