@@ -14,7 +14,7 @@ export const langChildRoutes: Routes = [
     title: 'nav.start',
     path: '',
     loadComponent: () => StartComponent,
-    data: { showInMenu: true },
+    data: { showInMenu: true, descriptionKey: 'meta.desc.start' },
   },
   {
     path: 'flights',
@@ -24,13 +24,13 @@ export const langChildRoutes: Routes = [
     title: 'nav.flights',
     path: 'flights/:flight',
     loadComponent: () => FlightsComponent,
-    data: { showInMenu: 'flights' },
+    data: { showInMenu: 'flights', descriptionKey: 'meta.desc.flights' },
   },
   {
     title: 'nav.booking',
     path: 'booking',
     loadComponent: () => BookingComponent,
-    data: { showInMenu: true },
+    data: { showInMenu: true, descriptionKey: 'meta.desc.booking' },
   },
   {
     title: 'booking-success.title',
@@ -41,6 +41,7 @@ export const langChildRoutes: Routes = [
     title: 'footer.imprint',
     path: 'imprint',
     loadComponent: () => ImprintComponent,
+    data: { descriptionKey: 'meta.desc.imprint' },
   },
   {
     title: 'footer.privacy-policy',
