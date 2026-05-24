@@ -11,11 +11,12 @@ This is the website for [argo-heli.ch](https://argo-heli.ch), a Swiss helicopter
 All commands run from `argo-heli/`:
 
 ```bash
-npm run start      # dev server at localhost:4200
-npm run build      # production build → dist/argo-heli/browser/
-npm run test       # unit tests with Karma/Jasmine
-npm run lint       # check formatting with prettier and run ESLint with angular-eslint plugin
-npm run fix        # format all files (Tailwind class sorting applied automatically)
+npm run start       # dev server at localhost:4200
+npm run build:dev   # development build → dist/argo-heli/browser/
+npm run build:prod  # production build → dist/argo-heli/browser/
+npm run test        # unit tests with Karma/Jasmine
+npm run lint        # check formatting with prettier and run ESLint with angular-eslint plugin
+npm run fix         # format all files (Tailwind class sorting applied automatically)
 ```
 
 ## Architecture
@@ -41,14 +42,13 @@ The app uses **Angular Signals** for component-level reactive state and **Reacti
 
 The booking page injects `BACKEND_SERVICE` (an `InjectionToken`), which can resolve to either `AwsBackendService` (real HTTP POST to the environment's booking endpoint) or `DummyBackendService` (local dev/testing). The interface contract lives in `backend-service.interface.ts`. Switching backends is done via DI, not feature flags.
 
-### Environments & deployment
+### Environments
 
-| Environment | Branch | API endpoint | S3 bucket |
-|-------------|--------|-------------|-----------|
-| dev | `develop` | `https://api-dev.argo-heli.ch/booking-requests` | `argo-heli-ch-static-website-bucket-dev` |
-| prod | `main` | `https://api-prod.argo-heli.ch/booking-requests` | `argo-heli-ch-static-website-bucket-prod` |
+| Environment | Frontend URL                   | API endpoint                                            |
+|-------------|--------------------------------|---------------------------------------------------------|
+| dev         | `https://develop.argo-heli.ch` | `https://api.development.argo-heli.ch/booking-requests` |
+| prod        | `https://argo-heli.ch`         | `https://api.argo-heli.ch/booking-requests`             |
 
-GitHub Actions workflows in `.github/workflows/` build and deploy automatically on push to the respective branch (AWS region: `eu-central-2`).
 
 ### Internationalisation (i18n)
 
