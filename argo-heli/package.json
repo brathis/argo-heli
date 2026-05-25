@@ -8,8 +8,7 @@
     "build:prod": "ng build --configuration=production",
     "lint": "ng lint && ./node_modules/.bin/prettier --check **/*.{ts,html,json}",
     "fix": "ng lint --fix && ./node_modules/.bin/prettier --write **/*.{ts,html,json}",
-    "test": "ng test",
-    "serve:ssr": "node dist/argo-heli/server/server.mjs"
+    "test": "ng test"
   },
   "private": true,
   "dependencies": {
