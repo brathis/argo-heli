@@ -1,6 +1,6 @@
 @let flightSnapshot = flight();
 <app-hero-static
-  [title]="'flights.' + flightSnapshot.id + '.title' | translate"
+  [title]="flightSnapshot.title"
   [duration]="flightSnapshot.duration"
   [imgSrc]="heroImgSrc()"
   [overrideTextColor]="flightSnapshot.textColor"
@@ -12,7 +12,7 @@
   <div
     class="mt-12 max-w-[650px] hyphens-auto text-center text-[20px] font-medium leading-[40px] text-gray-400 max-sm:p-6 sm:w-3/4 lg:mt-24"
   >
-    {{ "flights." + flightSnapshot.id + ".synopsis" | translate }}
+    {{ flightSnapshot.synopsis[currentLang()] }}
   </div>
 
   <app-price-tag

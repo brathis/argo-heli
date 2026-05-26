@@ -2,16 +2,17 @@ import { NgClass } from '@angular/common';
 import {
   AfterViewInit,
   Component,
-  ElementRef, inject,
+  ElementRef,
+  inject,
   input,
   output,
   Signal,
-  viewChild
+  viewChild,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { Flight } from '../../../../flights/flight.interface';
-import { LangService } from '../../../../../common/i18n/lang.service';
+import { Flight } from '@common/services/flights/flight.interface';
+import { LangService } from '@common/i18n/lang.service';
 
 @Component({
   selector: 'app-flight-selector-item',

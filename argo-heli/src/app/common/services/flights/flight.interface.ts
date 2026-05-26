@@ -1,3 +1,5 @@
+import { Language } from '@common/i18n/lang.service';
+
 export interface Flight {
   /** Internal identifier of the flight for use in URLs, HTML attributes, etc. */
   id: string;
@@ -15,26 +17,8 @@ export interface Flight {
   mapSvg: string;
 
   /** A short textual description of the flight's highlights. */
-  synopsis: string;
+  synopsis: Record<Language, string>;
 
   /** Optional override for hero text color. */
   textColor?: string;
-}
-
-export interface HeroLayerConfig {
-  startValue: number;
-  endValue: number;
-  property: string;
-}
-
-export interface HeroImageLayerConfig extends HeroLayerConfig {
-  imgSrc: string;
-  aspectRatio: number;
-}
-
-export interface HeroConfig {
-  duration: HeroLayerConfig;
-  foreground: HeroImageLayerConfig;
-  text: HeroLayerConfig;
-  background: HeroImageLayerConfig;
 }

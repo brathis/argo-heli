@@ -37,14 +37,6 @@
     }
   },
   "flights": {
-    "uetliberg": {
-      "title": "Uetliberg",
-      "synopsis": "Dieser Rundflug ist besonders schön kurz vor Sonnenuntergang. Im Abendlicht zeigt sich die Stadt Zürich aus einer ganz neuen Perspektive. Bei dieser Route gibt es zwei Varianten, da je nach Verkehrsaufkommen am Flughafen Zürich ein Überflug über die Stadt nicht möglich ist."
-    },
-    "rigi": {
-      "title": "Rigi",
-      "synopsis": "Dieser Rundflug durch die Zentralschweiz führt uns zunächst zum Zugersee, dann weiter an der Rigi vorbei zu den Mythen. Über Schwyz drehen wir ab und folgen dem Vierwaldstättersee in Richtung Luzern. Via Baldeggersee geht es dann zurück nach Buttwil."
-    },
     "per-person": "/ Person",
     "book-button": "Buchen"
   },

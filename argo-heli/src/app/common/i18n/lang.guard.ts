@@ -2,14 +2,19 @@ import { inject } from '@angular/core';
 import { CanActivateFn, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { firstValueFrom } from 'rxjs';
-import { SUPPORTED_LANGS, LangService, DEFAULT_LANG } from './lang.service';
+import {
+  SUPPORTED_LANGS,
+  LangService,
+  DEFAULT_LANG,
+  Language,
+} from './lang.service';
 
 export const langGuard: CanActivateFn = (route, state) => {
   const translate = inject(TranslateService);
   const langService = inject(LangService);
   const router = inject(Router);
 
-  const lang = route.paramMap.get('lang');
+  const lang = route.paramMap.get('lang') as Language | null;
 
   if (!lang || !SUPPORTED_LANGS.includes(lang)) {
     const urlTree = router.parseUrl(state.url);

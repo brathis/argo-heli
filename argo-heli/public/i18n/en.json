@@ -37,14 +37,6 @@
     }
   },
   "flights": {
-    "uetliberg": {
-      "title": "Uetliberg",
-      "synopsis": "This scenic flight is especially beautiful just before sunset. In the evening light, the city of Zurich reveals itself from a completely new perspective. This route has two variants, as overflight of the city may not always be possible depending on traffic at Zurich Airport."
-    },
-    "rigi": {
-      "title": "Rigi",
-      "synopsis": "This scenic flight through central Switzerland takes us first to Lake Zug, then past the Rigi to the Mythen peaks. Above Schwyz we turn and follow Lake Lucerne towards Lucerne. Via Lake Baldegg we then return to Buttwil."
-    },
     "per-person": "/ Person",
     "book-button": "Book"
   },

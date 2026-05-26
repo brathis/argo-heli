@@ -1,12 +1,12 @@
 import { Component, effect, inject, input } from '@angular/core';
-import { LangService } from '../../common/i18n/lang.service';
+import { LangService } from '@common/i18n/lang.service';
 import { FlightSectionComponent } from './_presentational/flight-section/flight-section.component';
 import {
   SecondaryNavComponent,
   SecondaryRoute,
 } from './_presentational/secondary-nav/secondary-nav.component';
-import { Flight } from './flight.interface';
-import { allFlights, allFlightsMap } from './flights/_all';
+import { Flight } from '@common/services/flights/flight.interface';
+import { FlightsService } from '@common/services/flights/flights.service';
 
 @Component({
   selector: 'app-flights',
@@ -14,12 +14,13 @@ import { allFlights, allFlightsMap } from './flights/_all';
   templateUrl: './flights.component.html',
 })
 export class FlightsComponent {
+  private readonly flightsService = inject(FlightsService);
   private readonly lang = inject(LangService).currentLang;
   flight = input<string>();
 
   get routes(): SecondaryRoute[] {
-    return allFlights.map((flight) => ({
-      title: `flights.${flight.id}.title`,
+    return this.flightsService.allFlights.map((flight) => ({
+      title: flight.title,
       path: `/${this.lang()}/flights/${flight.id}`,
     }));
   }
@@ -36,12 +37,12 @@ export class FlightsComponent {
         return;
       }
       if (!this.flightA && !this.flightB) {
-        this.flightA = allFlightsMap[flightId];
+        this.flightA = this.flightsService.allFlightsMap[flightId];
       } else if (!this.flightA) {
-        this.flightA = allFlightsMap[flightId];
+        this.flightA = this.flightsService.allFlightsMap[flightId];
         this.flightB = null;
       } else {
-        this.flightB = allFlightsMap[flightId];
+        this.flightB = this.flightsService.allFlightsMap[flightId];
         this.flightA = null;
       }
     });

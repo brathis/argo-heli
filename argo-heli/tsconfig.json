@@ -19,7 +19,11 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",
-    "allowJs": true
+    "allowJs": true,
+    "paths": {
+      "@common/*": ["./src/app/common/*"],
+      "@content/*": ["./src/app/content/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

@@ -9,40 +9,16 @@
   <app-offerings [contactEmail]="config.contactEmail"></app-offerings>
 
   <app-reviews>
-    <app-review
-      class="snap-center snap-always"
-      title="Super Säntisflug zu viert"
-      imgSrc="/start/reviews/01.jpg"
-      name="Mihai & Hugo"
-    >
-      Wir hatten einen super Spätsommerflug mit Mathis ab Sitterdorf.
-    </app-review>
-    <app-review
-      class="snap-center snap-always"
-      title="Brutal gsi 😍"
-      imgSrc="/start/reviews/02.jpg"
-      name="Nicolas"
-    >
-      Dude isch nöd eimal abgstürzt!
-    </app-review>
-    <app-review
-      class="snap-center snap-always"
-      title="Wunderbare Stimmung"
-      imgSrc="/start/reviews/03.jpg"
-      name="Heidi & Kurt"
-    >
-      Wir hatten einen herrlichen Flug um den Säntis bei Sonnenuntergang. Wir
-      würden jederzeit wieder mitfliegen!
-    </app-review>
-    <app-review
-      class="snap-center snap-always"
-      title="Überwältigender Alpenflug!"
-      imgSrc="/start/reviews/04.jpg"
-      name="Susi & Alberto"
-    >
-      Mit dem Helikopter bis zum Tödi! Ein Erlebnis, das wir wohl nie vergessen
-      werden!
-    </app-review>
+    @for (review of reviews; track $index) {
+      <app-review
+        class="snap-center snap-always"
+        [title]="review.title"
+        [imgSrc]="review.imgSrc"
+        [name]="review.name"
+      >
+        {{ review.text }}
+      </app-review>
+    }
   </app-reviews>
 
   <app-portrait></app-portrait>

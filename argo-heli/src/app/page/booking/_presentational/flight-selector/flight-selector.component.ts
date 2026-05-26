@@ -10,8 +10,8 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { scrollIntoViewHorizontally } from '../../../../common/scroll.util';
-import { Flight } from '../../../flights/flight.interface';
+import { scrollIntoViewHorizontally } from '@common/scroll.util';
+import { Flight } from '@common/services/flights/flight.interface';
 import { FlightSelectorItemComponent } from './flight-selector-item/flight-selector-item.component';
 
 @Component({

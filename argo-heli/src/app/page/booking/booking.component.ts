@@ -9,11 +9,11 @@ import {
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { map, Observable } from 'rxjs';
-import { ButtonLargeDirective } from '../../common/button/button-large.directive';
-import { ButtonComponent } from '../../common/button/button.component';
-import { ConfigService } from '../../common/config.service';
-import { Flight } from '../flights/flight.interface';
-import { allFlights, allFlightsMap } from '../flights/flights/_all';
+import { ButtonLargeDirective } from '@common/button/button-large.directive';
+import { ButtonComponent } from '@common/button/button.component';
+import { ConfigService } from '@common/services/config.service';
+import { Flight } from '@common/services/flights/flight.interface';
+import { allFlights, allFlightsMap } from '@content/flights';
 import { ContactDataComponent } from './_presentational/contact-data/contact-data.component';
 import { FlightDataComponent } from './_presentational/flight-data/flight-data.component';
 import { FlightDisclaimerComponent } from './_presentational/flight-disclaimer/flight-disclaimer.component';
@@ -112,7 +112,12 @@ export class BookingComponent {
       .subscribe((response) => {
         this.loading.set(false);
         if (response.success) {
-          this.router.navigate(['/', this._translate.getCurrentLang(), 'booking', 'success']);
+          this.router.navigate([
+            '/',
+            this._translate.getCurrentLang(),
+            'booking',
+            'success',
+          ]);
         } else {
           this.errorEmailLink.set(this.createEmailLink());
         }

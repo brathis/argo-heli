@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
-import { ConfigService } from '../config.service';
+import { ConfigService } from '../services/config.service';
 import { EmailLinkPipe } from '../email-link.pipe';
 import { LangService } from '../i18n/lang.service';
 import { PhoneLinkPipe } from '../phone-link.pipe';
