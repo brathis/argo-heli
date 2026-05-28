@@ -1,12 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { ConfigService } from '@common/services/config.service';
-import { HeroStaticComponent } from '../flights/_presentational/hero-static/hero-static.component';
-import { OfferingsComponent } from './_presentational/offerings/offerings.component';
-import { PortraitComponent } from './_presentational/portrait/portrait.component';
-import { ReviewComponent } from './_presentational/reviews/review/review.component';
-import { ReviewsComponent } from './_presentational/reviews/reviews.component';
-import { ReviewsService } from '@common/services/reviews/reviews.service';
+import { ConfigService } from '../../core/config.service';
+import { HeroStaticComponent } from '../flights/components/hero-static/hero-static.component';
+import { OfferingsComponent } from './components/offerings/offerings.component';
+import { PortraitComponent } from './components/portrait/portrait.component';
+import { ReviewComponent } from './components/review/review.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
+import { ReviewsService } from './reviews.service';
 
 @Component({
   selector: 'app-start',

@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { BasicPageComponent } from '@common/basic-page/basic-page.component';
-import { ConfigService } from '@common/services/config.service';
-import { EmailLinkPipe } from '@common/email-link.pipe';
-import { PhoneLinkPipe } from '@common/phone-link.pipe';
+import { BasicPageComponent } from '../../shared/components/basic-page/basic-page.component';
+import { ConfigService } from '../../core/config.service';
+import { EmailLinkPipe } from '../../shared/pipes/email-link.pipe';
+import { PhoneLinkPipe } from '../../shared/pipes/phone-link.pipe';
 
 @Component({
   selector: 'app-imprint',

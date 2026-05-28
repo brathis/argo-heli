@@ -16,7 +16,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { provideTranslateService, TranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 import { routes } from './app.routes';
-import { TranslateTitleStrategy } from '@common/i18n/translate-title.strategy';
+import { TranslateTitleStrategy } from './core/i18n/translate-title.strategy';
 
 export const appConfig: ApplicationConfig = {
   providers: [

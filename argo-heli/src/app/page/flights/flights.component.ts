@@ -1,12 +1,12 @@
 import { Component, effect, inject, input } from '@angular/core';
-import { LangService } from '@common/i18n/lang.service';
-import { FlightSectionComponent } from './_presentational/flight-section/flight-section.component';
+import { LangService } from '../../core/i18n/lang.service';
+import { FlightSectionComponent } from './components/flight-section/flight-section.component';
 import {
   SecondaryNavComponent,
   SecondaryRoute,
-} from './_presentational/secondary-nav/secondary-nav.component';
-import { Flight } from '@common/services/flights/flight.interface';
-import { FlightsService } from '@common/services/flights/flights.service';
+} from './components/secondary-nav/secondary-nav.component';
+import { Flight } from './flight.interface';
+import { FlightsService } from './flights.service';
 
 @Component({
   selector: 'app-flights',

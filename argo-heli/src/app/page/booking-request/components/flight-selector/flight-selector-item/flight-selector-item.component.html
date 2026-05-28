@@ -1,0 +1,43 @@
+<div
+  class="flex snap-center snap-always flex-col"
+  (click)="clicked.emit()"
+  (keydown)="clicked.emit()"
+  tabindex="0"
+>
+  <span
+    class="group"
+    [ngClass]="{ 'is-selected': selected === null ? false : selected() }"
+  >
+    <div
+      #box
+      class="box relative mb-[8px] flex h-[250px] w-[250px] cursor-pointer flex-col items-end justify-between overflow-hidden rounded-[5px] bg-cover p-[16px] shadow-sm group-[.is-selected]:bg-cover group-[.is-selected]:outline group-[.is-selected]:outline-[5px] group-[.is-selected]:outline-primary-500 sm:w-[450px]"
+    >
+      <h4
+        class="text-3xl font-bold uppercase tracking-[0.04] text-gray-400 group-[.is-selected]:text-primary-900 sm:text-[32px]"
+      >
+        {{ flight()?.title }}
+      </h4>
+      <div class="flex flex-col gap-[8px]">
+        <span
+          class="flex flex-row items-baseline gap-[4px] font-bold text-gray-300 group-[.is-selected]:text-primary-100"
+        >
+          <span class="text-[24px]">{{ flight()?.duration }}</span>
+          <span class="text-[16px]">min</span>
+        </span>
+        <span
+          class="text-[24px] font-bold text-gray-300 group-[.is-selected]:text-primary-100"
+        >
+          {{ flight()?.cost }}.-
+        </span>
+      </div>
+      <div
+        class="absolute bottom-[-60px] left-[-60px] hidden h-[120px] w-[120px] rounded-[50%] bg-primary-500 bg-[url('/booking/check.svg')] bg-[length:25%] bg-[75%_25%] bg-no-repeat group-[.is-selected]:block"
+      ></div>
+    </div>
+  </span>
+  <a
+    [routerLink]="['/', currentLang(), 'flights', flight()?.id]"
+    class="text-[16px] font-semibold text-primary-800 underline"
+    >{{ "booking.flight-selector.discover-link" | translate }}</a
+  >
+</div>

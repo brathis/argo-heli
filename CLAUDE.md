@@ -23,14 +23,16 @@ npm run fix         # format all files (Tailwind class sorting applied automatic
 
 ### Component organization
 
-- `src/app/common/` — shared layout components (header, footer, button) and utilities
-- `src/app/page/` — one folder per route; smart components live at the top, dumb/presentational components under `_presentational/`
+- `src/app/core/` — app-wide singletons: `config.service.ts`, `i18n/` (lang guard/service, title strategy), and `layout/` (header, footer, nav, logo, lang-switcher, shell)
+- `src/app/shared/` — reusable presentational pieces: `components/` (button, basic-page) and `pipes/` (email-link, phone-link)
+- `src/app/content/` — static data as JSON files (flights, reviews) with thin TypeScript index files that export typed arrays/maps
+- `src/app/page/` — one folder per route; sub-components live under `components/`
 
-The root `AppComponent` renders `<app-header>`, `<router-outlet>`, and `<app-footer>`.
+The root `AppComponent` renders only `<app-shell>`. `ShellComponent` owns `<app-header>`, `<router-outlet>`, and `<app-footer>`.
 
 ### Routing & lazy loading
 
-Routes are defined in `app.routes.ts` using standalone component lazy loading (`loadComponent`). The `/flights/:flight` route is parameterized — the flight id maps to entries in `page/flights/flights/_all.ts`, which is the single source of truth for all flight definitions.
+Routes are defined in `app.routes.ts` using standalone component lazy loading (`loadComponent`). The `/flights/:flight` route is parameterized — the flight id maps to entries in `content/flights/index.ts` (sourced from JSON files), which is the single source of truth for all flight definitions.
 
 Menu visibility is driven by `data: { showInMenu: true/string }` on route objects, not hardcoded in the header.
 
@@ -40,7 +42,7 @@ The app uses **Angular Signals** for component-level reactive state and **Reacti
 
 ### Booking backend abstraction
 
-The booking page injects `BACKEND_SERVICE` (an `InjectionToken`), which can resolve to either `AwsBackendService` (real HTTP POST to the environment's booking endpoint) or `DummyBackendService` (local dev/testing). The interface contract lives in `backend-service.interface.ts`. Switching backends is done via DI, not feature flags.
+The booking page uses `DefaultBookingRequestService` (injected via the `BookingRequestService` interface in `booking-request.interface.ts`) to POST to the environment's booking endpoint. The service is provided locally in the booking-request route and can be swapped via DI for testing.
 
 ### Environments
 
@@ -56,9 +58,9 @@ The app uses `@ngx-translate/core` v17 with `@ngx-translate/http-loader`. Transl
 
 - Configured in `app.config.ts` via `provideTranslateService` + `provideTranslateHttpLoader({ prefix: '/i18n/', suffix: '.json' })`
 - Language is auto-detected from the browser on startup (`app.component.ts`) and defaults to `'de'`
-- A DE/EN switcher is rendered inside the nav (`common/header/lang-switcher/`)
+- A DE/EN switcher is rendered inside the nav (`core/layout/lang-switcher/`)
 - Every component that uses the `| translate` pipe must import `TranslateModule` in its own `imports` array (no shared module)
-- Route `title` fields are translation keys (e.g. `'nav.start'`); a custom `TranslateTitleStrategy` in `translate-title.strategy.ts` translates them for the browser document title
+- Route `title` fields are translation keys (e.g. `'nav.start'`); a custom `TranslateTitleStrategy` in `core/i18n/translate-title.strategy.ts` translates them for the browser document title
 - Flight title and synopsis are translated via dynamic keys: `'flights.' + flight.id + '.title'` and `'flights.' + flight.id + '.synopsis'` — the `id` field on each flight object acts as the namespace
 - The booking email fallback template is translated via `TranslateService.instant('booking.email.subject', params)` and `'booking.email.body'` with named interpolation params
 

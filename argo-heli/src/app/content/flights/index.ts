@@ -1,4 +1,4 @@
-import { Flight } from '@common/services/flights/flight.interface';
+import { Flight } from '../../page/flights/flight.interface';
 import rigi from './rigi.json';
 import uetliberg from './uetliberg.json';
 

@@ -1,9 +1,9 @@
 import { inject } from '@angular/core';
 import { Routes } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { langGuard } from '@common/i18n/lang.guard';
-import { BookingComponent } from './page/booking/booking.component';
-import { SuccessComponent } from './page/booking/success/success.component';
+import { langGuard } from './core/i18n/lang.guard';
+import { BookingRequestComponent } from './page/booking-request/booking-request.component';
+import { BookingRequestSuccessComponent } from './page/booking-request-success/booking-request-success.component';
 import { FlightsComponent } from './page/flights/flights.component';
 import { ImprintComponent } from './page/imprint/imprint.component';
 import { PrivacyPolicyComponent } from './page/privacy-policy/privacy-policy.component';
@@ -29,13 +29,13 @@ export const langChildRoutes: Routes = [
   {
     title: 'nav.booking',
     path: 'booking',
-    loadComponent: () => BookingComponent,
+    loadComponent: () => BookingRequestComponent,
     data: { showInMenu: true, descriptionKey: 'meta.desc.booking' },
   },
   {
     title: 'booking-success.title',
     path: 'booking/success',
-    loadComponent: () => SuccessComponent,
+    loadComponent: () => BookingRequestSuccessComponent,
   },
   {
     title: 'footer.imprint',

@@ -1,5 +1,5 @@
 import { RenderMode, ServerRoute } from '@angular/ssr';
-import { SUPPORTED_LANGS } from '@common/i18n/lang.service';
+import { SUPPORTED_LANGS } from './core/i18n/lang.service';
 import { allFlightsMap } from '@content/flights';
 
 const langParams = async () => SUPPORTED_LANGS.map((lang) => ({ lang }));

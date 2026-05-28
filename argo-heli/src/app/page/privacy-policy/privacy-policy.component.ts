@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { BasicPageComponent } from '@common/basic-page/basic-page.component';
-import { ConfigService } from '@common/services/config.service';
-import { SectionComponent } from './_presentational/section/section.component';
-import { SubsectionComponent } from './_presentational/subsection/subsection.component';
+import { BasicPageComponent } from '../../shared/components/basic-page/basic-page.component';
+import { ConfigService } from '../../core/config.service';
+import { SectionComponent } from './components/section/section.component';
+import { SubsectionComponent } from './components/subsection/subsection.component';
 
 @Component({
   selector: 'app-privacy-policy',
