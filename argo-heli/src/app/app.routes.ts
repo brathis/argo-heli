@@ -1,7 +1,7 @@
 import { inject } from '@angular/core';
 import { Routes } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { langGuard } from './common/i18n/lang.guard';
+import { langGuard } from '@common/i18n/lang.guard';
 import { BookingComponent } from './page/booking/booking.component';
 import { SuccessComponent } from './page/booking/success/success.component';
 import { FlightsComponent } from './page/flights/flights.component';
