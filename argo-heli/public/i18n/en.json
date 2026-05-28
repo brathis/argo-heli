@@ -12,7 +12,7 @@
     "hero-title": "Hop in and take off!",
     "portrait": {
       "greeting": "Hello!",
-      "text": "We are Mathis, Samuel and Sven, helicopter pilots by passion. We want to share our love of flying with as many people as possible. We'd be delighted to welcome you on board soon!"
+      "text": "I'm Mathis, a helicopter pilot by passion. I've been fascinated by aviation for as long as I can remember. Now I want to share my love of flying with as many people as possible. I'd be delighted to welcome you on board soon!"
     },
     "reviews-heading": "Reviews",
     "offerings": {
@@ -24,15 +24,15 @@
         "title": "Fly or gift a flight",
         "text1": "Send your request directly via the",
         "booking-link": "booking form",
-        "text2": "on the website. Want to give a flight as a gift? We're happy to send you a high-quality printed gift voucher by post. Simply send your order by email to"
+        "text2": "on the website. Want to give a flight as a gift? I'm happy to send you a high-quality printed gift voucher by post. Simply send your order by email to"
       },
       "tours": {
         "title": "Tours for 2 passengers",
-        "text": "Choose from a range of scenic flight packages between {{shortest}} and {{longest}} minutes, or plan your very own personal flight route with us."
+        "text": "Choose from a range of scenic flight packages between {{shortest}} and {{longest}} minutes, or plan your very own personal flight route with me."
       },
       "pricing": {
         "title": "Attractive pricing",
-        "text": "Since we offer the scenic flights privately, you only pay the helicopter charter costs. That means scenic flights are available from CHF {{cheapest}}.- per person."
+        "text": "Since I offer the scenic flights as a private individual, you only pay the helicopter charter costs. That means scenic flights are available from CHF {{cheapest}}.- per person."
       }
     }
   },

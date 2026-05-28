@@ -57,8 +57,6 @@ module.exports = {
           "linear-gradient(to top, rgba(100% 100% 100% / 0) 55%, rgba(100% 100% 100% / 1) 65%, rgba(100% 100% 100% / 1) 100%), url('/start/portrait_fadeout_top.jpg')",
         "portrait-fadeout-right":
           "linear-gradient(to right, rgba(100% 100% 100% / 0) 0%, rgba(100% 100% 100% / 0) 25%, rgba(100% 100% 100% / 1) 50%), url('/start/portrait.jpg')",
-        "slop-group-portrait-fadeout-top": "linear-gradient(to top, rgba(100% 100% 100% / 0) 55%, rgba(100% 100% 100% / 1) 65%, rgba(100% 100% 100% / 1) 100%), url('/start/slop_group_portrait_fadeout_top.png')",
-        "slop-group-portrait-fadeout-right": "linear-gradient(to right, rgba(100% 100% 100% / 0) 0%, rgba(100% 100% 100% / 0) 25%, rgba(100% 100% 100% / 1) 50%), url('/start/slop_group_portrait.png')"
       },
     },
   },
