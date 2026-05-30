@@ -1,10 +1,11 @@
 import { NgStyle } from '@angular/common';
 import { Component, computed, input } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 import tailwindConfig from '../../../../../../tailwind.config.js';
 
 @Component({
   selector: 'app-hero-static',
-  imports: [NgStyle],
+  imports: [NgStyle, TranslateModule],
   templateUrl: './hero-static.component.html',
 })
 export class HeroStaticComponent {

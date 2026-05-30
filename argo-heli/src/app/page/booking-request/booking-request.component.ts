@@ -6,7 +6,7 @@ import {
   FormGroup,
   ReactiveFormsModule,
   ValidationErrors,
-  Validators
+  Validators,
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -19,9 +19,7 @@ import { allFlights, allFlightsMap } from '@content/flights';
 import { ContactDataComponent } from './components/contact-data/contact-data.component';
 import { FlightDataComponent } from './components/flight-data/flight-data.component';
 import { FlightDisclaimerComponent } from './components/flight-disclaimer/flight-disclaimer.component';
-import {
-  FlightSelectorItemComponent
-} from './components/flight-selector/flight-selector-item/flight-selector-item.component';
+import { FlightSelectorItemComponent } from './components/flight-selector/flight-selector-item/flight-selector-item.component';
 import { FlightSelectorComponent } from './components/flight-selector/flight-selector.component';
 import { FlightSummaryComponent } from './components/flight-summary/flight-summary.component';
 import { FormErrorComponent } from './components/form-error/form-error.component';
@@ -31,7 +29,7 @@ import {
   BookingRequestService,
   ContactData,
   FlightData,
-  TermsAndConditions
+  TermsAndConditions,
 } from './booking-request.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
@@ -49,12 +47,12 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
     ButtonComponent,
     ButtonLargeDirective,
     FormErrorComponent,
-    TranslateModule
+    TranslateModule,
   ],
   templateUrl: './booking-request.component.html',
   providers: [
-    { provide: BOOKING_REQUEST, useClass: DefaultBookingRequestService }
-  ]
+    { provide: BOOKING_REQUEST, useClass: DefaultBookingRequestService },
+  ],
 })
 export class BookingRequestComponent {
   private readonly _route = inject(ActivatedRoute);
@@ -74,7 +72,7 @@ export class BookingRequestComponent {
     street: new FormControl('', [Validators.required]),
     city: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-    phone: new FormControl('')
+    phone: new FormControl(''),
   });
   flightDataFormGroup = new FormGroup({
     base: new FormControl('LSZU', [Validators.required]),
@@ -82,41 +80,46 @@ export class BookingRequestComponent {
       Validators.required,
       Validators.min(1),
       (control) => this.maxPassengersValidator(control),
-      Validators.pattern(/\d+/)
+      Validators.pattern(/\d+/),
     ]),
     departureDate: new FormControl('', [
       Validators.required,
-      BookingRequestComponent.isFutureDateValidator
+      BookingRequestComponent.isFutureDateValidator,
     ]),
-    departureTime: new FormControl('', [Validators.required])
+    departureTime: new FormControl('', [Validators.required]),
   });
   flightFormControl = new FormControl<Flight | null>(
     this.getFlightFromQueryParam(),
-    [Validators.required]
+    [Validators.required],
   );
   termsAndConditionsFormGroup = new FormGroup({
     acceptedTermsOfBookingRequest: new FormControl(false, [
-      Validators.requiredTrue
+      Validators.requiredTrue,
     ]),
-    acceptedPrivacyPolicy: new FormControl(false, [Validators.requiredTrue])
+    acceptedPrivacyPolicy: new FormControl(false, [Validators.requiredTrue]),
   });
   bookingFormGroup = new FormGroup({
     contactData: this.contactDataFormGroup,
     flightData: this.flightDataFormGroup,
     flight: this.flightFormControl,
-    termsAndConditions: this.termsAndConditionsFormGroup
+    termsAndConditions: this.termsAndConditionsFormGroup,
   });
   flights = allFlights;
   totalFlightCost: Observable<number | null> =
     this.flightFormControl.valueChanges.pipe(
       map((flight) => {
         return flight?.totalCost ?? null;
-      })
+      }),
     );
 
   constructor() {
-    this.flightFormControl.valueChanges.pipe(takeUntilDestroyed(this._destroyRef))
-      .subscribe(() => this.flightDataFormGroup.get('passengers')?.updateValueAndValidity({ onlySelf: true }));
+    this.flightFormControl.valueChanges
+      .pipe(takeUntilDestroyed(this._destroyRef))
+      .subscribe(() =>
+        this.flightDataFormGroup
+          .get('passengers')
+          ?.updateValueAndValidity({ onlySelf: true }),
+      );
   }
 
   submit(): void {
@@ -137,11 +140,11 @@ export class BookingRequestComponent {
     this._backendService
       .submit({
         flight: {
-          title: flight.title
+          title: flight.title,
         },
         flightData,
         contactData,
-        termsAndConditions
+        termsAndConditions,
       })
       .subscribe((response) => {
         this.loading.set(false);
@@ -150,7 +153,7 @@ export class BookingRequestComponent {
             '/',
             this._translate.getCurrentLang(),
             'booking',
-            'success'
+            'success',
           ]);
         } else {
           this.errorEmailLink.set(this.createEmailLink());
@@ -173,13 +176,13 @@ export class BookingRequestComponent {
       street: contactData.street,
       city: contactData.city,
       email: contactData.email,
-      phone: contactData.phone
+      phone: contactData.phone,
     };
     const subject = this._translate.instant('booking.email.subject', params);
     const body = this._translate.instant('booking.email.body', params);
 
     return `mailto:${encodeURIComponent(
-      `${this.config.contactEmail}?subject=${subject}&body=${body}`
+      `${this.config.contactEmail}?subject=${subject}&body=${body}`,
     )}`;
   }
 
@@ -191,22 +194,26 @@ export class BookingRequestComponent {
     return allFlightsMap[flightId];
   }
 
-  private maxPassengersValidator(control: AbstractControl): ValidationErrors | null {
+  private maxPassengersValidator(
+    control: AbstractControl,
+  ): ValidationErrors | null {
     const maxPassengers = this.flightFormControl?.value?.maxPassengers ?? null;
     if (maxPassengers === null) {
       return null;
     }
-    return control.value > maxPassengers ? { tooManyPassengers: { value: control.value } } : null;
+    return control.value > maxPassengers
+      ? { tooManyPassengers: { value: control.value } }
+      : null;
   }
 
   private static isFutureDateValidator(
-    control: AbstractControl
+    control: AbstractControl,
   ): ValidationErrors | null {
     const value = new Date(control.value);
     const date = new Date(
       value.getFullYear(),
       value.getMonth(),
-      value.getDate()
+      value.getDate(),
     );
     const now = new Date();
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());

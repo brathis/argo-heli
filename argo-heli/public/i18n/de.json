@@ -38,7 +38,8 @@
   },
   "flights": {
     "per-person": "/ Person",
-    "book-button": "Buchen"
+    "book-button": "Buchen",
+    "persons": "Personen"
   },
   "booking": {
     "heading": "Rundflug buchen",

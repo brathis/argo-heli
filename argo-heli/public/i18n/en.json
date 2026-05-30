@@ -27,7 +27,7 @@
         "text2": "on the website. Want to give a flight as a gift? I'm happy to send you a high-quality printed gift voucher by post. Simply send your order by email to"
       },
       "tours": {
-        "title": "Tours for 2 passengers",
+        "title": "Tours for up to 4 passengers",
         "text": "Choose from a range of scenic flight packages between {{shortest}} and {{longest}} minutes, or plan your very own personal flight route with me."
       },
       "pricing": {
@@ -38,7 +38,8 @@
   },
   "flights": {
     "per-person": "/ Person",
-    "book-button": "Book"
+    "book-button": "Book",
+    "persons": "Passengers"
   },
   "booking": {
     "heading": "Book a scenic flight",
@@ -87,7 +88,7 @@
   },
   "meta": {
     "desc": {
-      "start": "Helicopter scenic flights from Buttwil airfield – for 2 passengers, from CHF 125.- per person. Book online now.",
+      "start": "Helicopter scenic flights from Buttwil airfield – for 2 to 4 passengers, from CHF 125.- per person. Book online now.",
       "flights": "Discover our scenic flight routes over Zurich or central Switzerland – between 25 and 45 minutes, from CHF 125.- per person.",
       "booking": "Book your helicopter scenic flight directly online. Choose your route, date and number of passengers – simple and straightforward.",
       "imprint": "Imprint of argo-heli.ch – details about the operators and contact information."
