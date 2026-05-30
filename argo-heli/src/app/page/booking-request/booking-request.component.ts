@@ -1,10 +1,12 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, inject, signal } from '@angular/core';
+import { Component, DestroyRef, inject, signal } from '@angular/core';
 import {
+  AbstractControl,
   FormControl,
   FormGroup,
   ReactiveFormsModule,
-  Validators,
+  ValidationErrors,
+  Validators
 } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -17,7 +19,9 @@ import { allFlights, allFlightsMap } from '@content/flights';
 import { ContactDataComponent } from './components/contact-data/contact-data.component';
 import { FlightDataComponent } from './components/flight-data/flight-data.component';
 import { FlightDisclaimerComponent } from './components/flight-disclaimer/flight-disclaimer.component';
-import { FlightSelectorItemComponent } from './components/flight-selector/flight-selector-item/flight-selector-item.component';
+import {
+  FlightSelectorItemComponent
+} from './components/flight-selector/flight-selector-item/flight-selector-item.component';
 import { FlightSelectorComponent } from './components/flight-selector/flight-selector.component';
 import { FlightSummaryComponent } from './components/flight-summary/flight-summary.component';
 import { FormErrorComponent } from './components/form-error/form-error.component';
@@ -27,8 +31,9 @@ import {
   BookingRequestService,
   ContactData,
   FlightData,
-  TermsAndConditions,
+  TermsAndConditions
 } from './booking-request.interface';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-booking-request',
@@ -44,76 +49,108 @@ import {
     ButtonComponent,
     ButtonLargeDirective,
     FormErrorComponent,
-    TranslateModule,
+    TranslateModule
   ],
   templateUrl: './booking-request.component.html',
   providers: [
-    { provide: BOOKING_REQUEST, useClass: DefaultBookingRequestService },
-  ],
+    { provide: BOOKING_REQUEST, useClass: DefaultBookingRequestService }
+  ]
 })
 export class BookingRequestComponent {
-  private _route = inject(ActivatedRoute);
-  private _translate = inject(TranslateService);
+  private readonly _route = inject(ActivatedRoute);
+  private readonly _translate = inject(TranslateService);
+  private readonly _backendService: BookingRequestService =
+    inject(BOOKING_REQUEST);
+  private readonly _router = inject(Router);
+  private readonly _destroyRef = inject(DestroyRef);
+  readonly config = inject(ConfigService).getConfig();
 
   loading = signal(false);
   errorEmailLink = signal<string | null>(null);
 
-  contactDataFormGroup = new FormGroup({});
-  flightDataFormGroup = new FormGroup({});
+  contactDataFormGroup = new FormGroup({
+    firstName: new FormControl('', [Validators.required]),
+    lastName: new FormControl('', [Validators.required]),
+    street: new FormControl('', [Validators.required]),
+    city: new FormControl('', [Validators.required]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    phone: new FormControl('')
+  });
+  flightDataFormGroup = new FormGroup({
+    base: new FormControl('LSZU', [Validators.required]),
+    passengers: new FormControl('', [
+      Validators.required,
+      Validators.min(1),
+      (control) => this.maxPassengersValidator(control),
+      Validators.pattern(/\d+/)
+    ]),
+    departureDate: new FormControl('', [
+      Validators.required,
+      BookingRequestComponent.isFutureDateValidator
+    ]),
+    departureTime: new FormControl('', [Validators.required])
+  });
   flightFormControl = new FormControl<Flight | null>(
     this.getFlightFromQueryParam(),
-    [Validators.required],
+    [Validators.required]
   );
-  termsAndConditionsFormGroup = new FormGroup({});
+  termsAndConditionsFormGroup = new FormGroup({
+    acceptedTermsOfBookingRequest: new FormControl(false, [
+      Validators.requiredTrue
+    ]),
+    acceptedPrivacyPolicy: new FormControl(false, [Validators.requiredTrue])
+  });
   bookingFormGroup = new FormGroup({
     contactData: this.contactDataFormGroup,
     flightData: this.flightDataFormGroup,
     flight: this.flightFormControl,
-    termsAndConditions: this.termsAndConditionsFormGroup,
+    termsAndConditions: this.termsAndConditionsFormGroup
   });
   flights = allFlights;
   totalFlightCost: Observable<number | null> =
-    this.bookingFormGroup.valueChanges.pipe(
-      map((form) => {
-        return form.flight?.totalCost ?? null;
-      }),
+    this.flightFormControl.valueChanges.pipe(
+      map((flight) => {
+        return flight?.totalCost ?? null;
+      })
     );
-  config = inject(ConfigService).getConfig();
 
-  private readonly _backendService: BookingRequestService =
-    inject(BOOKING_REQUEST);
-  private readonly router = inject(Router);
+  constructor() {
+    this.flightFormControl.valueChanges.pipe(takeUntilDestroyed(this._destroyRef))
+      .subscribe(() => this.flightDataFormGroup.get('passengers')?.updateValueAndValidity({ onlySelf: true }));
+  }
 
   submit(): void {
     if (!this.bookingFormGroup.valid || this.loading()) {
       return;
     }
 
-    const contactData = this.bookingFormGroup.value.contactData as ContactData;
-    const flightData = this.bookingFormGroup.value.flightData as FlightData;
     const flight = this.bookingFormGroup.value.flight as Flight;
+    const flightData = this.bookingFormGroup.value
+      .flightData as unknown as FlightData;
+    const contactData = this.bookingFormGroup.value
+      .contactData as unknown as ContactData;
     const termsAndConditions = this.bookingFormGroup.value
-      .termsAndConditions as TermsAndConditions;
+      .termsAndConditions as unknown as TermsAndConditions;
 
     this.loading.set(true);
     this.errorEmailLink.set(null);
     this._backendService
       .submit({
-        contactData,
-        flightData,
         flight: {
-          title: flight.title,
+          title: flight.title
         },
-        termsAndConditions,
+        flightData,
+        contactData,
+        termsAndConditions
       })
       .subscribe((response) => {
         this.loading.set(false);
         if (response.success) {
-          this.router.navigate([
+          this._router.navigate([
             '/',
             this._translate.getCurrentLang(),
             'booking',
-            'success',
+            'success'
           ]);
         } else {
           this.errorEmailLink.set(this.createEmailLink());
@@ -122,8 +159,10 @@ export class BookingRequestComponent {
   }
 
   private createEmailLink(): string {
-    const flightData = this.bookingFormGroup.value.flightData as FlightData;
-    const contactData = this.bookingFormGroup.value.contactData as ContactData;
+    const flightData = this.bookingFormGroup.value
+      .flightData as unknown as FlightData;
+    const contactData = this.bookingFormGroup.value
+      .contactData as unknown as ContactData;
     const params = {
       date: new Date(flightData.departureDate).toLocaleDateString('de-CH'),
       time: new Date(flightData.departureTime).toLocaleTimeString('de-CH'),
@@ -134,13 +173,13 @@ export class BookingRequestComponent {
       street: contactData.street,
       city: contactData.city,
       email: contactData.email,
-      phone: contactData.phone,
+      phone: contactData.phone
     };
     const subject = this._translate.instant('booking.email.subject', params);
     const body = this._translate.instant('booking.email.body', params);
 
     return `mailto:${encodeURIComponent(
-      `${this.config.contactEmail}?subject=${subject}&body=${body}`,
+      `${this.config.contactEmail}?subject=${subject}&body=${body}`
     )}`;
   }
 
@@ -150,5 +189,30 @@ export class BookingRequestComponent {
       return null;
     }
     return allFlightsMap[flightId];
+  }
+
+  private maxPassengersValidator(control: AbstractControl): ValidationErrors | null {
+    const maxPassengers = this.flightFormControl?.value?.maxPassengers ?? null;
+    if (maxPassengers === null) {
+      return null;
+    }
+    return control.value > maxPassengers ? { tooManyPassengers: { value: control.value } } : null;
+  }
+
+  private static isFutureDateValidator(
+    control: AbstractControl
+  ): ValidationErrors | null {
+    const value = new Date(control.value);
+    const date = new Date(
+      value.getFullYear(),
+      value.getMonth(),
+      value.getDate()
+    );
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    if (date.valueOf() <= today.valueOf()) {
+      return { isNotFutureDate: { value: control.value } };
+    }
+    return null;
   }
 }

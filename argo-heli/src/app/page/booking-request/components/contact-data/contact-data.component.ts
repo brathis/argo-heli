@@ -1,10 +1,5 @@
-import { Component, effect, input } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { Component, input } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { FormBlockComponent } from '../form-block/form-block.component';
 import { FormInputComponent } from '../form-input/form-input.component';
@@ -22,30 +17,24 @@ import { FormRowComponent } from '../form-row/form-row.component';
   templateUrl: './contact-data.component.html',
 })
 export class ContactDataComponent {
-  firstNameFormControl = new FormControl('', [Validators.required]);
-  lastNameFormControl = new FormControl('', [Validators.required]);
-  streetFormControl = new FormControl('', [Validators.required]);
-  cityFormControl = new FormControl('', [Validators.required]);
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
-  phoneFormControl = new FormControl('', []);
-
   group = input.required<FormGroup>();
 
-  constructor() {
-    effect(() => {
-      const group = this.group();
-      if (!group) {
-        return;
-      }
-      group.addControl('firstName', this.firstNameFormControl);
-      group.addControl('lastName', this.lastNameFormControl);
-      group.addControl('street', this.streetFormControl);
-      group.addControl('city', this.cityFormControl);
-      group.addControl('email', this.emailFormControl);
-      group.addControl('phone', this.phoneFormControl);
-    });
+  get firstName() {
+    return this.group().get('firstName') as FormControl;
+  }
+  get lastName() {
+    return this.group().get('lastName') as FormControl;
+  }
+  get street() {
+    return this.group().get('street') as FormControl;
+  }
+  get city() {
+    return this.group().get('city') as FormControl;
+  }
+  get email() {
+    return this.group().get('email') as FormControl;
+  }
+  get phone() {
+    return this.group().get('phone') as FormControl;
   }
 }

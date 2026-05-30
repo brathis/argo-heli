@@ -1,10 +1,5 @@
-import { Component, effect, inject, input } from '@angular/core';
-import {
-  FormControl,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { Component, inject, input } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { LangService } from '../../../../core/i18n/lang.service';
@@ -16,29 +11,13 @@ import { LangService } from '../../../../core/i18n/lang.service';
 })
 export class FlightDisclaimerComponent {
   readonly currentLang = inject(LangService).currentLang;
-  acceptedTermsOfBookingRequestFormControl = new FormControl(false, [
-    Validators.requiredTrue,
-  ]);
-  acceptedPrivacyPolicyFormControl = new FormControl(false, [
-    Validators.requiredTrue,
-  ]);
 
   group = input.required<FormGroup>();
 
-  constructor() {
-    effect(() => {
-      const group = this.group();
-      if (!group) {
-        return;
-      }
-      group.addControl(
-        'acceptedTermsOfBookingRequest',
-        this.acceptedTermsOfBookingRequestFormControl,
-      );
-      group.addControl(
-        'acceptedPrivacyPolicy',
-        this.acceptedPrivacyPolicyFormControl,
-      );
-    });
+  get acceptedTermsOfBookingRequest() {
+    return this.group().get('acceptedTermsOfBookingRequest') as FormControl;
+  }
+  get acceptedPrivacyPolicy() {
+    return this.group().get('acceptedPrivacyPolicy') as FormControl;
   }
 }
