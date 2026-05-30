@@ -3,15 +3,10 @@
     <h3 class="mb-[64px] text-[32px] font-bold text-gray-500">
       {{ "booking.heading" | translate }}
     </h3>
-    <app-contact-data
+    <app-flight-selector
       class="mb-[64px] block"
-      [group]="this.contactDataFormGroup"
-    ></app-contact-data>
-    <app-flight-data
-      class="mb-[64px] block"
-      [group]="this.flightDataFormGroup"
-    ></app-flight-data>
-    <app-flight-selector [formControl]="flightFormControl">
+      [formControl]="flightFormControl"
+    >
       @for (flight of flights; track $index) {
         <app-flight-selector-item
           [flight]="flight"
@@ -20,6 +15,14 @@
         ></app-flight-selector-item>
       }
     </app-flight-selector>
+    <app-flight-data
+      class="mb-[64px] block"
+      [group]="this.flightDataFormGroup"
+    ></app-flight-data>
+    <app-contact-data
+      class="mb-[64px] block"
+      [group]="this.contactDataFormGroup"
+    ></app-contact-data>
     <app-flight-summary [total]="totalFlightCost | async"></app-flight-summary>
     <app-flight-disclaimer
       [group]="termsAndConditionsFormGroup"

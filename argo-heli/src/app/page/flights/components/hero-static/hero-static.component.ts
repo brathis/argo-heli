@@ -10,6 +10,7 @@ import tailwindConfig from '../../../../../../tailwind.config.js';
 export class HeroStaticComponent {
   title = input.required<string>();
   duration = input<number>();
+  maxPassengers = input<number>();
   imgSrc = input.required<string>();
   overrideTextColor = input<string>();
 

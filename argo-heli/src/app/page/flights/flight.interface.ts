@@ -10,8 +10,14 @@ export interface Flight {
   /** The flight cost per person, in CHF. */
   cost: number;
 
+  /** The total cost of the flight, in CHF. */
+  totalCost: number;
+
   /** The approximate flight duration in minutes. */
   duration: number;
+
+  /** The maximum number of passengers that can be brought along. */
+  maxPassengers: number;
 
   /** SVG source of the map depicting the flight route. */
   mapSvg: string;

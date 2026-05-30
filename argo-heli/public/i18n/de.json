@@ -27,7 +27,7 @@
         "text2": "auf der Website. Sie wollen einen Flug verschenken? Gerne stelle ich Ihnen einen hochwertigen ausgedruckten Geschenkgutschein per Post zu. Senden Sie dazu Ihre Bestellung per E-Mail an"
       },
       "tours": {
-        "title": "Rundflüge für 2 Personen",
+        "title": "Rundflüge für bis zu 4 Personen",
         "text": "Wählen Sie aus einer Auswahl von Rundflugangeboten zwischen {{shortest}} und {{longest}} Minuten, oder planen Sie mit mir Ihre ganz persönliche Flugroute."
       },
       "pricing": {
@@ -87,7 +87,7 @@
   },
   "meta": {
     "desc": {
-      "start": "Helikopter-Rundflüge ab Flugplatz Buttwil – für 2 Personen, ab CHF 125.- pro Person. Jetzt online buchen.",
+      "start": "Helikopter-Rundflüge ab Flugplatz Buttwil – für 2 bis 4 Personen, ab CHF 125.- pro Person. Jetzt online buchen.",
       "flights": "Entdecken Sie unsere Rundflugrouten über Zürich oder die Zentralschweiz – zwischen 25 und 45 Minuten, ab CHF 125.- pro Person.",
       "booking": "Buchen Sie Ihren Helikopter-Rundflug direkt online. Wählen Sie Route, Datum und Passagieranzahl – einfach und unkompliziert.",
       "imprint": "Impressum von argo-heli.ch – Angaben zu Betreibern und Kontakt."

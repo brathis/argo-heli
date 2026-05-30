@@ -75,13 +75,7 @@ export class BookingRequestComponent {
   totalFlightCost: Observable<number | null> =
     this.bookingFormGroup.valueChanges.pipe(
       map((form) => {
-        const passengers = (form?.flightData as { passengers?: number })
-          ?.passengers;
-        const flightCostPerPassenger = (form?.flight as Flight)?.cost;
-        if (passengers && flightCostPerPassenger) {
-          return passengers * flightCostPerPassenger;
-        }
-        return null;
+        return form.flight?.totalCost ?? null;
       }),
     );
   config = inject(ConfigService).getConfig();
