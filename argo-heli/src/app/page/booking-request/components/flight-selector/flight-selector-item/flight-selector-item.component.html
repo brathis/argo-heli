@@ -25,6 +25,14 @@
           <span class="text-[16px]">min</span>
         </span>
         <span
+          class="flex flex-row items-baseline gap-[4px] font-bold text-gray-300 group-[.is-selected]:text-primary-100"
+        >
+          <span class="text-[24px]">{{ flight()?.maxPassengers }}</span>
+          <span class="text-[16px]">{{
+            "booking.flight-selector.persons" | translate
+          }}</span>
+        </span>
+        <span
           class="text-[24px] font-bold text-gray-300 group-[.is-selected]:text-primary-100"
         >
           {{ flight()?.totalCost }}.-

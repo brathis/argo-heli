@@ -64,6 +64,7 @@
     },
     "flight-selector": {
       "label": "Flugroute",
+      "persons": "Personen",
       "discover-link": "Flug entdecken"
     },
     "summary": {

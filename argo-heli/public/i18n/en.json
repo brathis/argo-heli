@@ -64,6 +64,7 @@
     },
     "flight-selector": {
       "label": "Flight route",
+      "persons": "Passengers",
       "discover-link": "Discover flight"
     },
     "summary": {
