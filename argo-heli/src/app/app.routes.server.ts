@@ -38,6 +38,16 @@ export const serverRoutes: ServerRoute[] = [
   // Post-booking success page — transactional, not worth pre-rendering
   { path: ':lang/booking/success', renderMode: RenderMode.Client },
 
+  // Voucher order form
+  {
+    path: ':lang/voucher',
+    renderMode: RenderMode.Prerender,
+    getPrerenderParams: langParams,
+  },
+
+  // Voucher order success page — transactional, not worth pre-rendering
+  { path: ':lang/voucher/success', renderMode: RenderMode.Client },
+
   // Legal pages
   {
     path: ':lang/imprint',

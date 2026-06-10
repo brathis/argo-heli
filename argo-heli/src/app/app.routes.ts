@@ -8,6 +8,8 @@ import { FlightsComponent } from './page/flights/flights.component';
 import { ImprintComponent } from './page/imprint/imprint.component';
 import { PrivacyPolicyComponent } from './page/privacy-policy/privacy-policy.component';
 import { StartComponent } from './page/start/start.component';
+import { VoucherOrderComponent } from './page/voucher-order/voucher-order.component';
+import { VoucherOrderSuccessComponent } from './page/voucher-order-success/voucher-order-success.component';
 
 export const langChildRoutes: Routes = [
   {
@@ -36,6 +38,17 @@ export const langChildRoutes: Routes = [
     title: 'booking-success.title',
     path: 'booking/success',
     loadComponent: () => BookingRequestSuccessComponent,
+  },
+  {
+    title: 'nav.voucher',
+    path: 'voucher',
+    loadComponent: () => VoucherOrderComponent,
+    data: { showInMenu: true, descriptionKey: 'meta.desc.voucher' },
+  },
+  {
+    title: 'voucher-success.title',
+    path: 'voucher/success',
+    loadComponent: () => VoucherOrderSuccessComponent,
   },
   {
     title: 'footer.imprint',

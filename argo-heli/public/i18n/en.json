@@ -2,7 +2,8 @@
   "nav": {
     "start": "Home",
     "flights": "Flights",
-    "booking": "Book"
+    "booking": "Book",
+    "voucher": "Gift"
   },
   "footer": {
     "imprint": "Imprint",
@@ -41,17 +42,11 @@
     "book-button": "Book",
     "persons": "Passengers"
   },
-  "booking": {
+  "booking-request": {
     "heading": "Book a scenic flight",
     "contact-data": {
       "title": "Contact details",
-      "info": "We use this information solely to contact you and to send you an invoice after the flight.",
-      "first-name": "First name",
-      "last-name": "Last name",
-      "street": "Street + No.",
-      "city": "Postcode + City",
-      "email": "E-mail",
-      "phone": "Phone"
+      "info": "We use this information solely to contact you and to send you an invoice after the flight."
     },
     "flight-data": {
       "title": "Flight details",
@@ -61,11 +56,6 @@
       "passengers": "Passengers",
       "date": "Date",
       "departure-time": "Departure time"
-    },
-    "flight-selector": {
-      "label": "Flight route",
-      "persons": "Passengers",
-      "discover-link": "Discover flight"
     },
     "summary": {
       "total": "Total"
@@ -78,7 +68,6 @@
     },
     "submit-button": "Book",
     "error": {
-      "title": "Something went wrong :(",
       "text1": "Something went wrong while submitting your booking request. We're sorry about that. You're welcome to send your request by email to",
       "text2": ", or by phone to"
     },
@@ -87,17 +76,69 @@
       "body": "Hello\n\nI would like to book a scenic flight on {{date}} at {{time}} from {{base}} for {{passengers}} passenger(s).\n\nMy contact details are as follows:\n{{firstName}} {{lastName}}\n{{street}} {{city}}\n{{email}}\n{{phone}}"
     }
   },
+  "booking-success": {
+    "title": "Thank you for your request!",
+    "text1": "We will review it and get back to you within two business days. If you have any questions, you can reach us by email at",
+    "text2": "or by phone at"
+  },
+  "voucher": {
+    "heading": "Voucher Order",
+    "billing-address": {
+      "title": "Billing Address",
+      "info": "This information is only used for issuing the invoice and will not appear on the gift voucher."
+    },
+    "delivery": {
+      "heading": "Delivery Options",
+      "info": "Choose between postal delivery (B-Post, within Switzerland only) or PDF download for self-printing.",
+      "method": "Delivery option",
+      "method-download": "PDF Download",
+      "method-letter": "Postal delivery",
+      "email": "E-mail for voucher delivery",
+      "delivery-address-equals-billing-address": "Delivery address same as billing address"
+    },
+    "summary": {
+      "total": "Total"
+    },
+    "disclaimer": {
+      "text": "Vouchers are valid for two years from the date of purchase. There is no entitlement to exchange or cash payment.",
+      "accept-terms": "I accept the above conditions for the purchase of gift vouchers.",
+      "accept-privacy-before": "I accept the",
+      "privacy-link": "Privacy Policy"
+    },
+    "submit-button": "Buy",
+    "error": {
+      "text1": "Something went wrong while processing your voucher order. We're sorry about that. You're welcome to place your order by email at",
+      "text2": ", or by phone at"
+    }
+  },
+  "voucher-success": {
+    "title": "Thank you for your order!"
+  },
   "meta": {
     "desc": {
       "start": "Helicopter scenic flights from Buttwil airfield – for 2 to 4 passengers, from CHF 125.- per person. Book online now.",
       "flights": "Discover our scenic flight routes over Zurich or central Switzerland – between 25 and 45 minutes, from CHF 125.- per person.",
       "booking": "Book your helicopter scenic flight directly online. Choose your route, date and number of passengers – simple and straightforward.",
+      "voucher": "Give an unforgettable experience – helicopter gift vouchers from argo-heli.ch, easy to order online.",
       "imprint": "Imprint of argo-heli.ch – details about the operators and contact information."
     }
   },
-  "booking-success": {
-    "title": "Thank you for your request!",
-    "text1": "We will review it and get back to you within two business days. If you have any questions, you can reach us by email at",
-    "text2": "or by phone at"
+  "shared": {
+    "contact-data": {
+      "first-name": "First name",
+      "last-name": "Last name",
+      "street": "Street + No.",
+      "city": "Postcode + City",
+      "email": "E-mail",
+      "phone": "Phone"
+    },
+    "flight-selector": {
+      "label": "Flight route",
+      "persons": "Passengers",
+      "discover-link": "Discover flight"
+    },
+    "form-error": {
+      "title": "Something went wrong :("
+    }
   }
 }

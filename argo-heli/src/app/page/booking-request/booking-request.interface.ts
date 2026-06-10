@@ -1,14 +1,6 @@
 import { InjectionToken, Signal } from '@angular/core';
 import { Observable } from 'rxjs';
-
-export interface ContactData {
-  firstName: string;
-  lastName: string;
-  street: string;
-  city: string;
-  email: string;
-  phone: string;
-}
+import { ContactData } from '../../shared/models/contact-data.interface';
 
 export interface FlightData {
   base: string;
@@ -23,11 +15,11 @@ export interface TermsAndConditions {
 }
 
 export interface BookingRequestRequest {
-  contactData: ContactData;
-  flightData: FlightData;
   flight: {
     title: string;
   };
+  flightData: FlightData;
+  contactData: ContactData;
   termsAndConditions: TermsAndConditions;
 }
 

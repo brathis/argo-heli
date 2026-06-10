@@ -1,46 +1,41 @@
-<div class="bg-gray-50">
-  <div class="mx-auto max-w-[1000px] bg-gray-50 px-6 py-[64px]">
-    <h3 class="mb-[64px] text-[32px] font-bold text-gray-500">
-      {{ "booking.heading" | translate }}
-    </h3>
-    <app-flight-selector
-      class="mb-[64px] block"
-      [formControl]="flightFormControl"
-    >
-      @for (flight of flights; track $index) {
-        <app-flight-selector-item
-          [flight]="flight"
-          class="first:ml-[149px] last:mr-[149px] sm:first:ml-[249px] sm:last:mr-[249px]"
-          [attr.data-flight-id]="flight?.id"
-        ></app-flight-selector-item>
-      }
-    </app-flight-selector>
-    <app-flight-data
-      class="mb-[64px] block"
-      [group]="this.flightDataFormGroup"
-    ></app-flight-data>
-    <app-contact-data
-      class="mb-[64px] block"
-      [group]="this.contactDataFormGroup"
-    ></app-contact-data>
-    <app-flight-summary [total]="totalFlightCost | async"></app-flight-summary>
-    <app-flight-disclaimer
-      [group]="termsAndConditionsFormGroup"
-    ></app-flight-disclaimer>
-    @let currentErrorEmailLink = errorEmailLink();
-    @if (currentErrorEmailLink) {
-      <app-form-error
-        [contactEmail]="config.contactEmail"
-        [contactPhone]="config.contactPhone"
-        [errorEmailLink]="currentErrorEmailLink"
-      ></app-form-error>
+<app-form-page heading="booking-request.heading">
+  <app-flight-selector
+    class="mb-[64px] block"
+    [formControl]="flightFormControl"
+  >
+    @for (flight of flights; track $index) {
+      <app-flight-selector-item [flight]="flight" />
     }
-    <app-button
-      appButtonLarge
-      class="mt-12 block"
-      [label]="'booking.submit-button' | translate"
-      [enabled]="bookingFormGroup.valid && !this.loading()"
-      (clicked)="submit()"
-    ></app-button>
-  </div>
-</div>
+  </app-flight-selector>
+  <app-booking-request-flight-data
+    class="mb-[64px] block"
+    [group]="this.flightDataFormGroup"
+  />
+  <app-booking-request-contact-data
+    class="mb-[64px] block"
+    [group]="contactDataFormGroup"
+  />
+  <app-booking-request-summary [total]="totalFlightCost | async" />
+  <app-booking-request-disclaimer [group]="termsAndConditionsFormGroup" />
+  @let currentErrorEmailLink = errorEmailLink();
+  @if (currentErrorEmailLink) {
+    <app-form-error>
+      {{ "booking-request.error.text1" | translate }}
+      <a class="underline" [href]="errorEmailLink()">{{
+        config.contactEmail
+      }}</a
+      >{{ "booking-request.error.text2" | translate }}
+      <a class="underline" [href]="config.contactPhone | phoneLink">{{
+        config.contactPhone
+      }}</a
+      >.
+    </app-form-error>
+  }
+  <app-button
+    appButtonLarge
+    class="mt-12 block"
+    [label]="'booking-request.submit-button' | translate"
+    [enabled]="bookingFormGroup.valid && !this.loading()"
+    (clicked)="submit()"
+  />
+</app-form-page>

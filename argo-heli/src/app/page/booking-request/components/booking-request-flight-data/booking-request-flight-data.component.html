@@ -1,0 +1,38 @@
+<app-form-block
+  [title]="'booking-request.flight-data.title' | translate"
+  [infoText]="'booking-request.flight-data.info' | translate"
+  [formGroup]="group()"
+>
+  <app-form-row>
+    <app-form-select
+      [label]="'booking-request.flight-data.base' | translate"
+      formControlId="contact-data-base"
+      [control]="base"
+    >
+      <option value="LSZU">{{
+        "booking-request.flight-data.base-buttwil" | translate
+      }}</option>
+    </app-form-select>
+    <app-form-input
+      [label]="'booking-request.flight-data.passengers' | translate"
+      formControlId="contact-data-passengers"
+      [control]="passengers"
+      type="number"
+      min="1"
+    ></app-form-input>
+  </app-form-row>
+  <app-form-row>
+    <app-form-input
+      [label]="'booking-request.flight-data.date' | translate"
+      formControlId="contact-data-departure-date"
+      [control]="departureDate"
+      type="date"
+    ></app-form-input>
+    <app-form-input
+      [label]="'booking-request.flight-data.departure-time' | translate"
+      formControlId="contact-data-departure-time"
+      [control]="departureTime"
+      type="time"
+    ></app-form-input>
+  </app-form-row>
+</app-form-block>

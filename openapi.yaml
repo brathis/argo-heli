@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
-  title: Argo Heli Booking API
-  description: Backend API for submitting helicopter flight booking requests from argo-heli.ch.
+  title: Argo Heli API
+  description: Backend API for submitting helicopter flight booking requests and purchasing vouchers from argo-heli.ch.
   version: 1.0.0
 
 servers:
@@ -11,6 +11,28 @@ servers:
     description: Development
 
 paths:
+  /voucher-orders:
+    post:
+      summary: Submit a voucher order
+      operationId: submitVoucherOrder
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VoucherOrderRequest'
+      responses:
+        '200':
+          description: Request processed. Check the `success` field — a false value indicates a business-level failure.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VoucherOrderResponse'
+        '400':
+          description: Malformed request body.
+        '500':
+          description: Internal server error.
+
   /booking-requests:
     post:
       summary: Submit a flight booking request
@@ -141,3 +163,80 @@ components:
         success:
           type: boolean
           description: Whether the booking request was accepted successfully.
+
+    VoucherOrderRequest:
+      type: object
+      required:
+        - flight
+        - billingAddress
+        - delivery
+        - termsAndConditions
+      properties:
+        flight:
+          $ref: '#/components/schemas/VoucherFlightInfo'
+        billingAddress:
+          $ref: '#/components/schemas/ContactData'
+        delivery:
+          $ref: '#/components/schemas/VoucherDelivery'
+        termsAndConditions:
+          $ref: '#/components/schemas/VoucherTermsAndConditions'
+
+    VoucherFlightInfo:
+      type: object
+      required:
+        - id
+        - title
+      properties:
+        id:
+          type: string
+          description: Flight product identifier.
+          example: rundflug-zuerich
+        title:
+          type: string
+          description: Human-readable flight product title.
+          example: Rundflug Zürich
+
+    VoucherDelivery:
+      type: object
+      required:
+        - deliveryMethod
+      properties:
+        deliveryMethod:
+          type: string
+          enum:
+            - LETTER
+            - DOWNLOAD
+          description: How the voucher should be delivered to the recipient.
+        deliveryEmail:
+          type: string
+          format: email
+          description: Email address for digital delivery. Required when `deliveryMethod` is `DOWNLOAD`.
+          example: empfaenger@example.com
+        deliveryAddressEqualsBillingAddress:
+          type: boolean
+          description: When `deliveryMethod` is `LETTER`, indicates whether the delivery address matches the billing address.
+        deliveryAddress:
+          $ref: '#/components/schemas/ContactData'
+          description: Postal delivery address. Required when `deliveryMethod` is `LETTER` and `deliveryAddressEqualsBillingAddress` is false.
+
+    VoucherTermsAndConditions:
+      type: object
+      required:
+        - acceptedTerms
+        - acceptedPrivacyPolicy
+      properties:
+        acceptedTerms:
+          type: boolean
+          description: Customer has accepted the voucher terms.
+        acceptedPrivacyPolicy:
+          type: boolean
+          description: Customer has accepted the privacy policy.
+
+    VoucherOrderResponse:
+      type: object
+      required:
+        - success
+      properties:
+        success:
+          type: boolean
+          description: Whether the voucher order was accepted successfully.

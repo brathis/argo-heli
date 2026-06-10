@@ -1,0 +1,39 @@
+<div class="flex flex-col gap-[24px]">
+  <app-form-row>
+    <app-form-input
+      [label]="'shared.contact-data.first-name' | translate"
+      formControlId="contact-data-first-name"
+      [control]="firstName"
+    ></app-form-input>
+    <app-form-input
+      [label]="'shared.contact-data.last-name' | translate"
+      formControlId="contact-data-last-name"
+      [control]="lastName"
+    ></app-form-input>
+  </app-form-row>
+  <app-form-row>
+    <app-form-input
+      [label]="'shared.contact-data.street' | translate"
+      formControlId="contact-data-street"
+      [control]="street"
+    ></app-form-input>
+    <app-form-input
+      [label]="'shared.contact-data.city' | translate"
+      formControlId="contact-data-city"
+      [control]="city"
+    ></app-form-input>
+  </app-form-row>
+  <app-form-row>
+    <app-form-input
+      [label]="'shared.contact-data.email' | translate"
+      formControlId="contact-data-email"
+      [control]="email"
+      type="email"
+    ></app-form-input>
+    <app-form-input
+      [label]="'shared.contact-data.phone' | translate"
+      formControlId="contact-data-phone"
+      [control]="phone"
+    ></app-form-input>
+  </app-form-row>
+</div>

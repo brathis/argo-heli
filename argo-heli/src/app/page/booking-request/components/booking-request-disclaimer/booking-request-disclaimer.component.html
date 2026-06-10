@@ -1,0 +1,23 @@
+<p class="my-12 text-[20px] font-medium leading-[30px] text-gray-400">
+  {{ "booking-request.disclaimer.text" | translate }}
+</p>
+
+<div class="flex flex-col gap-y-4 py-4">
+  <app-form-checkbox
+    [control]="acceptedTermsOfBookingRequest"
+    formControlId="acceptedTermsOfBookingRequestInput"
+  >
+    {{ "booking-request.disclaimer.accept-terms" | translate }}
+  </app-form-checkbox>
+  <app-form-checkbox
+    [control]="acceptedPrivacyPolicy"
+    formControlId="acceptedPrivacyPolicyInput"
+  >
+    {{ "booking-request.disclaimer.accept-privacy-before" | translate }}
+    <a
+      class="text-primary-600 underline"
+      [routerLink]="['/', currentLang(), 'privacy-policy']"
+      >{{ "booking-request.disclaimer.privacy-link" | translate }}</a
+    >.
+  </app-form-checkbox>
+</div>

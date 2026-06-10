@@ -8,46 +8,52 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Router } from '@angular/router';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { map, Observable } from 'rxjs';
 import { ButtonLargeDirective } from '../../shared/components/button/button-large.directive';
 import { ButtonComponent } from '../../shared/components/button/button.component';
 import { ConfigService } from '../../core/config.service';
 import { Flight } from '../flights/flight.interface';
-import { allFlights, allFlightsMap } from '@content/flights';
-import { ContactDataComponent } from './components/contact-data/contact-data.component';
-import { FlightDataComponent } from './components/flight-data/flight-data.component';
-import { FlightDisclaimerComponent } from './components/flight-disclaimer/flight-disclaimer.component';
-import { FlightSelectorItemComponent } from './components/flight-selector/flight-selector-item/flight-selector-item.component';
-import { FlightSelectorComponent } from './components/flight-selector/flight-selector.component';
-import { FlightSummaryComponent } from './components/flight-summary/flight-summary.component';
-import { FormErrorComponent } from './components/form-error/form-error.component';
+import { allFlights } from '@content/flights';
+import { BookingRequestFlightDataComponent } from './components/booking-request-flight-data/booking-request-flight-data.component';
+import { BookingRequestDisclaimerComponent } from './components/booking-request-disclaimer/booking-request-disclaimer.component';
+import { FlightSelectorItemComponent } from '../../shared/components/flight-selector/flight-selector-item/flight-selector-item.component';
+import { FlightSelectorComponent } from '../../shared/components/flight-selector/flight-selector.component';
+import { BookingRequestSummaryComponent } from './components/booking-request-summary/booking-request-summary.component';
+import { FormErrorComponent } from '../../shared/components/form-error/form-error.component';
 import { DefaultBookingRequestService } from './booking-request.service';
 import {
   BOOKING_REQUEST,
   BookingRequestService,
-  ContactData,
   FlightData,
   TermsAndConditions,
 } from './booking-request.interface';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { FormPageComponent } from '../../shared/components/form-page/form-page.component';
+import { ContactData } from '../../shared/models/contact-data.interface';
+import { createContactDataFormGroup } from '../../shared/utils/contact-data.util';
+import { BookingRequestContactDataComponent } from './components/booking-request-contact-data/booking-request-contact-data.component';
+import { FlightsService } from '../flights/flights.service';
+import { PhoneLinkPipe } from '../../shared/pipes/phone-link.pipe';
 
 @Component({
   selector: 'app-booking-request',
   imports: [
-    ContactDataComponent,
-    FlightDataComponent,
+    BookingRequestFlightDataComponent,
     FlightSelectorComponent,
     FlightSelectorItemComponent,
     ReactiveFormsModule,
-    FlightSummaryComponent,
+    BookingRequestSummaryComponent,
     AsyncPipe,
-    FlightDisclaimerComponent,
+    BookingRequestDisclaimerComponent,
     ButtonComponent,
     ButtonLargeDirective,
     FormErrorComponent,
-    TranslateModule,
+    FormPageComponent,
+    BookingRequestContactDataComponent,
+    PhoneLinkPipe,
+    TranslatePipe,
   ],
   templateUrl: './booking-request.component.html',
   providers: [
@@ -55,7 +61,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
   ],
 })
 export class BookingRequestComponent {
-  private readonly _route = inject(ActivatedRoute);
+  private readonly _flightsService = inject(FlightsService);
   private readonly _translate = inject(TranslateService);
   private readonly _backendService: BookingRequestService =
     inject(BOOKING_REQUEST);
@@ -66,14 +72,10 @@ export class BookingRequestComponent {
   loading = signal(false);
   errorEmailLink = signal<string | null>(null);
 
-  contactDataFormGroup = new FormGroup({
-    firstName: new FormControl('', [Validators.required]),
-    lastName: new FormControl('', [Validators.required]),
-    street: new FormControl('', [Validators.required]),
-    city: new FormControl('', [Validators.required]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    phone: new FormControl(''),
-  });
+  flightFormControl = new FormControl<Flight | null>(
+    this._flightsService.getFlightFromQueryParam(),
+    [Validators.required],
+  );
   flightDataFormGroup = new FormGroup({
     base: new FormControl('LSZU', [Validators.required]),
     passengers: new FormControl('', [
@@ -88,10 +90,7 @@ export class BookingRequestComponent {
     ]),
     departureTime: new FormControl('', [Validators.required]),
   });
-  flightFormControl = new FormControl<Flight | null>(
-    this.getFlightFromQueryParam(),
-    [Validators.required],
-  );
+  contactDataFormGroup = createContactDataFormGroup();
   termsAndConditionsFormGroup = new FormGroup({
     acceptedTermsOfBookingRequest: new FormControl(false, [
       Validators.requiredTrue,
@@ -99,9 +98,9 @@ export class BookingRequestComponent {
     acceptedPrivacyPolicy: new FormControl(false, [Validators.requiredTrue]),
   });
   bookingFormGroup = new FormGroup({
-    contactData: this.contactDataFormGroup,
-    flightData: this.flightDataFormGroup,
     flight: this.flightFormControl,
+    flightData: this.flightDataFormGroup,
+    contactData: this.contactDataFormGroup,
     termsAndConditions: this.termsAndConditionsFormGroup,
   });
   flights = allFlights;
@@ -178,20 +177,15 @@ export class BookingRequestComponent {
       email: contactData.email,
       phone: contactData.phone,
     };
-    const subject = this._translate.instant('booking.email.subject', params);
-    const body = this._translate.instant('booking.email.body', params);
+    const subject = this._translate.instant(
+      'booking-request.email.subject',
+      params,
+    );
+    const body = this._translate.instant('booking-request.email.body', params);
 
     return `mailto:${encodeURIComponent(
       `${this.config.contactEmail}?subject=${subject}&body=${body}`,
     )}`;
-  }
-
-  private getFlightFromQueryParam(): Flight | null {
-    const flightId = this._route.snapshot.queryParamMap.get('flight');
-    if (!flightId) {
-      return null;
-    }
-    return allFlightsMap[flightId];
   }
 
   private maxPassengersValidator(

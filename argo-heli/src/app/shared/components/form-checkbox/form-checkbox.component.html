@@ -1,0 +1,11 @@
+<div class="flex flex-row items-center text-[20px] font-medium text-gray-400">
+  <input
+    [id]="formControlId()"
+    type="checkbox"
+    [formControl]="control()"
+    class="mr-4 h-6 w-6 shrink-0 accent-primary-600"
+  />
+  <label [for]="formControlId()">
+    <ng-content />
+  </label>
+</div>

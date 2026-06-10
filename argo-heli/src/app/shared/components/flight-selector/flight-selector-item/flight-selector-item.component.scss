@@ -1,0 +1,16 @@
+@use "../../../../../vars";
+
+.box {
+  // this is overwritten in TS
+  --background-url: none;
+
+  background:
+    linear-gradient(to left, vars.$primary-100 21%, rgba(255, 255, 255, 0) 100%),
+    var(--background-url) no-repeat center/cover;
+}
+
+.is-selected .box {
+  background:
+    linear-gradient(to left, vars.$primary-500 21%, rgba(255, 255, 255, 0) 100%),
+    var(--background-url) no-repeat center/cover;
+}

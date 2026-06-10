@@ -1,0 +1,37 @@
+<app-form-page heading="voucher.heading">
+  <app-flight-selector
+    class="mb-[64px] block"
+    [formControl]="flightFormControl"
+  >
+    @for (flight of flights; track $index) {
+      <app-flight-selector-item [flight]="flight" />
+    }
+  </app-flight-selector>
+  <app-voucher-billing-address
+    class="mb-[64px] block"
+    [group]="billingAddressFormGroup"
+  />
+  <app-voucher-delivery class="mb-[64px] block" [group]="deliveryFormGroup" />
+  <app-voucher-summary [total]="totalFlightCost | async" />
+  <app-voucher-disclaimer [group]="termsFormGroup" />
+  @if (error()) {
+    <app-form-error>
+      {{ "voucher.error.text1" | translate }}
+      <a class="underline" [href]="config.contactEmail | emailLink">{{
+        config.contactEmail
+      }}</a
+      >{{ "voucher.error.text2" | translate }}
+      <a class="underline" [href]="config.contactPhone | phoneLink">{{
+        config.contactPhone
+      }}</a
+      >.
+    </app-form-error>
+  }
+  <app-button
+    appButtonLarge
+    class="mt-12 block"
+    [label]="'voucher.submit-button' | translate"
+    [enabled]="formGroup.valid && !loading()"
+    (clicked)="submit()"
+  />
+</app-form-page>

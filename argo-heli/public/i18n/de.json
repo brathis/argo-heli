@@ -2,7 +2,8 @@
   "nav": {
     "start": "Start",
     "flights": "Flüge",
-    "booking": "Buchen"
+    "booking": "Buchen",
+    "voucher": "Verschenken"
   },
   "footer": {
     "imprint": "Impressum",
@@ -41,17 +42,11 @@
     "book-button": "Buchen",
     "persons": "Personen"
   },
-  "booking": {
+  "booking-request": {
     "heading": "Rundflug buchen",
     "contact-data": {
       "title": "Kontaktdaten",
-      "info": "Wir verwenden diese Daten ausschliesslich um Sie zu kontaktieren und Ihnen nach dem Flug eine Rechnung auszustellen.",
-      "first-name": "Vorname",
-      "last-name": "Nachname",
-      "street": "Strasse + Nr.",
-      "city": "PLZ + Ort",
-      "email": "E-Mail",
-      "phone": "Telefon"
+      "info": "Wir verwenden diese Daten ausschliesslich um Sie zu kontaktieren und Ihnen nach dem Flug eine Rechnung auszustellen."
     },
     "flight-data": {
       "title": "Flugdaten",
@@ -61,11 +56,6 @@
       "passengers": "Passagiere",
       "date": "Datum",
       "departure-time": "Abflugzeit"
-    },
-    "flight-selector": {
-      "label": "Flugroute",
-      "persons": "Personen",
-      "discover-link": "Flug entdecken"
     },
     "summary": {
       "total": "Total"
@@ -78,7 +68,6 @@
     },
     "submit-button": "Buchen",
     "error": {
-      "title": "Das hat leider nicht geklappt :(",
       "text1": "Bei der Übermittlung Ihrer Buchungsanfrage ist etwas schiefgegangen. Das tut uns leid. Gerne nehmen wir Ihre Anfrage dennoch per E-Mail entgegen unter",
       "text2": ", oder telefonisch unter"
     },
@@ -87,17 +76,69 @@
       "body": "Guten Tag\n\nIch möchte gerne einen Rundflug buchen am {{date}} um {{time}} Uhr ab {{base}} für {{passengers}} Personen.\n\nMeine Kontaktdaten lauten wie folgt:\n{{firstName}} {{lastName}}\n{{street}} {{city}}\n{{email}}\n{{phone}}"
     }
   },
+  "booking-success": {
+    "title": "Danke für Ihre Anfrage!",
+    "text1": "Wir werden diese prüfen und uns innert zwei Arbeitstagen bei Ihnen melden. Bei allfälligen Fragen erreichen Sie uns per E-Mail unter",
+    "text2": "oder telefonisch unter"
+  },
+  "voucher": {
+    "heading": "Gutscheinbestellung",
+    "billing-address": {
+      "title": "Rechnungsadresse",
+      "info": "Diese Angaben werden nur für das Ausstellen der Rechnung verwendet und erscheinen nicht auf dem Geschenkgutschein."
+    },
+    "delivery": {
+      "heading": "Versandoptionen",
+      "info": "Wählen Sie zwischen Postversand (B-Post, nur innerhalb der Schweiz) oder PDF-Download zum selber Ausdrucken.",
+      "method": "Zustelloption",
+      "method-download": "PDF-Download",
+      "method-letter": "Postversand",
+      "email": "E-Mail für Gutscheinversand",
+      "delivery-address-equals-billing-address": "Lieferadresse entspricht Rechnungsadresse"
+    },
+    "summary": {
+      "total": "Total"
+    },
+    "disclaimer": {
+      "text": "Gutscheine sind ab Kaufdatum zwei Jahre gültig. Es besteht kein Anspruch auf Umtausch oder Barauszahlung.",
+      "accept-terms": "Ich akzeptiere obige Bedingungen über den Kauf von Geschenkgutscheinen.",
+      "accept-privacy-before": "Ich akzeptiere die",
+      "privacy-link": "Datenschutzerklärung"
+    },
+    "submit-button": "Kaufen",
+    "error": {
+      "text1": "Bei der Verarbeitung Ihrer Gutscheinbestellung ist etwas schiefgegangen. Das tut uns leid. Gerne nehmen wir Ihre Bestellung dennoch per E-Mail entgegen unter",
+      "text2": ", oder telefonisch unter"
+    }
+  },
+  "voucher-success": {
+    "title": "Danke für Ihre Bestellung!"
+  },
   "meta": {
     "desc": {
       "start": "Helikopter-Rundflüge ab Flugplatz Buttwil – für 2 bis 4 Personen, ab CHF 125.- pro Person. Jetzt online buchen.",
       "flights": "Entdecken Sie unsere Rundflugrouten über Zürich oder die Zentralschweiz – zwischen 25 und 45 Minuten, ab CHF 125.- pro Person.",
       "booking": "Buchen Sie Ihren Helikopter-Rundflug direkt online. Wählen Sie Route, Datum und Passagieranzahl – einfach und unkompliziert.",
+      "voucher": "Verschenken Sie ein unvergessliches Erlebnis – Helikopter-Gutscheine von argo-heli.ch, jetzt einfach online bestellen.",
       "imprint": "Impressum von argo-heli.ch – Angaben zu Betreibern und Kontakt."
     }
   },
-  "booking-success": {
-    "title": "Danke für Ihre Anfrage!",
-    "text1": "Wir werden diese prüfen und uns innert zwei Arbeitstagen bei Ihnen melden. Bei allfälligen Fragen erreichen Sie uns per E-Mail unter",
-    "text2": "oder telefonisch unter"
+  "shared": {
+    "contact-data": {
+      "first-name": "Vorname",
+      "last-name": "Nachname",
+      "street": "Strasse + Nr.",
+      "city": "PLZ + Ort",
+      "email": "E-Mail",
+      "phone": "Telefon"
+    },
+    "flight-selector": {
+      "label": "Flugroute",
+      "persons": "Personen",
+      "discover-link": "Flug entdecken"
+    },
+    "form-error": {
+      "title": "Das hat leider nicht geklappt :("
+    }
   }
 }

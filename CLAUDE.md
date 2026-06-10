@@ -46,10 +46,10 @@ The booking page uses `DefaultBookingRequestService` (injected via the `BookingR
 
 ### Environments
 
-| Environment | Frontend URL                   | API endpoint                                            |
-|-------------|--------------------------------|---------------------------------------------------------|
-| dev         | `https://develop.argo-heli.ch` | `https://api.development.argo-heli.ch/booking-requests` |
-| prod        | `https://argo-heli.ch`         | `https://api.argo-heli.ch/booking-requests`             |
+| Environment | Frontend URL                   | API endpoint                                        |
+|-------------|--------------------------------|-----------------------------------------------------|
+| dev         | `https://develop.argo-heli.ch` | `https://api.develop.argo-heli.ch/booking-requests` |
+| prod        | `https://argo-heli.ch`         | `https://api.argo-heli.ch/booking-requests`         |
 
 
 ### Internationalisation (i18n)

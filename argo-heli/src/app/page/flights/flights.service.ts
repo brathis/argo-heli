@@ -1,8 +1,11 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { allFlights, allFlightsMap } from '@content/flights';
+import { ActivatedRoute } from '@angular/router';
+import { Flight } from './flight.interface';
 
 @Injectable({ providedIn: 'root' })
 export class FlightsService {
+  private readonly _route = inject(ActivatedRoute);
   readonly allFlights = allFlights;
   readonly allFlightsMap = allFlightsMap;
 
@@ -31,5 +34,13 @@ export class FlightsService {
         : previousValue,
     );
     return longestFlight.duration;
+  }
+
+  getFlightFromQueryParam(): Flight | null {
+    const flightId = this._route.snapshot.queryParamMap.get('flight');
+    if (!flightId) {
+      return null;
+    }
+    return allFlightsMap[flightId];
   }
 }

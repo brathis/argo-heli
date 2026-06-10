@@ -1,0 +1,46 @@
+<app-form-block
+  [title]="'voucher.delivery.heading' | translate"
+  [infoText]="'voucher.delivery.info' | translate"
+>
+  <app-form-row>
+    <app-form-select
+      [control]="deliveryMethod"
+      [label]="'voucher.delivery.method' | translate"
+      [formControlId]="'voucher-delivery-method'"
+    >
+      <option value="DOWNLOAD">
+        {{ "voucher.delivery.method-download" | translate }}
+      </option>
+      <option value="LETTER">
+        {{ "voucher.delivery.method-letter" | translate }}
+      </option>
+    </app-form-select>
+  </app-form-row>
+  @if (deliveryEmail.enabled) {
+    <app-form-row>
+      <app-form-input
+        [control]="deliveryEmail"
+        [label]="'voucher.delivery.email' | translate"
+        [formControlId]="'voucher-delivery-email'"
+        type="email"
+      />
+    </app-form-row>
+  }
+  @if (deliveryAddressEqualsBillingAddress.enabled) {
+    <app-form-row>
+      <app-form-checkbox
+        [control]="deliveryAddressEqualsBillingAddress"
+        formControlId="deliveryAddressEqualsBillingAddressInput"
+      >
+        {{
+          "voucher.delivery.delivery-address-equals-billing-address" | translate
+        }}
+      </app-form-checkbox>
+    </app-form-row>
+  }
+  @if (deliveryAddress.enabled) {
+    <app-form-row>
+      <app-contact-data [group]="deliveryAddress" />
+    </app-form-row>
+  }
+</app-form-block>
