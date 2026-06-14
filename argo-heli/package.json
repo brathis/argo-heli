@@ -4,8 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build:dev": "ng build --configuration=development",
-    "build:prod": "ng build --configuration=production",
+    "generate:products": "node scripts/generate-products.js",
+    "build:dev": "ng build --configuration=development && npm run generate:products",
+    "build:prod": "ng build --configuration=production && npm run generate:products",
     "lint": "ng lint && ./node_modules/.bin/prettier --check **/*.{ts,html,json}",
     "fix": "ng lint --fix && ./node_modules/.bin/prettier --write **/*.{ts,html,json}",
     "test": "ng test"
