@@ -240,3 +240,6 @@ components:
         success:
           type: boolean
           description: Whether the voucher order was accepted successfully.
+        checkoutUrl:
+          type: string
+          description: The URL to redirect the user to for payment.

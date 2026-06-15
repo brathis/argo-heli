@@ -26,4 +26,5 @@ export interface TermsAndConditions {
 
 export interface VoucherOrderResponse {
   success: boolean;
+  checkoutUrl?: string;
 }

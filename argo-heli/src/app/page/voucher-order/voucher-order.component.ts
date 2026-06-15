@@ -182,10 +182,11 @@ export class VoucherOrderComponent {
         },
       })
       .subscribe((response) => {
-        this.loading.set(false);
-        if (response.success) {
-          // TODO: Redirect to checkout page
+        if (response.success && response.checkoutUrl) {
+          window.location.assign(response.checkoutUrl);
+          return;
         } else {
+          this.loading.set(false);
           this.error.set(true);
         }
       });
