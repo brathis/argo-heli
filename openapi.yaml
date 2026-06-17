@@ -33,6 +33,29 @@ paths:
         '500':
           description: Internal server error.
 
+  /checkout-sessions/{checkoutSessionId}/fulfill:
+    post:
+      summary: Fulfill a checkout session
+      operationId: fulfillCheckoutSession
+      parameters:
+        - name: checkoutSessionId
+          in: path
+          required: true
+          schema:
+            type: string
+          description: The Stripe checkout session ID (stripe_id).
+      responses:
+        '200':
+          description: Fulfillment triggered (or session was already fulfilled).
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FulfillCheckoutSessionResponse'
+        '404':
+          description: No checkout session found with the given ID.
+        '500':
+          description: Internal server error.
+
   /booking-requests:
     post:
       summary: Submit a flight booking request
@@ -231,6 +254,15 @@ components:
         acceptedPrivacyPolicy:
           type: boolean
           description: Customer has accepted the privacy policy.
+
+    FulfillCheckoutSessionResponse:
+      type: object
+      required:
+        - success
+      properties:
+        success:
+          type: boolean
+          description: Always true when 200 is returned.
 
     VoucherOrderResponse:
       type: object
